@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Galería Digital Educativa - Recursos para Informática</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --azul-primario: #0a2463;
+            --azul-secundario: #1e40af;
+            --azul-claro: #3b82f6;
+            --azul-gradiente: linear-gradient(135deg, #0a2463, #1e40af);
+            --amarillo-primario: #fbbf24;
+            --amarillo-secundario: #f59e0b;
+            --amarillo-gradiente: linear-gradient(to right, #fbbf24, #f59e0b);
+            --gris-oscuro: #1f2937;
+            --gris-medio: #6b7280;
+            --gris-claro: #f3f4f6;
+            --blanco: #ffffff;
+            --sombra: rgba(0, 0, 0, 0.1);
+            --sombra-fuerte: rgba(0, 0, 0, 0.15);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: var(--gris-claro);
+            color: var(--gris-oscuro);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header y navegación */
+        header {
+            background: var(--azul-gradiente);
+            color: var(--blanco);
+            padding: 1.5rem 0;
+            box-shadow: 0 4px 12px var(--sombra);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .logo-icon {
+            font-size: 2.2rem;
+            color: var(--amarillo-primario);
+            background: rgba(255, 255, 255, 0.1);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .logo-text h1 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            line-height: 1.2;
+        }
+        
+        .logo-text p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 1.8rem;
+        }
+        
+        nav a {
+            color: var(--blanco);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s;
+            padding: 8px 12px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+        
+        nav a:hover {
+            color: var(--amarillo-primario);
+            background-color: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+        }
+        
+        /* Sección principal con nombre de la unidad educativa */
+        .hero {
+            background: var(--azul-gradiente), 
+                        radial-gradient(circle at 20% 80%, rgba(251, 191, 36, 0.15) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 20%, rgba(59, 130, 246, 0.15) 0%, transparent 50%);
+            color: var(--blanco);
+            padding: 6rem 0;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 4rem;
+        }
+        
+        .hero-particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+        
+        .particle {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+        }
+        
+        .unidad-educativa {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+            position: relative;
+            z-index: 2;
+            line-height: 1.1;
+        }
+        
+        .unidad-educativa span {
+            color: var(--amarillo-primario);
+            display: block;
+            position: relative;
+            margin-top: 0.5rem;
+        }
+        
+        .unidad-educativa span::after {
+            content: "";
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 4px;
+            background: var(--amarillo-gradiente);
+            border-radius: 2px;
+        }
+        
+        .slogan {
+            font-size: 1.5rem;
+            max-width: 900px;
+            margin: 2rem auto 3rem;
+            color: rgba(255, 255, 255, 0.95);
+            position: relative;
+            z-index: 2;
+            font-weight: 300;
+        }
+        
+        .hero-cta {
+            position: relative;
+            z-index: 2;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .btn-primary, .btn-secondary {
+            padding: 14px 32px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s;
+            cursor: pointer;
+            border: none;
+        }
+        
+        .btn-primary {
+            background: var(--amarillo-gradiente);
+            color: var(--azul-primario);
+            box-shadow: 0 6px 15px rgba(251, 191, 36, 0.3);
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 20px rgba(251, 191, 36, 0.4);
+        }
+        
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.15);
+            color: var(--blanco);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-5px);
+        }
+        
+        /* Sección de módulos */
+        .modulos {
+            padding: 3rem 0 5rem;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            font-size: 2.8rem;
+            color: var(--azul-primario);
+            display: inline-block;
+            padding-bottom: 15px;
+            position: relative;
+        }
+        
+        .section-title h2::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 120px;
+            height: 5px;
+            background: var(--amarillo-gradiente);
+            border-radius: 3px;
+        }
+        
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: var(--gris-medio);
+            max-width: 800px;
+            margin: 0 auto 3rem;
+        }
+        
+        .modulos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+        }
+        
+        .modulo-card {
+            background: var(--blanco);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px var(--sombra);
+            transition: all 0.4s;
+            position: relative;
+            border-top: 5px solid var(--azul-primario);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .modulo-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 20px 35px var(--sombra-fuerte);
+            border-top-color: var(--amarillo-primario);
+        }
+        
+        .modulo-header {
+            background: var(--azul-gradiente);
+            color: var(--blanco);
+            padding: 1.8rem;
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+        
+        .modulo-icon {
+            font-size: 2.5rem;
+            color: var(--amarillo-primario);
+            background: rgba(255, 255, 255, 0.15);
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+        }
+        
+        .modulo-title h3 {
+            font-size: 1.6rem;
+            font-weight: 700;
+        }
+        
+        .modulo-body {
+            padding: 1.8rem;
+            flex-grow: 1;
+        }
+        
+        .modulo-desc {
+            color: var(--gris-oscuro);
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+        
+        .modulo-temas {
+            margin-bottom: 1.8rem;
+        }
+        
+        .modulo-temas h4 {
+            color: var(--azul-primario);
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .temas-list {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        
+        .tema-item {
+            background: var(--gris-claro);
+            color: var(--azul-primario);
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .tema-item:hover {
+            background: var(--amarillo-primario);
+            color: var(--azul-primario);
+            transform: translateY(-2px);
+        }
+        
+        .modulo-footer {
+            padding: 0 1.8rem 1.8rem;
+            margin-top: auto;
+        }
+        
+        .modulo-link {
+            display: block;
+            background: var(--azul-primario);
+            color: var(--blanco);
+            padding: 12px 24px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            text-align: center;
+            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        
+        .modulo-link:hover {
+            background: var(--azul-secundario);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(10, 36, 99, 0.2);
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--azul-gradiente);
+            color: var(--blanco);
+            padding: 4rem 0 2rem;
+            margin-top: 4rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+        
+        .footer-column h3 {
+            color: var(--amarillo-primario);
+            margin-bottom: 1.5rem;
+            font-size: 1.4rem;
+            padding-bottom: 10px;
+            border-bottom: 2px solid rgba(251, 191, 36, 0.3);
+        }
+        
+        .footer-column p, .footer-column li {
+            color: rgba(255, 255, 255, 0.85);
+            margin-bottom: 0.9rem;
+            line-height: 1.5;
+        }
+        
+        .footer-column ul {
+            list-style: none;
+        }
+        
+        .footer-column li {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            transition: all 0.3s;
+            padding: 5px 0;
+        }
+        
+        .footer-column li:hover {
+            color: var(--amarillo-primario);
+            transform: translateX(5px);
+        }
+        
+        .footer-column li i {
+            color: var(--amarillo-primario);
+            width: 20px;
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 1.5rem;
+        }
+        
+        .social-icons a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: var(--blanco);
+            text-decoration: none;
+            transition: all 0.3s;
+            font-size: 1.2rem;
+        }
+        
+        .social-icons a:hover {
+            background: var(--amarillo-primario);
+            color: var(--azul-primario);
+            transform: translateY(-5px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.95rem;
+        }
+        
+        /* Efectos de partículas */
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(180deg); }
+        }
+        
+        /* Responsividad */
+        @media (max-width: 1100px) {
+            .unidad-educativa {
+                font-size: 3rem;
+            }
+        }
+        
+        @media (max-width: 900px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1.5rem;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            .unidad-educativa {
+                font-size: 2.5rem;
+            }
+            
+            .slogan {
+                font-size: 1.3rem;
+                padding: 0 15px;
+            }
+            
+            .modulos-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            }
+        }
+        
+        @media (max-width: 600px) {
+            .unidad-educativa {
+                font-size: 2rem;
+            }
+            
+            .slogan {
+                font-size: 1.1rem;
+            }
+            
+            .hero-cta {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .btn-primary, .btn-secondary {
+                width: 90%;
+                max-width: 300px;
+                justify-content: center;
+            }
+            
+            .section-title h2 {
+                font-size: 2.2rem;
+            }
+            
+            .modulos-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .modulo-card {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header con navegación -->
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <div class="logo-icon">
+                    <i class="fas fa-laptop-code"></i>
+                </div>
+                <div class="logo-text">
+                    <h1>Galería Digital Educativa</h1>
+                    <p>Recursos para la Formación en Informática</p>
+                </div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#inicio"><i class="fas fa-home"></i> Inicio</a></li>
+                    <li><a href="#modulos"><i class="fas fa-th-large"></i> Módulos</a></li>
+                    <li><a href="#recursos"><i class="fas fa-book-open"></i> Recursos</a></li>
+                    <li><a href="#contacto"><i class="fas fa-envelope"></i> Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Sección principal con el nombre de la unidad educativa -->
+    <section class="hero" id="inicio">
+        <div class="hero-particles" id="particles"></div>
+        <div class="container">
+            <h1 class="unidad-educativa">Unidad Educativa <span>"Dr. Camilo Gallegos Domínguez"</span></h1>
+            <p class="slogan">Galería Digital Educativa de Recursos para la Figura Profesional en Informática. Formación integral con tecnología de vanguardia.</p>
+            
+            <div class="hero-cta">
+                <a href="#modulos" class="btn-primary">
+                    <i class="fas fa-th-large"></i> Explorar Módulos
+                </a>
+                <a href="#recursos" class="btn-secondary">
+                    <i class="fas fa-download"></i> Recursos Disponibles
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de módulos -->
+    <section class="modulos" id="modulos">
+        <div class="container">
+            <div class="section-title">
+                <h2>Módulos Educativos</h2>
+            </div>
+            
+            <p class="section-subtitle">Explora nuestros 6 módulos especializados diseñados para la formación integral del profesional en informática. Cada módulo contiene recursos educativos actualizados y herramientas prácticas.</p>
+            
+            <div class="modulos-grid">
+                <!-- Módulo 1 -->
+                <div class="modulo-card">
+                    <div class="modulo-header">
+                        <div class="modulo-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <div class="modulo-title">
+                            <h3>Programación y Bases de Datos</h3>
+                        </div>
+                    </div>
+                    <div class="modulo-body">
+                        <p class="modulo-desc">Fundamentos y técnicas avanzadas de programación, diseño y gestión de bases de datos relacionales y no relacionales.</p>
+                        
+                        <div class="modulo-temas">
+                            <h4><i class="fas fa-tags"></i> Temas principales:</h4>
+                            <ul class="temas-list">
+                                <li class="tema-item">Algoritmos</li>
+                                <li class="tema-item">Python/Java</li>
+                                <li class="tema-item">SQL/NoSQL</li>
+                                <li class="tema-item">Modelado BD</li>
+                                <li class="tema-item">APIs</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="modulo-footer">
+                        <a href="#" class="modulo-link">
+                            <i class="fas fa-external-link-alt"></i> Acceder al Módulo
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Módulo 2 -->
+                <div class="modulo-card">
+                    <div class="modulo-header">
+                        <div class="modulo-icon">
+                            <i class="fas fa-network-wired"></i>
+                        </div>
+                        <div class="modulo-title">
+                            <h3>Sistemas Operativos y Redes</h3>
+                        </div>
+                    </div>
+                    <div class="modulo-body">
+                        <p class="modulo-desc">Administración de sistemas operativos, configuración de redes, protocolos de comunicación y servicios de red.</p>
+                        
+                        <div class="modulo-temas">
+                            <h4><i class="fas fa-tags"></i> Temas principales:</h4>
+                            <ul class="temas-list">
+                                <li class="tema-item">Windows/Linux</li>
+                                <li class="tema-item">TCP/IP</li>
+                                <li class="tema-item">Servidores</li>
+                                <li class="tema-item">Virtualización</li>
+                                <li class="tema-item">DNS/DHCP</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="modulo-footer">
+                        <a href="#" class="modulo-link">
+                            <i class="fas fa-external-link-alt"></i> Acceder al Módulo
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Módulo 3 -->
+                <div class="modulo-card">
+                    <div class="modulo-header">
+                        <div class="modulo-icon">
+                            <i class="fas fa-tools"></i>
+                        </div>
+                        <div class="modulo-title">
+                            <h3>Soporte Técnico</h3>
+                        </div>
+                    </div>
+                    <div class="modulo-body">
+                        <p class="modulo-desc">Mantenimiento de hardware, resolución de problemas, atención al usuario y gestión de incidencias informáticas.</p>
+                        
+                        <div class="modulo-temas">
+                            <h4><i class="fas fa-tags"></i> Temas principales:</h4>
+                            <ul class="temas-list">
+                                <li class="tema-item">Hardware</li>
+                                <li class="tema-item">Diagnóstico</li>
+                                <li class="tema-item">Reparación</li>
+                                <li class="tema-item">Atención al Cliente</li>
+                                <li class="tema-item">Documentación</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="modulo-footer">
+                        <a href="#" class="modulo-link">
+                            <i class="fas fa-external-link-alt"></i> Acceder al Módulo
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Módulo 4 -->
+                <div class="modulo-card">
+                    <div class="modulo-header">
+                        <div class="modulo-icon">
+                            <i class="fas fa-paint-brush"></i>
+                        </div>
+                        <div class="modulo-title">
+                            <h3>Diseño y Desarrollo Web</h3>
+                        </div>
+                    </div>
+                    <div class="modulo-body">
+                        <p class="modulo-desc">Creación de sitios web responsivos, interfaces de usuario, experiencia de usuario y desarrollo frontend/backend.</p>
+                        
+                        <div class="modulo-temas">
+                            <h4><i class="fas fa-tags"></i> Temas principales:</h4>
+                            <ul class="temas-list">
+                                <li class="tema-item">HTML/CSS/JS</li>
+                                <li class="tema-item">UI/UX</li>
+                                <li class="tema-item">Responsive</li>
+                                <li class="tema-item">Frameworks</li>
+                                <li class="tema-item">SEO</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="modulo-footer">
+                        <a href="#" class="modulo-link">
+                            <i class="fas fa-external-link-alt"></i> Acceder al Módulo
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Módulo 5 -->
+                <div class="modulo-card">
+                    <div class="modulo-header">
+                        <div class="modulo-icon">
+                            <i class="fas fa-file-excel"></i>
+                        </div>
+                        <div class="modulo-title">
+                            <h3>Aplicaciones Ofimáticas</h3>
+                        </div>
+                    </div>
+                    <div class="modulo-body">
+                        <p class="modulo-desc">Dominio de herramientas ofimáticas locales y en la nube para la productividad empresarial y personal.</p>
+                        
+                        <div class="modulo-temas">
+                            <h4><i class="fas fa-tags"></i> Temas principales:</h4>
+                            <ul class="temas-list">
+                                <li class="tema-item">Office 365</li>
+                                <li class="tema-item">Google Workspace</li>
+                                <li class="tema-item">Procesadores</li>
+                                <li class="tema-item">Hojas de Cálculo</li>
+                                <li class="tema-item">Presentaciones</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="modulo-footer">
+                        <a href="#" class="modulo-link">
+                            <i class="fas fa-external-link-alt"></i> Acceder al Módulo
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Módulo 6 -->
+                <div class="modulo-card">
+                    <div class="modulo-header">
+                        <div class="modulo-icon">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <div class="modulo-title">
+                            <h3>Formación y Orientación Laboral</h3>
+                        </div>
+                    </div>
+                    <div class="modulo-body">
+                        <p class="modulo-desc">Preparación para el entorno laboral, habilidades blandas, emprendimiento y legislación laboral en TI.</p>
+                        
+                        <div class="modulo-temas">
+                            <h4><i class="fas fa-tags"></i> Temas principales:</h4>
+                            <ul class="temas-list">
+                                <li class="tema-item">Currículum</li>
+                                <li class="tema-item">Entrevistas</li>
+                                <li class="tema-item">Emprendimiento</li>
+                                <li class="tema-item">Legislación</li>
+                                <li class="tema-item">Habilidades Blandas</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="modulo-footer">
+                        <a href="#" class="modulo-link">
+                            <i class="fas fa-external-link-alt"></i> Acceder al Módulo
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contacto">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Unidad Educativa</h3>
+                    <p><strong>"Dr. Camilo Gallegos Domínguez"</strong></p>
+                    <p>Institución educativa comprometida con la formación de profesionales en informática con excelencia académica, valores éticos y competencias tecnológicas actualizadas.</p>
+                    
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contacto</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Av. Tecnológica #1234, Ciudad</li>
+                        <li><i class="fas fa-phone"></i> (02) 2550-6789</li>
+                        <li><i class="fas fa-envelope"></i> informatica@gallegosdominguez.edu</li>
+                        <li><i class="fas fa-globe"></i> www.gallegosdominguez.edu.ec</li>
+                        <li><i class="fas fa-clock"></i> Lunes a Viernes: 7:00 - 18:00</li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Enlaces Rápidos</h3>
+                    <ul>
+                        <li><i class="fas fa-chevron-right"></i> <a href="#inicio" style="color: rgba(255, 255, 255, 0.85); text-decoration: none;">Inicio</a></li>
+                        <li><i class="fas fa-chevron-right"></i> <a href="#modulos" style="color: rgba(255, 255, 255, 0.85); text-decoration: none;">Módulos Educativos</a></li>
+                        <li><i class="fas fa-chevron-right"></i> <a href="#" style="color: rgba(255, 255, 255, 0.85); text-decoration: none;">Recursos Descargables</a></li>
+                        <li><i class="fas fa-chevron-right"></i> <a href="#" style="color: rgba(255, 255, 255, 0.85); text-decoration: none;">Foro de Estudiantes</a></li>
+                        <li><i class="fas fa-chevron-right"></i> <a href="#" style="color: rgba(255, 255, 255, 0.85); text-decoration: none;">Biblioteca Digital</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 Unidad Educativa "Dr. Camilo Gallegos Domínguez". Todos los derechos reservados.</p>
+                <p>Galería Digital Educativa para la Figura Profesional en Informática | Diseñado con <i class="fas fa-heart" style="color: #fbbf24;"></i> para la educación tecnológica</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Crear partículas flotantes para el efecto visual
+        function crearParticulas() {
+            const container = document.getElementById('particles');
+            const particleCount = 20;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                // Tamaño aleatorio entre 3px y 8px
+                const size = Math.random() * 5 + 3;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                
+                // Posición aleatoria
+                particle.style.left = `${Math.random() * 100}%`;
+                particle.style.top = `${Math.random() * 100}%`;
+                
+                // Opacidad aleatoria
+                particle.style.opacity = Math.random() * 0.5 + 0.1;
+                
+                // Animación con duración aleatoria
+                const duration = Math.random() * 20 + 10;
+                particle.style.animation = `float ${duration}s infinite ease-in-out`;
+                
+                // Retardo aleatorio
+                particle.style.animationDelay = `${Math.random() * 5}s`;
+                
+                container.appendChild(particle);
+            }
+        }
+        
+        // Efecto de scroll suave para enlaces internos
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // Efecto hover mejorado para tarjetas de módulos
+        document.querySelectorAll('.modulo-card').forEach(card => {
+            card.addEventListener('mouseenter', function() {
+                const icon = this.querySelector('.modulo-icon i');
+                icon.style.transform = 'scale(1.2) rotate(10deg)';
+                icon.style.transition = 'transform 0.3s ease';
+            });
+            
+            card.addEventListener('mouseleave', function() {
+                const icon = this.querySelector('.modulo-icon i');
+                icon.style.transform = 'scale(1) rotate(0deg)';
+            });
+        });
+        
+        // Inicializar efectos cuando se carga la página
+        document.addEventListener('DOMContentLoaded', function() {
+            crearParticulas();
+            
+            // Agregar fecha actual al footer
+            const year = new Date().getFullYear();
+            const copyrightElement = document.querySelector('.copyright p:first-child');
+            if (copyrightElement) {
+                copyrightElement.innerHTML = copyrightElement.innerHTML.replace('2023', year);
+            }
+        });
+    </script>
+</body>
+</html>

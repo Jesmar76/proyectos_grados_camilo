@@ -84,78 +84,86 @@
             }
         }
         
-        /* Header con logo CORREGIDO */
+        /* Header con logo CORREGIDO - AHORA COMPACTO */
         header {
             background: linear-gradient(135deg, var(--azul-primario), var(--azul-secundario));
             color: var(--blanco);
-            padding: 1rem 0;
+            padding: 0.5rem 0;
             box-shadow: 0 4px 20px var(--sombra);
             position: sticky;
             top: 0;
             z-index: 1000;
             animation: fadeInUp 0.8s ease-out;
-            border-bottom: 3px solid var(--amarillo-primario);
+            border-bottom: 2px solid var(--amarillo-primario);
+            min-height: 70px;
         }
         
         .header-content {
             display: flex;
             justify-content: flex-start;
             align-items: center;
-            gap: 20px;
+            gap: 15px;
+            padding: 5px 0;
         }
         
         .logo-container {
             display: flex;
             align-items: center;
-            gap: 15px;
-            flex-wrap: wrap;
+            gap: 10px;
+            flex-wrap: nowrap;
+            width: 100%;
         }
         
-        /* Logo de la institución */
+        /* Logo de la institución - MÁS PEQUEÑO */
         .institution-logo {
-            width: 70px;
-            height: 70px;
+            width: 55px;
+            height: 55px;
             border-radius: 50%;
             object-fit: cover;
-            border: 3px solid var(--amarillo-primario);
+            border: 2px solid var(--amarillo-primario);
             animation: float 3s ease-in-out infinite;
             background-color: var(--blanco);
-            padding: 3px;
+            padding: 2px;
+            flex-shrink: 0;
         }
         
         .logo-text {
-            flex-grow: 3;
+            flex-grow: 1;
+            min-width: 0;
         }
         
+        /* TEXTO DEL HEADER REDUCIDO */
         .logo-text h1 {
-            font-size: 2.5rem;
-            font-weight: 900;
+            font-size: 1.2rem;
+            font-weight: 700;
             color: var(--blanco);
-            margin-bottom: 5px;
+            margin-bottom: 2px;
+            line-height: 1.2;
         }
         
         .unidad-educativa {
-            font-size: 2.9rem;
+            font-size: 0.9rem;
             color: var(--amarillo-primario);
-            font-weight: 800;
+            font-weight: 600;
+            line-height: 1.1;
         }
         
         /* Sección principal */
         .modulos-section {
-            padding: 3rem 0 4rem;
+            padding: 2rem 0 3rem;
         }
         
         .section-title {
             text-align: center;
-            margin-bottom: 3rem;
+            margin-bottom: 2.5rem;
             position: relative;
         }
         
         .section-title h2 {
-            font-size: 2.5rem;
+            font-size: 2.2rem;
             color: var(--blanco);
             display: inline-block;
-            padding-bottom: 15px;
+            padding-bottom: 12px;
             position: relative;
             font-weight: 800;
             text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
@@ -167,8 +175,8 @@
             bottom: 0;
             left: 50%;
             transform: translateX(-50%);
-            width: 150px;
-            height: 4px;
+            width: 120px;
+            height: 3px;
             background: linear-gradient(to right, var(--amarillo-primario), var(--amarillo-secundario));
             border-radius: 2px;
         }
@@ -177,27 +185,27 @@
         .modulos-table {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            grid-template-rows: repeat(3, 1fr);
-            gap: 2rem;
-            margin-bottom: 4rem;
+            grid-template-rows: repeat(3, auto);
+            gap: 1.5rem;
+            margin-bottom: 3rem;
         }
         
         .modulo-cell {
             background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.85));
-            border-radius: 20px;
-            padding: 2.5rem 2rem;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            border-radius: 18px;
+            padding: 1.8rem 1.5rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
             transition: all 0.4s;
             position: relative;
             overflow: hidden;
-            border: 3px solid transparent;
+            border: 2px solid transparent;
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
             text-align: center;
             animation: fadeInUp 0.8s ease-out;
             backdrop-filter: blur(10px);
+            min-height: 480px;
         }
         
         /* Colores de borde para cada módulo */
@@ -209,20 +217,20 @@
         .modulo-cell:nth-child(6) { border-color: var(--naranja-primario); }
         
         .modulo-cell:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+            transform: translateY(-8px) scale(1.02);
+            box-shadow: 0 18px 35px rgba(0, 0, 0, 0.25);
             z-index: 2;
         }
         
         /* Icono del módulo */
         .modulo-icon {
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
-            padding: 1rem;
+            font-size: 3rem;
+            margin-bottom: 1.2rem;
+            padding: 0.8rem;
             border-radius: 50%;
             background: rgba(255, 255, 255, 0.2);
-            width: 90px;
-            height: 90px;
+            width: 80px;
+            height: 80px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -244,22 +252,23 @@
         
         /* Título del módulo */
         .modulo-title h3 {
-            font-size: 1.6rem;
+            font-size: 1.4rem;
             font-weight: 800;
             color: var(--azul-primario);
             line-height: 1.3;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.2rem;
         }
         
         /* Descripción */
         .modulo-desc {
             color: var(--gris-oscuro);
-            margin-bottom: 2rem;
-            font-size: 1rem;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
             line-height: 1.5;
             opacity: 0.9;
+            flex-grow: 1;
         }
         
         /* Botón de acción */
@@ -267,21 +276,26 @@
             display: inline-block;
             background: linear-gradient(135deg, var(--azul-primario), var(--azul-secundario));
             color: var(--blanco);
-            padding: 12px 30px;
+            padding: 10px 24px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 700;
-            font-size: 1rem;
+            font-size: 0.95rem;
             transition: all 0.3s;
             display: flex;
             align-items: center;
-            gap: 10px;
-            box-shadow: 0 5px 15px rgba(10, 36, 99, 0.3);
+            justify-content: center;
+            gap: 8px;
+            box-shadow: 0 4px 12px rgba(10, 36, 99, 0.25);
+            border: none;
+            cursor: pointer;
+            width: auto;
+            margin-top: 10px;
         }
         
         .modulo-action:hover {
             transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(10, 36, 99, 0.4);
+            box-shadow: 0 8px 18px rgba(10, 36, 99, 0.35);
             background: linear-gradient(135deg, var(--azul-secundario), var(--azul-primario));
         }
         
@@ -293,12 +307,57 @@
         .modulo-cell:nth-child(5) .modulo-action { background: linear-gradient(135deg, var(--rosa-primario), #f472b6); }
         .modulo-cell:nth-child(6) .modulo-action { background: linear-gradient(135deg, var(--naranja-primario), #fb923c); }
         
+        /* Estilos para Padlet compacto */
+        .padlet-compact {
+            width: 100%;
+            margin: 15px 0;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 2px solid var(--rojo-primario);
+            background: white;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .padlet-compact iframe {
+            width: 100%;
+            height: 220px;
+            display: block;
+            border: none;
+        }
+        
+        .padlet-link {
+            padding: 8px 12px;
+            background: var(--rojo-primario);
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.2);
+        }
+        
+        .padlet-link a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            transition: opacity 0.3s;
+        }
+        
+        .padlet-link a:hover {
+            opacity: 0.9;
+        }
+        
+        .padlet-link i {
+            font-size: 0.8rem;
+        }
+        
         /* Footer */
         footer {
             background: linear-gradient(135deg, var(--azul-primario), var(--azul-secundario));
             color: var(--blanco);
-            padding: 3rem 0 2rem;
-            margin-top: 3rem;
+            padding: 2.5rem 0 1.8rem;
+            margin-top: 2.5rem;
             border-top: 3px solid var(--amarillo-primario);
             position: relative;
             z-index: 1;
@@ -307,64 +366,104 @@
         .footer-content {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
+            gap: 1.8rem;
+            margin-bottom: 1.8rem;
         }
         
         .footer-column h3 {
             color: var(--amarillo-primario);
-            margin-bottom: 1.2rem;
-            font-size: 1.3rem;
-            padding-bottom: 10px;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            padding-bottom: 8px;
             border-bottom: 2px solid rgba(255, 255, 255, 0.2);
         }
         
         .footer-column p {
             color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 0.8rem;
+            margin-bottom: 0.6rem;
             line-height: 1.5;
+            font-size: 0.9rem;
         }
         
         .copyright {
             text-align: center;
-            padding-top: 2rem;
+            padding-top: 1.5rem;
             border-top: 1px solid rgba(255, 255, 255, 0.2);
             color: rgba(255, 255, 255, 0.8);
-            font-size: 0.9rem;
+            font-size: 0.85rem;
         }
         
         /* Responsividad */
+        @media (max-width: 992px) {
+            .modulos-table {
+                gap: 1.2rem;
+            }
+            
+            .modulo-cell {
+                padding: 1.5rem 1.2rem;
+                min-height: 460px;
+            }
+            
+            .modulo-icon {
+                width: 70px;
+                height: 70px;
+                font-size: 2.5rem;
+            }
+            
+            .modulo-title h3 {
+                font-size: 1.3rem;
+            }
+        }
+        
         @media (max-width: 768px) {
             .modulos-table {
                 grid-template-columns: 1fr;
                 grid-template-rows: repeat(6, auto);
-                gap: 1.5rem;
+                gap: 1.2rem;
+            }
+            
+            .modulo-cell {
+                min-height: auto;
+                padding: 1.5rem 1.2rem;
             }
             
             .section-title h2 {
-                font-size: 2rem;
+                font-size: 1.8rem;
             }
             
             .header-content {
-                flex-direction: column;
-                text-align: center;
-                gap: 1rem;
+                flex-direction: row;
+                text-align: left;
+                gap: 12px;
             }
             
             .institution-logo {
-                width: 60px;
-                height: 60px;
+                width: 50px;
+                height: 50px;
             }
             
             .logo-text h1 {
-                font-size: 1.2rem;
+                font-size: 1.1rem;
+            }
+            
+            .unidad-educativa {
+                font-size: 0.85rem;
+            }
+            
+            .padlet-compact iframe {
+                height: 200px;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
             }
         }
         
         @media (max-width: 480px) {
             .institution-logo {
-                width: 50px;
-                height: 50px;
+                width: 45px;
+                height: 45px;
             }
             
             .logo-text h1 {
@@ -374,15 +473,60 @@
             .unidad-educativa {
                 font-size: 0.8rem;
             }
+            
+            .modulo-cell {
+                padding: 1.3rem 1rem;
+            }
+            
+            .modulo-icon {
+                width: 65px;
+                height: 65px;
+                font-size: 2.2rem;
+            }
+            
+            .modulo-title h3 {
+                font-size: 1.2rem;
+            }
+            
+            .modulo-desc {
+                font-size: 0.9rem;
+            }
+            
+            .modulo-action {
+                padding: 8px 20px;
+                font-size: 0.9rem;
+            }
+            
+            .padlet-compact iframe {
+                height: 180px;
+            }
+            
+            .section-title h2 {
+                font-size: 1.6rem;
+            }
         }
         
+        /* Asegura que todos los módulos tengan la misma altura */
+        .modulos-table {
+            align-items: stretch;
+        }
+        
+        .modulo-cell {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
+        
+        .modulo-desc {
+            flex-grow: 1;
+        }
     </style>
 </head>
 <body>
     <!-- Overlay para el fondo -->
     <div class="background-overlay"></div>
 
-    <!-- Header con logo -->
+    <!-- Header con logo - AHORA COMPACTO -->
     <header>
         <div class="container header-content">
             <div class="logo-container">
@@ -432,38 +576,35 @@
                 </a>
             </div>
             
-           <!-- Módulo 3 - Sistema Operativo y Redes (SOLO LECTURA) -->
-<div class="modulo-cell">
-    <div class="modulo-icon">
-        <i class="fas fa-network-wired"></i>
-    </div>
-    <div class="modulo-title">
-        <h3>SISTEMA OPERATIVO<br>Y REDES</h3>
-    </div>
-    <p class="modulo-desc">Documentación sobre sistemas operativos, configuración de redes, protocolos y administración de servidores.</p>
-    
-    <!-- Padlet en modo SOLO LECTURA -->
-    <div class="padlet-container">
-        <div class="padlet-embed">
-            <iframe 
-                src="https://padlet.com/embed/o8i0xtocww8ucihs?preview=1" 
-                frameborder="0" 
-                style="width:100%;height:500px;display:block;border:none;">
-            </iframe>
-            <div class="padlet-footer">
-                <a href="https://padlet.com/embed/o8i0xtocww8ucihs" target="_blank">
-                    <span>Ver en Padlet</span>
-                    <i class="fas fa-external-link-alt"></i>
+            <!-- Módulo 3 - Sistema Operativo y Redes CON PADLET COMPACTO -->
+            <div class="modulo-cell">
+                <div class="modulo-icon">
+                    <i class="fas fa-network-wired"></i>
+                </div>
+                <div class="modulo-title">
+                    <h3>SISTEMA OPERATIVO<br>Y REDES</h3>
+                </div>
+                <p class="modulo-desc">Documentación sobre sistemas operativos, configuración de redes, protocolos y administración de servidores.</p>
+                
+                <!-- Padlet compacto -->
+                <div class="padlet-compact">
+                    <iframe 
+                        src="https://padlet.com/embed/o8i0xtocww8ucihs?preview=1&hideHeader=1" 
+                        frameborder="0" 
+                        title="Recursos de Redes - Solo lectura">
+                    </iframe>
+                    <div class="padlet-link">
+                        <a href="https://padlet.com/embed/o8i0xtocww8ucihs" target="_blank">
+                            <i class="fas fa-external-link-alt"></i> Ver completo en Padlet
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Botón de acción -->
+                <a href="#" class="modulo-action ver-recursos" data-modulo="3">
+                    <i class="fas fa-folder-open"></i> MÁS RECURSOS
                 </a>
             </div>
-        </div>
-    </div>
-    
-    <!-- Botón de acción -->
-    <a href="https://padlet.com/embed/o8i0xtocww8ucihs" target="_blank" class="modulo-action" data-modulo="3">
-        <i class="fas fa-external-link-alt"></i> ABRIR EN PADLET
-    </a>
-</div>
             
             <!-- Módulo 4 -->
             <div class="modulo-cell">
@@ -605,6 +746,36 @@
                 console.error('❌ Error: No se pudo cargar logo.jpg');
             };
             logoImg.src = 'logo.jpg';
+            
+            // Ajustar altura uniforme de módulos
+            function ajustarAlturaModulos() {
+                if (window.innerWidth > 768) {
+                    const celdas = document.querySelectorAll('.modulo-cell');
+                    let maxAltura = 0;
+                    
+                    // Primero resetear alturas
+                    celdas.forEach(celda => {
+                        celda.style.height = 'auto';
+                    });
+                    
+                    // Encontrar la altura máxima
+                    celdas.forEach(celda => {
+                        const altura = celda.offsetHeight;
+                        if (altura > maxAltura) {
+                            maxAltura = altura;
+                        }
+                    });
+                    
+                    // Aplicar altura máxima a todas
+                    celdas.forEach(celda => {
+                        celda.style.height = maxAltura + 'px';
+                    });
+                }
+            }
+            
+            // Ejecutar al cargar y al redimensionar
+            ajustarAlturaModulos();
+            window.addEventListener('resize', ajustarAlturaModulos);
         });
     </script>
 </body>

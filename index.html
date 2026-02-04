@@ -86,18 +86,18 @@
             }
         }
         
-        /* HEADER COMPACTO */
+        /* HEADER MÁS GRANDE */
         header {
             background: linear-gradient(135deg, var(--azul-primario), var(--azul-secundario));
             color: var(--blanco);
-            padding: 10px 0;
-            box-shadow: 0 3px 15px var(--sombra);
+            padding: 15px 0;
+            box-shadow: 0 3px 20px rgba(0, 0, 0, 0.25);
             position: sticky;
             top: 0;
             z-index: 1000;
             animation: fadeInUp 0.6s ease-out;
-            border-bottom: 2px solid var(--amarillo-primario);
-            min-height: 75px;
+            border-bottom: 3px solid var(--amarillo-primario);
+            min-height: 90px;
             display: flex;
             align-items: center;
         }
@@ -105,42 +105,45 @@
         .header-content {
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 20px;
             width: 100%;
         }
         
-        /* Logo de la institución */
+        /* Logo de la institución - MÁS GRANDE */
         .institution-logo {
-            width: 55px;
-            height: 55px;
+            width: 70px;
+            height: 70px;
             border-radius: 50%;
             object-fit: cover;
-            border: 2px solid var(--amarillo-primario);
+            border: 3px solid var(--amarillo-primario);
             animation: float 4s ease-in-out infinite;
             background-color: var(--blanco);
-            padding: 2px;
+            padding: 3px;
             flex-shrink: 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
         }
         
         .logo-text {
             flex-grow: 1;
         }
         
-        /* TEXTO DEL HEADER - TAMAÑO ADECUADO */
+        /* TEXTO DEL HEADER - MÁS GRANDE */
         .logo-text h1 {
-            font-size: 1.4rem;
-            font-weight: 700;
+            font-size: 1.8rem;
+            font-weight: 800;
             color: var(--blanco);
-            margin-bottom: 4px;
+            margin-bottom: 6px;
             line-height: 1.2;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+            text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+            letter-spacing: 0.5px;
         }
         
         .unidad-educativa {
-            font-size: 0.95rem;
+            font-size: 1.1rem;
             color: var(--amarillo-primario);
-            font-weight: 600;
-            line-height: 1.1;
+            font-weight: 700;
+            line-height: 1.2;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
         }
         
         /* Sección principal */
@@ -155,13 +158,13 @@
         }
         
         .section-title h2 {
-            font-size: 2.2rem;
+            font-size: 2.5rem;
             color: var(--blanco);
             display: inline-block;
-            padding-bottom: 12px;
+            padding-bottom: 15px;
             position: relative;
-            font-weight: 800;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            font-weight: 900;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
         }
         
         .section-title h2::after {
@@ -170,10 +173,10 @@
             bottom: 0;
             left: 50%;
             transform: translateX(-50%);
-            width: 150px;
-            height: 4px;
+            width: 180px;
+            height: 5px;
             background: linear-gradient(to right, var(--amarillo-primario), var(--amarillo-secundario));
-            border-radius: 2px;
+            border-radius: 3px;
         }
         
         /* TABLA DE MÓDULOS - DISEÑO UNIFORME */
@@ -265,48 +268,69 @@
             flex-grow: 1;
         }
         
-        /* CONTENEDOR PADLET FUNCIONAL */
+        /* CONTENEDOR PADLET FUNCIONAL - CORREGIDO */
         .padlet-container {
             width: 100%;
             margin: 1.2rem 0 1.5rem;
             border-radius: 10px;
             overflow: hidden;
-            border: 2px solid var(--rojo-primario);
+            border: 3px solid var(--rojo-primario);
             background: white;
-            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+            position: relative;
+            min-height: 280px;
         }
         
         .padlet-embed {
             position: relative;
             width: 100%;
+            height: 280px;
+            overflow: hidden;
         }
         
         .padlet-embed iframe {
             width: 100%;
-            height: 240px;
+            height: 100%;
             display: block;
             border: none;
+            background-color: white;
+        }
+        
+        /* Mensaje si el iframe no carga */
+        .padlet-backup {
+            padding: 30px 20px;
+            text-align: center;
+            background: white;
+            color: var(--gris-oscuro);
+        }
+        
+        .padlet-backup a {
+            color: var(--rojo-primario);
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 10px;
+            display: inline-block;
         }
         
         .padlet-footer {
-            padding: 9px 12px;
+            padding: 10px 15px;
             background: var(--rojo-primario);
             text-align: center;
-            border-top: 1px solid rgba(255, 255, 255, 0.25);
+            border-top: 1px solid rgba(255, 255, 255, 0.3);
         }
         
         .padlet-footer span {
             color: white;
-            font-size: 0.88rem;
+            font-size: 0.9rem;
             font-weight: 600;
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            gap: 7px;
+            gap: 8px;
         }
         
         .padlet-footer i {
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             color: var(--amarillo-primario);
         }
         
@@ -315,21 +339,21 @@
             display: inline-block;
             background: linear-gradient(135deg, var(--azul-primario), var(--azul-secundario));
             color: var(--blanco);
-            padding: 11px 26px;
+            padding: 12px 28px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 700;
-            font-size: 0.95rem;
+            font-size: 1rem;
             transition: all 0.3s;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 9px;
+            gap: 10px;
             box-shadow: 0 5px 15px rgba(10, 36, 99, 0.25);
             border: none;
             cursor: pointer;
             margin-top: 5px;
-            min-width: 180px;
+            min-width: 200px;
         }
         
         .modulo-action:hover {
@@ -414,8 +438,8 @@
                 font-size: 1.4rem;
             }
             
-            .padlet-embed iframe {
-                height: 220px;
+            .padlet-embed {
+                height: 240px;
             }
         }
         
@@ -434,25 +458,31 @@
                 font-size: 2rem;
             }
             
+            /* Header responsive */
+            header {
+                padding: 12px 0;
+                min-height: 85px;
+            }
+            
             .header-content {
-                gap: 12px;
+                gap: 15px;
             }
             
             .institution-logo {
-                width: 52px;
-                height: 52px;
+                width: 60px;
+                height: 60px;
             }
             
             .logo-text h1 {
-                font-size: 1.3rem;
+                font-size: 1.5rem;
             }
             
             .unidad-educativa {
-                font-size: 0.9rem;
+                font-size: 1rem;
             }
             
-            .padlet-embed iframe {
-                height: 210px;
+            .padlet-embed {
+                height: 220px;
             }
             
             .footer-content {
@@ -463,21 +493,21 @@
         
         @media (max-width: 576px) {
             header {
-                padding: 8px 0;
-                min-height: 70px;
+                padding: 10px 0;
+                min-height: 80px;
             }
             
             .institution-logo {
-                width: 48px;
-                height: 48px;
+                width: 55px;
+                height: 55px;
             }
             
             .logo-text h1 {
-                font-size: 1.2rem;
+                font-size: 1.3rem;
             }
             
             .unidad-educativa {
-                font-size: 0.85rem;
+                font-size: 0.95rem;
             }
             
             .modulo-cell {
@@ -499,13 +529,13 @@
             }
             
             .modulo-action {
-                padding: 10px 22px;
-                font-size: 0.92rem;
-                min-width: 170px;
+                padding: 11px 24px;
+                font-size: 0.95rem;
+                min-width: 180px;
             }
             
-            .padlet-embed iframe {
-                height: 190px;
+            .padlet-embed {
+                height: 200px;
             }
             
             .section-title h2 {
@@ -513,32 +543,32 @@
             }
             
             .section-title h2::after {
-                width: 130px;
+                width: 140px;
             }
         }
         
         @media (max-width: 400px) {
             .institution-logo {
-                width: 45px;
-                height: 45px;
+                width: 50px;
+                height: 50px;
             }
             
             .logo-text h1 {
-                font-size: 1.1rem;
+                font-size: 1.2rem;
             }
             
             .unidad-educativa {
-                font-size: 0.8rem;
+                font-size: 0.9rem;
             }
             
-            .padlet-embed iframe {
+            .padlet-embed {
                 height: 180px;
             }
             
             .modulo-action {
-                padding: 9px 20px;
+                padding: 10px 22px;
                 font-size: 0.9rem;
-                min-width: 160px;
+                min-width: 170px;
             }
         }
     </style>
@@ -547,11 +577,11 @@
     <!-- Overlay para el fondo -->
     <div class="background-overlay"></div>
 
-    <!-- Header compacto con logo -->
+    <!-- Header más grande -->
     <header>
         <div class="container header-content">
-            <!-- Logo de la institución -->
-            <img src="logo.jpg" alt="Logo Institución" class="institution-logo">
+            <!-- Logo de la institución - Más grande -->
+            <img src="logo.jpg" alt="Logo Institución" class="institution-logo" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNzAiIGhlaWdodD0iNzAiIHZpZXdCb3g9IjAgMCA3MCA3MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjcwIiBoZWlnaHQ9IjcwIiByeD0iMzUiIGZpbGw9IiMwQTI0NjMiLz4KPHBhdGggZD0iTTM1IDEwQzIxLjE5MjkgMTAgMTAgMjEuMTkyOSAxMCAzNUMxMCA0OC44MDcxIDIxLjE5MjkgNjAgMzUgNjBDNDguODA3MSA2MCA2MCA0OC44MDcxIDYwIDM1QzYwIDIxLjE5MjkgNDguODA3MSAxMCAzNSAxMFoiIGZpbGw9IiNGRkZGRkYiLz4KPHBhdGggZD0iTTQyLjUgMzAuNUM0Mi41IDMzLjI2MTQgNDAuMjYxNCAzNS41IDM3LjUgMzUuNUMzNC43Mzg2IDM1LjUgMzIuNSAzMy4yNjE0IDMyLjUgMzAuNUMzMi41IDI3LjczODYgMzQuNzM4NiAyNS41IDM3LjUgMjUuNUM0MC4yNjE0IDI1LjUgNDIuNSAyNy43Mzg2IDQyLjUgMzAuNVoiIGZpbGw9IiNGQkJGMjQiLz4KPHBhdGggZD0iTTM3LjUgNDAuNUMzOC44ODA3IDQwLjUgNDAgNDEuNjE5MyA0MCA0M1Y0OEM0MCA0OS4zODA3IDM4Ljg4MDcgNTAuNSAzNy41IDUwLjVIMzIuNUMzMS4xMTkzIDUwLjUgMzAgNDkuMzgwNyAzMCA0OFY0M0MzMCA0MS42MTkzIDMxLjExOTMgNDAuNSAzMi41IDQwLjVIMzcuNVoiIGZpbGw9IiNGQkJGMjQiLz4KPC9zdmc+Cg=='">
             
             <div class="logo-text">
                 <h1>MURAL DIGITAL DE MÓDULOS TÉCNICOS</h1>
@@ -595,7 +625,7 @@
                 </a>
             </div>
             
-            <!-- Módulo 3 - PADLET FUNCIONAL (pero limitado) -->
+            <!-- Módulo 3 - PADLET CORREGIDO -->
             <div class="modulo-cell">
                 <div class="modulo-icon">
                     <i class="fas fa-network-wired"></i>
@@ -605,26 +635,39 @@
                 </div>
                 <p class="modulo-desc">Documentación sobre sistemas operativos, configuración de redes, protocolos y administración de servidores.</p>
                 
-                <!-- Padlet incrustado con parámetros de vista previa -->
+                <!-- Padlet incrustado CORREGIDO -->
                 <div class="padlet-container">
                     <div class="padlet-embed">
                         <iframe 
-                            src="https://padlet.com/mjesuscrueda/galeria-de-recursos-digitales-educativas-para-el-area-tecnic-o8i0xtocww8ucihs" 
+                            src="https://padlet.com/embed/o8i0xtocww8ucihs" 
                             frameborder="0" 
-                            title="Recursos de Redes - Vista previa"
-                            allow="fullscreen"
+                            title="Recursos de Redes"
+                            allow="camera;microphone;geolocation"
+                            style="width:100%;height:100%;border:none;"
                             loading="lazy">
                         </iframe>
                     </div>
+                    <!-- Backup en caso de que no cargue -->
+                    <div class="padlet-backup" style="display:none;">
+                        <p>Si no puedes ver el Padlet, puedes acceder directamente:</p>
+                        <a href="https://padlet.com/mjesuscrueda/galeria-de-recursos-digitales-educativas-para-el-area-tecnic-o8i0xtocww8ucihs" 
+                           target="_blank" 
+                           class="modulo-action">
+                            <i class="fas fa-external-link-alt"></i> ABRIR PADLET
+                        </a>
+                    </div>
                     <div class="padlet-footer">
                         <span>
-                            <i class="fas fa-eye"></i> MODO VISTA PREVIA - Para editar necesita permisos
+                            <i class="fas fa-info-circle"></i> Padlet Interactivo - Recursos de Redes
                         </span>
                     </div>
                 </div>
                 
-                <!-- Botón para abrir en Padlet (necesita login para editar) -->
-                <a href="https://padlet.com/o8i0xtocww8ucihs" target="_blank" class="modulo-action" data-modulo="3">
+                <!-- Botón para abrir en Padlet -->
+                <a href="https://padlet.com/mjesuscrueda/galeria-de-recursos-digitales-educativas-para-el-area-tecnic-o8i0xtocww8ucihs" 
+                   target="_blank" 
+                   class="modulo-action" 
+                   data-modulo="3">
                     <i class="fas fa-external-link-alt"></i> ABRIR EN PADLET
                 </a>
             </div>
@@ -743,7 +786,6 @@
                 btn.addEventListener('click', function(e) {
                     if (!this.getAttribute('href') || this.getAttribute('href') === '#') {
                         e.preventDefault();
-                        // Mensaje informativo
                         const moduloNum = this.getAttribute('data-modulo');
                         const moduloNombres = [
                             '', 
@@ -780,8 +822,42 @@
             };
             logoImg.onerror = function() {
                 console.error('❌ Error: No se pudo cargar logo.jpg (logo de la institución)');
+                // No hacemos nada porque ya tiene un fallback en el onerror del HTML
             };
             logoImg.src = 'logo.jpg';
+            
+            // Verificar si el Padlet carga correctamente
+            const padletIframe = document.querySelector('.padlet-embed iframe');
+            if (padletIframe) {
+                padletIframe.onload = function() {
+                    console.log('✅ Padlet cargado correctamente');
+                };
+                
+                setTimeout(function() {
+                    // Si el iframe no carga, mostrar backup
+                    const iframeDoc = padletIframe.contentDocument || padletIframe.contentWindow.document;
+                    if (!iframeDoc || iframeDoc.readyState === 'complete') {
+                        try {
+                            const body = iframeDoc.body;
+                            if (!body || body.innerHTML.includes('Padlet')) {
+                                console.log('✅ Padlet cargado en iframe');
+                            } else {
+                                showPadletBackup();
+                            }
+                        } catch(e) {
+                            console.log('⚠️ No se pudo verificar contenido del Padlet, pero probablemente cargó');
+                        }
+                    }
+                }, 3000);
+            }
+            
+            function showPadletBackup() {
+                const backup = document.querySelector('.padlet-backup');
+                if (backup) {
+                    backup.style.display = 'block';
+                    console.log('⚠️ Mostrando backup del Padlet');
+                }
+            }
             
             // Ajustar alturas de módulos para uniformidad en escritorio
             function ajustarAlturasModulos() {
@@ -826,8 +902,8 @@
             window.addEventListener('load', ajustarAlturasModulos);
             
             // Mensaje sobre el Padlet
-            console.log('✅ Padlet configurado en modo vista previa');
-            console.log('👁️ Los visitantes pueden VER los recursos, pero necesitan iniciar sesión en Padlet para editar');
+            console.log('✅ Padlet configurado con URL corregida');
+            console.log('🔗 Enlace directo: https://padlet.com/mjesuscrueda/galeria-de-recursos-digitales-educativas-para-el-area-tecnic-o8i0xtocww8ucihs');
         });
     </script>
 </body>

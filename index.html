@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Galería Digital Educativa - Recursos para Informática</title>
+    <title>Módulos Técnicos - Unidad Educativa "Dr. Camilo Gallegos Domínguez"</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -16,6 +16,11 @@
             --gris-claro: #f3f4f6;
             --blanco: #ffffff;
             --sombra: rgba(0, 0, 0, 0.1);
+            --verde-primario: #10b981;
+            --rojo-primario: #ef4444;
+            --morado-primario: #8b5cf6;
+            --rosa-primario: #ec4899;
+            --naranja-primario: #f97316;
         }
         
         * {
@@ -29,6 +34,7 @@
             background-color: var(--gris-claro);
             color: var(--gris-oscuro);
             line-height: 1.6;
+            overflow-x: hidden;
         }
         
         .container {
@@ -37,15 +43,46 @@
             padding: 0 20px;
         }
         
-        /* Header y navegación */
+        /* Animaciones */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+        
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+        
+        /* Header */
         header {
             background: linear-gradient(135deg, var(--azul-primario), var(--azul-secundario));
             color: var(--blanco);
-            padding: 1.5rem 0;
-            box-shadow: 0 4px 12px var(--sombra);
+            padding: 2rem 0;
+            box-shadow: 0 4px 20px var(--sombra);
             position: sticky;
             top: 0;
             z-index: 1000;
+            animation: fadeInUp 0.8s ease-out;
         }
         
         .header-content {
@@ -57,112 +94,44 @@
         .logo {
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 12px;
         }
         
         .logo i {
-            font-size: 2rem;
+            font-size: 2.2rem;
             color: var(--amarillo-primario);
+            animation: float 3s ease-in-out infinite;
         }
         
         .logo h1 {
-            font-size: 1.5rem;
-            font-weight: 600;
-        }
-        
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 1.5rem;
-        }
-        
-        nav a {
-            color: var(--blanco);
-            text-decoration: none;
-            font-weight: 500;
-            transition: color 0.3s;
-            padding: 5px 10px;
-            border-radius: 4px;
-        }
-        
-        nav a:hover {
-            color: var(--amarillo-primario);
-            background-color: rgba(255, 255, 255, 0.1);
-        }
-        
-        /* Sección principal con nombre de la unidad educativa */
-        .hero {
-            background: linear-gradient(rgba(10, 36, 99, 0.85), rgba(10, 36, 99, 0.9)), url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%230a2463"/><path d="M0,0 L100,100 M100,0 L0,100" stroke="%231e40af" stroke-width="1"/></svg>');
-            color: var(--blanco);
-            padding: 4rem 0;
-            text-align: center;
-            margin-bottom: 3rem;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .hero::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: radial-gradient(circle at 30% 30%, rgba(251, 191, 36, 0.1) 0%, transparent 50%),
-                        radial-gradient(circle at 70% 70%, rgba(59, 130, 246, 0.1) 0%, transparent 50%);
+            font-size: 1.4rem;
+            font-weight: 700;
         }
         
         .unidad-educativa {
-            font-size: 3rem;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-            position: relative;
-            z-index: 2;
+            text-align: center;
+            margin: 1rem 0;
+            font-size: 0.9rem;
+            opacity: 0.9;
         }
         
-        .unidad-educativa span {
-            color: var(--amarillo-primario);
-            position: relative;
-        }
-        
-        .unidad-educativa span::after {
-            content: "";
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 100%;
-            height: 3px;
-            background: var(--amarillo-primario);
-            border-radius: 2px;
-        }
-        
-        .slogan {
-            font-size: 1.3rem;
-            max-width: 800px;
-            margin: 0 auto 2rem;
-            color: rgba(255, 255, 255, 0.9);
-            position: relative;
-            z-index: 2;
-        }
-        
-        /* Galería de recursos */
-        .galeria {
-            padding: 2rem 0;
-            margin-bottom: 3rem;
+        /* Sección de módulos */
+        .modulos-section {
+            padding: 2rem 0 3rem;
         }
         
         .section-title {
             text-align: center;
-            margin-bottom: 2.5rem;
+            margin-bottom: 2rem;
             color: var(--azul-primario);
             position: relative;
         }
         
         .section-title h2 {
-            font-size: 2.2rem;
+            font-size: 2rem;
             display: inline-block;
             padding-bottom: 10px;
+            position: relative;
         }
         
         .section-title h2::after {
@@ -177,16 +146,211 @@
             border-radius: 2px;
         }
         
-        .filtros {
+        /* Grid de módulos */
+        .modulos-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 3rem;
+        }
+        
+        .modulo-card {
+            background-color: var(--blanco);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px var(--sombra);
+            transition: all 0.4s;
+            position: relative;
+            animation: fadeInUp 0.8s ease-out;
+            height: 100%;
             display: flex;
+            flex-direction: column;
+        }
+        
+        .modulo-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .card-header {
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            border-bottom: 1px solid var(--gris-claro);
+        }
+        
+        .card-icon {
+            font-size: 2rem;
+            background: var(--gris-claro);
+            padding: 12px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
             justify-content: center;
+            width: 70px;
+            height: 70px;
+        }
+        
+        .modulo-1 .card-icon { color: var(--azul-primario); }
+        .modulo-2 .card-icon { color: var(--verde-primario); }
+        .modulo-3 .card-icon { color: var(--rojo-primario); }
+        .modulo-4 .card-icon { color: var(--morado-primario); }
+        .modulo-5 .card-icon { color: var(--rosa-primario); }
+        .modulo-6 .card-icon { color: var(--naranja-primario); }
+        
+        .card-title h3 {
+            font-size: 1.3rem;
+            line-height: 1.3;
+            color: var(--gris-oscuro);
+        }
+        
+        .card-body {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .card-body p {
+            color: var(--gris-oscuro);
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+        
+        .card-stats {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 1.5rem;
+            font-size: 0.9rem;
+            color: var(--azul-claro);
+            font-weight: 600;
+        }
+        
+        .card-link {
+            display: inline-block;
+            background: linear-gradient(to right, var(--azul-primario), var(--azul-secundario));
+            color: var(--blanco);
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            text-align: center;
+            width: 100%;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+        
+        .card-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(10, 36, 99, 0.3);
+            background: linear-gradient(to right, var(--azul-secundario), var(--azul-primario));
+        }
+        
+        /* Modal para recursos */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.7);
+            z-index: 1100;
+            overflow-y: auto;
+        }
+        
+        .modal-content {
+            background-color: var(--blanco);
+            margin: 5% auto;
+            width: 90%;
+            max-width: 900px;
+            border-radius: 15px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            animation: fadeInUp 0.5s ease-out;
+            max-height: 85vh;
+            overflow-y: auto;
+        }
+        
+        .modal-header {
+            background: linear-gradient(to right, var(--azul-primario), var(--azul-secundario));
+            color: var(--blanco);
+            padding: 1.5rem;
+            border-radius: 15px 15px 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        
+        .modal-header h2 {
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .close-modal {
+            font-size: 2rem;
+            cursor: pointer;
+            transition: transform 0.3s;
+            background: none;
+            border: none;
+            color: var(--blanco);
+        }
+        
+        .close-modal:hover {
+            transform: scale(1.2);
+        }
+        
+        .modal-body {
+            padding: 2rem;
+        }
+        
+        /* Controles para subir recursos */
+        .upload-controls {
+            background-color: var(--gris-claro);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-bottom: 2rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .upload-btn {
+            background: linear-gradient(to right, var(--amarillo-primario), var(--amarillo-secundario));
+            color: var(--azul-primario);
+            padding: 12px 25px;
+            border-radius: 50px;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            transition: all 0.3s;
+        }
+        
+        .upload-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 15px rgba(251, 191, 36, 0.3);
+        }
+        
+        .filtro-recursos {
+            display: flex;
             flex-wrap: wrap;
             gap: 10px;
-            margin-bottom: 2.5rem;
         }
         
         .filtro-btn {
-            padding: 10px 20px;
+            padding: 8px 15px;
             background-color: var(--blanco);
             border: 2px solid var(--azul-claro);
             color: var(--azul-primario);
@@ -207,138 +371,199 @@
             border-color: var(--azul-primario);
         }
         
+        /* Galería de recursos */
         .recursos-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
         }
         
         .recurso-card {
             background-color: var(--blanco);
-            border-radius: 12px;
+            border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 6px 15px var(--sombra);
-            transition: transform 0.3s, box-shadow 0.3s;
-            position: relative;
+            box-shadow: 0 5px 15px var(--sombra);
+            transition: all 0.3s;
+            display: flex;
+            flex-direction: column;
         }
         
         .recurso-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.15);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
         }
         
-        .card-header {
-            background: linear-gradient(to right, var(--azul-primario), var(--azul-secundario));
-            color: var(--blanco);
-            padding: 1.2rem;
+        .recurso-thumbnail {
+            height: 150px;
+            background-color: var(--gris-claro);
             display: flex;
             align-items: center;
-            gap: 15px;
+            justify-content: center;
+            font-size: 3rem;
+            color: var(--azul-primario);
+            position: relative;
+            overflow: hidden;
         }
         
-        .card-icon {
-            font-size: 1.8rem;
-            color: var(--amarillo-primario);
+        .recurso-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
         
-        .card-title h3 {
-            font-size: 1.3rem;
+        .recurso-thumbnail .icono {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 5px;
+            border-radius: 5px;
+            font-size: 1.2rem;
         }
         
-        .card-body {
-            padding: 1.5rem;
-        }
-        
-        .card-body p {
-            color: var(--gris-oscuro);
-            margin-bottom: 1.2rem;
-        }
-        
-        .card-tags {
+        .recurso-info {
+            padding: 1rem;
+            flex-grow: 1;
             display: flex;
-            flex-wrap: wrap;
-            gap: 8px;
-            margin-bottom: 1.5rem;
+            flex-direction: column;
         }
         
-        .tag {
-            background-color: var(--gris-claro);
-            color: var(--azul-primario);
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.85rem;
-            font-weight: 500;
+        .recurso-info h4 {
+            margin-bottom: 0.5rem;
+            color: var(--gris-oscuro);
         }
         
-        .card-link {
-            display: inline-block;
-            background: linear-gradient(to right, var(--amarillo-primario), var(--amarillo-secundario));
-            color: var(--azul-primario);
-            padding: 10px 20px;
-            border-radius: 30px;
-            text-decoration: none;
+        .recurso-desc {
+            font-size: 0.9rem;
+            color: var(--gris-oscuro);
+            margin-bottom: 1rem;
+            flex-grow: 1;
+        }
+        
+        .recurso-meta {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.8rem;
+            color: var(--azul-claro);
+            margin-bottom: 1rem;
+        }
+        
+        .recurso-actions {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .action-btn {
+            flex-grow: 1;
+            padding: 8px 15px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
             font-weight: 600;
             transition: all 0.3s;
-            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+        }
+        
+        .descargar-btn {
+            background-color: var(--verde-primario);
+            color: var(--blanco);
+        }
+        
+        .descargar-btn:hover {
+            background-color: #0da271;
+        }
+        
+        .ver-btn {
+            background-color: var(--azul-claro);
+            color: var(--blanco);
+        }
+        
+        .ver-btn:hover {
+            background-color: var(--azul-secundario);
+        }
+        
+        /* Formulario para subir recursos */
+        .upload-form {
+            background-color: var(--gris-claro);
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin-top: 2rem;
+            display: none;
+        }
+        
+        .upload-form h3 {
+            margin-bottom: 1rem;
+            color: var(--azul-primario);
+        }
+        
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: var(--gris-oscuro);
+        }
+        
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
             width: 100%;
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
         }
         
-        .card-link:hover {
-            transform: scale(1.05);
-            box-shadow: 0 5px 10px rgba(251, 191, 36, 0.3);
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
         }
         
-        /* Sección de profesionales */
-        .profesionales {
+        .form-actions {
+            display: flex;
+            gap: 10px;
+            justify-content: flex-end;
+        }
+        
+        .btn {
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            transition: all 0.3s;
+        }
+        
+        .btn-primary {
             background-color: var(--azul-primario);
             color: var(--blanco);
-            padding: 3rem 0;
-            margin-bottom: 3rem;
-            border-radius: 0 0 15px 15px;
         }
         
-        .profesionales-title {
-            text-align: center;
-            margin-bottom: 2rem;
-            font-size: 2rem;
+        .btn-primary:hover {
+            background-color: var(--azul-secundario);
         }
         
-        .profesionales-title span {
-            color: var(--amarillo-primario);
+        .btn-secondary {
+            background-color: var(--gris-oscuro);
+            color: var(--blanco);
         }
         
-        .profesionales-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 2rem;
-        }
-        
-        .profesional-card {
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 10px;
-            padding: 1.5rem;
-            text-align: center;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: transform 0.3s;
-        }
-        
-        .profesional-card:hover {
-            transform: translateY(-5px);
-            background-color: rgba(255, 255, 255, 0.15);
-        }
-        
-        .profesional-icon {
-            font-size: 2.5rem;
-            color: var(--amarillo-primario);
-            margin-bottom: 1rem;
+        .btn-secondary:hover {
+            background-color: #374151;
         }
         
         /* Footer */
         footer {
             background-color: var(--gris-oscuro);
             color: var(--blanco);
-            padding: 3rem 0 1.5rem;
+            padding: 2rem 0 1.5rem;
+            margin-top: 3rem;
         }
         
         .footer-content {
@@ -354,43 +579,9 @@
             font-size: 1.3rem;
         }
         
-        .footer-column p, .footer-column li {
+        .footer-column p {
             color: rgba(255, 255, 255, 0.8);
             margin-bottom: 0.8rem;
-        }
-        
-        .footer-column ul {
-            list-style: none;
-        }
-        
-        .footer-column li i {
-            margin-right: 10px;
-            color: var(--amarillo-primario);
-        }
-        
-        .social-icons {
-            display: flex;
-            gap: 15px;
-            margin-top: 1rem;
-        }
-        
-        .social-icons a {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            width: 40px;
-            height: 40px;
-            background-color: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            color: var(--blanco);
-            text-decoration: none;
-            transition: all 0.3s;
-        }
-        
-        .social-icons a:hover {
-            background-color: var(--amarillo-primario);
-            color: var(--azul-primario);
-            transform: translateY(-3px);
         }
         
         .copyright {
@@ -403,192 +594,639 @@
         
         /* Responsividad */
         @media (max-width: 768px) {
-            .header-content {
-                flex-direction: column;
-                gap: 1rem;
-            }
-            
-            .unidad-educativa {
-                font-size: 2.2rem;
+            .modulos-grid {
+                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             }
             
             .recursos-grid {
-                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
             }
             
-            nav ul {
-                flex-wrap: wrap;
-                justify-content: center;
+            .upload-controls {
+                flex-direction: column;
+                align-items: stretch;
             }
         }
         
         @media (max-width: 480px) {
-            .unidad-educativa {
-                font-size: 1.8rem;
+            .modulos-grid {
+                grid-template-columns: 1fr;
             }
             
-            .slogan {
-                font-size: 1.1rem;
+            .recursos-grid {
+                grid-template-columns: 1fr;
             }
             
-            .section-title h2 {
-                font-size: 1.8rem;
+            .modal-content {
+                width: 95%;
+                margin: 10% auto;
             }
         }
     </style>
 </head>
 <body>
-    <!-- Header con navegación -->
+    <!-- Header -->
     <header>
         <div class="container header-content">
             <div class="logo">
                 <i class="fas fa-laptop-code"></i>
-                <h1>GALERIA DIGITAL EDUCATIVA</h1>
+                <div>
+                    <h1>MÓDULOS TÉCNICOS</h1>
+                    <div class="unidad-educativa">Unidad Educativa "Dr. Camilo Gallegos Domínguez"</div>
+                </div>
             </div>
-            
         </div>
     </header>
 
-    <!-- Sección principal con el nombre de la unidad educativa -->
-  
-        <div class="container">
-            <h1 class="unidad-educativa">Unidad Educativa <span>"DR. CAMILO GALLEGOS DOMINGUEZ"</span></h1>
-            <p class="slogan">Explora nuestra galería digital de recursos educativos para la formación de profesionales en informática. Tecnología, innovación y educación de calidad.</p>
-            <div style="position: relative; z-index: 2;">
-                <a href="#galeria" class="card-link" style="max-width: 250px; margin: 0 auto;">Explorar Recursos</a>
-            </div>
-        </div>
-    
-
-    <!-- Galería de recursos -->
-    <section class="galeria container" id="galeria">
+    <!-- Sección de módulos -->
+    <section class="modulos-section container">
         <div class="section-title">
-            <h2>RECURSOS EDUCATIVOSs</h2>
+            <h2>Módulos Técnicos en Informática</h2>
         </div>
         
-        <div class="filtros">
-            <button class="filtro-btn active" data-filtro="todos">Todos</button>
-            <button class="filtro-btn" data-filtro="redes">Aplicaciones ofimàtica locales y en Lìnea</button>
-            <button class="filtro-btn" data-filtro="redes">Sistema Operativo y Redes</button>
-            <button class="filtro-btn" data-filtro="programacion">Programación Y Bases de Datos</button>
-            <button class="filtro-btn" data-filtro="seguridad">Soporte Tècnico</button>
-            <button class="filtro-btn" data-filtro="diseno">Diseño  y Desarrollo Web</button>
-            <button class="filtro-btn" data-filtro="bd">Formaciòn y Orientaciòn Laborals</button>
-        </div>
-        
-        <div class="recursos-grid" id="recursos-container">
-            <!-- Los recursos se cargarán aquí con JavaScript -->
+        <div class="modulos-grid">
+            <!-- Módulo 1 -->
+            <div class="modulo-card modulo-1">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <div class="card-title">
+                        <h3>APLICACIONES OFIMÁTICA</h3>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p>Recursos sobre procesadores de texto, hojas de cálculo, presentaciones y herramientas ofimáticas locales y en línea.</p>
+                    <div class="card-stats">
+                        <span><i class="fas fa-file-pdf"></i> 15 PDFs</span>
+                        <span><i class="fas fa-video"></i> 8 Videos</span>
+                        <span><i class="fas fa-image"></i> 22 Imágenes</span>
+                    </div>
+                    <button class="card-link ver-recursos" data-modulo="1">
+                        <i class="fas fa-folder-open"></i> Ver Recursos
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Módulo 2 -->
+            <div class="modulo-card modulo-2">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <div class="card-title">
+                        <h3>PROGRAMACIÓN Y BASES DE DATOS</h3>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p>Material sobre lenguajes de programación, algoritmos, estructuras de datos y sistemas de gestión de bases de datos.</p>
+                    <div class="card-stats">
+                        <span><i class="fas fa-file-code"></i> 12 Ejercicios</span>
+                        <span><i class="fas fa-database"></i> 7 Bases de datos</span>
+                        <span><i class="fas fa-video"></i> 10 Tutoriales</span>
+                    </div>
+                    <button class="card-link ver-recursos" data-modulo="2">
+                        <i class="fas fa-folder-open"></i> Ver Recursos
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Módulo 3 -->
+            <div class="modulo-card modulo-3">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <div class="card-title">
+                        <h3>SISTEMA OPERATIVO Y REDES</h3>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p>Documentación sobre sistemas operativos, configuración de redes, protocolos y administración de servidores.</p>
+                    <div class="card-stats">
+                        <span><i class="fas fa-file-alt"></i> 18 Guías</span>
+                        <span><i class="fas fa-server"></i> 9 Configuraciones</span>
+                        <span><i class="fas fa-diagram-project"></i> 12 Diagramas</span>
+                    </div>
+                    <button class="card-link ver-recursos" data-modulo="3">
+                        <i class="fas fa-folder-open"></i> Ver Recursos
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Módulo 4 -->
+            <div class="modulo-card modulo-4">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <div class="card-title">
+                        <h3>SOPORTE TÉCNICO</h3>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p>Recursos sobre mantenimiento de hardware, solución de problemas, diagnóstico y reparación de equipos.</p>
+                    <div class="card-stats">
+                        <span><i class="fas fa-wrench"></i> 14 Manuales</span>
+                        <span><i class="fas fa-video"></i> 6 Videos</span>
+                        <span><i class="fas fa-list-check"></i> 10 Checklists</span>
+                    </div>
+                    <button class="card-link ver-recursos" data-modulo="4">
+                        <i class="fas fa-folder-open"></i> Ver Recursos
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Módulo 5 -->
+            <div class="modulo-card modulo-5">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <i class="fas fa-laptop-code"></i>
+                    </div>
+                    <div class="card-title">
+                        <h3>DISEÑO Y DESARROLLO WEB</h3>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p>Material sobre diseño UI/UX, HTML, CSS, JavaScript, frameworks y desarrollo de aplicaciones web.</p>
+                    <div class="card-stats">
+                        <span><i class="fas fa-palette"></i> 20 Diseños</span>
+                        <span><i class="fas fa-code"></i> 15 Ejemplos</span>
+                        <span><i class="fas fa-globe"></i> 8 Proyectos</span>
+                    </div>
+                    <button class="card-link ver-recursos" data-modulo="5">
+                        <i class="fas fa-folder-open"></i> Ver Recursos
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Módulo 6 -->
+            <div class="modulo-card modulo-6">
+                <div class="card-header">
+                    <div class="card-icon">
+                        <i class="fas fa-briefcase"></i>
+                    </div>
+                    <div class="card-title">
+                        <h3>FORMACIÓN Y ORIENTACIÓN LABORAL</h3>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <p>Documentos sobre habilidades blandas, redacción de CV, entrevistas laborales y emprendimiento.</p>
+                    <div class="card-stats">
+                        <span><i class="fas fa-file-contract"></i> 9 Plantillas</span>
+                        <span><i class="fas fa-video"></i> 5 Entrevistas</span>
+                        <span><i class="fas fa-book"></i> 12 Guías</span>
+                    </div>
+                    <button class="card-link ver-recursos" data-modulo="6">
+                        <i class="fas fa-folder-open"></i> Ver Recursos
+                    </button>
+                </div>
+            </div>
         </div>
     </section>
 
+    <!-- Modal para mostrar recursos -->
+    <div id="recursosModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modalTitulo"><i class="fas fa-folder-open"></i> Recursos del Módulo</h2>
+                <button class="close-modal">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="upload-controls">
+                    <button class="upload-btn" id="mostrarFormulario">
+                        <i class="fas fa-upload"></i> Subir Nuevo Recurso
+                    </button>
+                    
+                    <div class="filtro-recursos">
+                        <button class="filtro-btn active" data-tipo="todos">Todos</button>
+                        <button class="filtro-btn" data-tipo="pdf">PDF</button>
+                        <button class="filtro-btn" data-tipo="video">Video</button>
+                        <button class="filtro-btn" data-tipo="imagen">Imagen</button>
+                        <button class="filtro-btn" data-tipo="audio">Podcast</button>
+                    </div>
+                </div>
+                
+                <!-- Formulario para subir recursos (inicialmente oculto) -->
+                <div class="upload-form" id="formularioSubida">
+                    <h3><i class="fas fa-cloud-upload-alt"></i> Subir Recurso Educativo</h3>
+                    <form id="nuevoRecursoForm">
+                        <div class="form-group">
+                            <label for="tituloRecurso">Título del Recurso</label>
+                            <input type="text" id="tituloRecurso" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="descripcionRecurso">Descripción</label>
+                            <textarea id="descripcionRecurso" required></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="tipoRecurso">Tipo de Recurso</label>
+                            <select id="tipoRecurso" required>
+                                <option value="">Seleccionar tipo</option>
+                                <option value="pdf">PDF / Documento</option>
+                                <option value="video">Video</option>
+                                <option value="imagen">Imagen</option>
+                                <option value="audio">Podcast / Audio</option>
+                                <option value="presentacion">Presentación</option>
+                                <option value="enlace">Enlace web</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="archivoRecurso">Archivo o Enlace</label>
+                            <input type="text" id="archivoRecurso" placeholder="URL del recurso o nombre del archivo" required>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-secondary" id="cancelarSubida">Cancelar</button>
+                            <button type="submit" class="btn btn-primary">Subir Recurso</button>
+                        </div>
+                    </form>
+                </div>
+                
+                <!-- Galería de recursos -->
+                <div class="recursos-grid" id="galeriaRecursos">
+                    <!-- Los recursos se cargarán aquí dinámicamente -->
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Footer -->
-    <footer id="contacto">
+    <footer>
         <div class="container">
             <div class="footer-content">
                 <div class="footer-column">
                     <h3>Unidad Educativa</h3>
                     <p>"Dr. Camilo Gallegos Domínguez"</p>
-                    <p>Formando profesionales en informática con excelencia académica y valores éticos.</p>
-                    <div class="social-icons">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-youtube"></i></a>
-                    </div>
+                    <p>Galería Digital de Recursos Educativos para la formación técnica en Informática.</p>
                 </div>
                 
-                               
                 <div class="footer-column">
-                    <h3>Enlaces Rápidos</h3>
-                    
+                    <h3>Módulos Técnicos</h3>
+                    <p>1. Aplicaciones Ofimática</p>
+                    <p>2. Programación y Bases de Datos</p>
+                    <p>3. Sistema Operativo y Redes</p>
+                    <p>4. Soporte Técnico</p>
+                    <p>5. Diseño y Desarrollo Web</p>
+                    <p>6. Formación y Orientación Laboral</p>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Información</h3>
+                    <p>Cualquier persona puede acceder y descargar los recursos educativos disponibles.</p>
+                    <p>Los docentes pueden contactar a la administración para subir nuevos materiales.</p>
                 </div>
             </div>
             
             <div class="copyright">
                 <p>&copy; 2023 Unidad Educativa "Dr. Camilo Gallegos Domínguez". Todos los derechos reservados.</p>
-                <p>Galería Digital Educativa para la Figura Profesional en Informática</p>
+                <p>Plataforma de Recursos Educativos para Módulos Técnicos en Informática</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Datos de los recursos educativos
-        const recursos = [
-            {
-                id: 1,
-                titulo: "Fundamentos de Programación",
-                descripcion: "Introducción a los conceptos básicos de programación con ejemplos en Python y JavaScript.",
-                categoria: "programacion",
-                icono: "fas fa-code",
-                tags: ["Python", "JavaScript", "Algoritmos"],
-                enlace: "#"
-            },
-            {
-                id: 2,
-                titulo: "Redes y Comunicaciones",
-                descripcion: "Guía completa sobre protocolos de red, topologías y configuraciones de routers y switches.",
-                categoria: "redes",
-                icono: "fas fa-network-wired",
-                tags: ["TCP/IP", "Router", "Switch"],
-                enlace: "#"
-            },
-            {
-                id: 3,
-                titulo: "Bases de Datos SQL",
-                descripcion: "Aprende a diseñar y consultar bases de datos relacionales con MySQL y PostgreSQL.",
-                categoria: "bd",
-                icono: "fas fa-database",
-                tags: ["MySQL", "PostgreSQL", "SQL"],
-                enlace: "#"
-            },
-            {
-                id: 4,
-                titulo: "Diseño Web Responsivo",
-                descripcion: "Técnicas modernas para crear sitios web que se adapten a cualquier dispositivo.",
-                categoria: "diseno",
-                icono: "fas fa-laptop-code",
-                tags: ["HTML5", "CSS3", "Responsive"],
-                enlace: "#"
-            },
-            {
-                id: 5,
-                titulo: "Ciberseguridad Básica",
-                descripcion: "Principios fundamentales de seguridad informática y protección de datos.",
-                categoria: "seguridad",
-                icono: "fas fa-shield-alt",
-                tags: ["Seguridad", "Encriptación", "Firewall"],
-                enlace: "#"
-            },
-            {
-                id: 6,
-                titulo: "Desarrollo con Java",
-                descripcion: "Curso completo de programación orientada a objetos utilizando el lenguaje Java.",
-                categoria: "programacion",
-                icono: "fas fa-coffee",
-                tags: ["Java", "POO", "Spring"],
-                enlace: "#"
-            },
-            {
-                id: 7,
-                titulo: "Configuración de Servidores",
-                descripcion: "Aprende a configurar servidores web, de correo y de archivos en entornos Linux y Windows.",
-                categoria: "redes",
-                icono: "fas fa-server",
-                tags: ["Linux", "Apache", "Windows Server"],
-                enlace: "#"
-            },
-            {
-                id: 8,
-                titulo: "NoSQL y MongoDB",
-                descripcion: "Introducción a las bases de datos no relacionales y su implementación con MongoDB.",
-                categoria: "bd",
-                icono: "fas fa-leaf",
-                tags: ["MongoDB", "NoSQL", "JSON"],
-                enlace: "#"
-            }
-        ];
+        // Datos de ejemplo para los recursos de cada módulo
+        const recursosModulos = {
+            1: [
+                {
+                    id: 1,
+                    titulo: "Manual de Word Avanzado",
+                    descripcion: "Guía completa con funciones avanzadas de Microsoft Word 2023",
+                    tipo: "pdf",
+                    fecha: "15/10/2023",
+                    tamaño: "4.2 MB",
+                    url: "#",
+                    icono: "fas fa-file-pdf"
+                },
+                {
+                    id: 2,
+                    titulo: "Excel para análisis de datos",
+                    descripcion: "Tutorial en video sobre tablas dinámicas y gráficos en Excel",
+                    tipo: "video",
+                    fecha: "10/10/2023",
+                    duracion: "25 min",
+                    url: "#",
+                    icono: "fas fa-file-video"
+                },
+                {
+                    id: 3,
+                    titulo: "Presentaciones efectivas",
+                    descripcion: "Plantillas profesionales para PowerPoint y Google Slides",
+                    tipo: "imagen",
+                    fecha: "05/10/2023",
+                    tamaño: "8.7 MB",
+                    url: "#",
+                    icono: "fas fa-images"
+                },
+                {
+                    id: 4,
+                    titulo: "Google Workspace para educación",
+                    descripcion: "Guía de uso educativo de las herramientas de Google",
+                    tipo: "pdf",
+                    fecha: "01/10/2023",
+                    tamaño: "3.1 MB",
+                    url: "#",
+                    icono: "fas fa-file-pdf"
+                }
+            ],
+            2: [
+                {
+                    id: 1,
+                    titulo: "Introducción a Python",
+                    descripcion: "Conceptos básicos de programación con Python",
+                    tipo: "pdf",
+                    fecha: "20/10/2023",
+                    tamaño: "2.8 MB",
+                    url: "#",
+                    icono: "fas fa-file-pdf"
+                },
+                {
+                    id: 2,
+                    titulo: "SQL para principiantes",
+                    descripcion: "Video tutorial sobre consultas básicas en SQL",
+                    tipo: "video",
+                    fecha: "18/10/2023",
+                    duracion: "32 min",
+                    url: "#",
+                    icono: "fas fa-file-video"
+                }
+            ],
+            3: [
+                {
+                    id: 1,
+                    titulo: "Configuración de redes LAN",
+                    descripcion: "Guía práctica para configurar redes locales",
+                    tipo: "pdf",
+                    fecha: "22/10/2023",
+                    tamaño: "5.3 MB",
+                    url: "#",
+                    icono: "fas fa-file-pdf"
+                }
+            ],
+            4: [
+                {
+                    id: 1,
+                    titulo: "Diagnóstico de hardware",
+                    descripcion: "Checklist para diagnóstico de problemas de hardware",
+                    tipo: "pdf",
+                    fecha: "12/10/2023",
+                    tamaño: "1.9 MB",
+                    url: "#",
+                    icono: "fas fa-file-pdf"
+                }
+            ],
+            5: [
+                {
+                    id: 1,
+                    titulo: "Diseño web responsive",
+                    descripcion: "Principios de diseño web adaptable a dispositivos",
+                    tipo: "pdf",
+                    fecha: "08/10/2023",
+                    tamaño: "3.7 MB",
+                    url: "#",
+                    icono: "fas fa-file-pdf"
+                }
+            ],
+            6: [
+                {
+                    id: 1,
+                    titulo: "Cómo redactar un CV efectivo",
+                    descripcion: "Plantillas y consejos para crear un buen currículum",
+                    tipo: "pdf",
+                    fecha: "03/10/2023",
+                    tamaño: "2.5 MB",
+                    url: "#",
+                    icono: "fas fa-file-pdf"
+                }
+            ]
+        };
 
-      
+        // Nombres de los módulos
+        const nombresModulos = {
+            1: "APLICACIONES OFIMÁTICA",
+            2: "PROGRAMACIÓN Y BASES DE DATOS", 
+            3: "SISTEMA OPERATIVO Y REDES",
+            4: "SOPORTE TÉCNICO",
+            5: "DISEÑO Y DESARROLLO WEB",
+            6: "FORMACIÓN Y ORIENTACIÓN LABORAL"
+        };
+
+        // Variables globales
+        let moduloActual = 1;
+        const modal = document.getElementById('recursosModal');
+        const modalTitulo = document.getElementById('modalTitulo');
+        const galeriaRecursos = document.getElementById('galeriaRecursos');
+        const formularioSubida = document.getElementById('formularioSubida');
+        const nuevoRecursoForm = document.getElementById('nuevoRecursoForm');
+        const mostrarFormularioBtn = document.getElementById('mostrarFormulario');
+        const cancelarSubidaBtn = document.getElementById('cancelarSubida');
+        const filtrosBtn = document.querySelectorAll('.filtro-btn');
+
+        // Función para abrir el modal con los recursos de un módulo
+        function abrirModal(moduloId) {
+            moduloActual = moduloId;
+            modalTitulo.innerHTML = `<i class="fas fa-folder-open"></i> Recursos: ${nombresModulos[moduloId]}`;
+            mostrarRecursos(moduloId, 'todos');
+            modal.style.display = 'block';
+            formularioSubida.style.display = 'none';
+        }
+
+        // Función para cerrar el modal
+        function cerrarModal() {
+            modal.style.display = 'none';
+        }
+
+        // Función para mostrar recursos según el tipo
+        function mostrarRecursos(moduloId, tipo) {
+            const recursos = recursosModulos[moduloId] || [];
+            let recursosFiltrados = recursos;
+            
+            if (tipo !== 'todos') {
+                recursosFiltrados = recursos.filter(recurso => recurso.tipo === tipo);
+            }
+            
+            // Limpiar galería
+            galeriaRecursos.innerHTML = '';
+            
+            if (recursosFiltrados.length === 0) {
+                galeriaRecursos.innerHTML = `
+                    <div style="grid-column: 1/-1; text-align: center; padding: 3rem;">
+                        <i class="fas fa-inbox" style="font-size: 4rem; color: #ddd; margin-bottom: 1rem;"></i>
+                        <h3 style="color: #666; margin-bottom: 1rem;">No hay recursos disponibles</h3>
+                        <p>No se han subido recursos para este módulo aún.</p>
+                        <button class="upload-btn" style="margin-top: 1.5rem;" onclick="document.getElementById('mostrarFormulario').click()">
+                            <i class="fas fa-upload"></i> Subir el primer recurso
+                        </button>
+                    </div>
+                `;
+                return;
+            }
+            
+            // Generar tarjetas de recursos
+            recursosFiltrados.forEach(recurso => {
+                const iconosPorTipo = {
+                    'pdf': 'fas fa-file-pdf',
+                    'video': 'fas fa-file-video',
+                    'imagen': 'fas fa-file-image',
+                    'audio': 'fas fa-file-audio',
+                    'presentacion': 'fas fa-file-powerpoint',
+                    'enlace': 'fas fa-link'
+                };
+                
+                const coloresPorTipo = {
+                    'pdf': '#ef4444',
+                    'video': '#3b82f6',
+                    'imagen': '#10b981',
+                    'audio': '#8b5cf6',
+                    'presentacion': '#f97316',
+                    'enlace': '#6b7280'
+                };
+                
+                const icono = iconosPorTipo[recurso.tipo] || 'fas fa-file';
+                const color = coloresPorTipo[recurso.tipo] || '#6b7280';
+                
+                const recursoCard = document.createElement('div');
+                recursoCard.className = 'recurso-card';
+                recursoCard.innerHTML = `
+                    <div class="recurso-thumbnail" style="background-color: ${color}20; color: ${color};">
+                        <i class="${icono}" style="font-size: 3rem;"></i>
+                        <div class="icono">
+                            <i class="${recurso.icono}"></i>
+                        </div>
+                    </div>
+                    <div class="recurso-info">
+                        <h4>${recurso.titulo}</h4>
+                        <div class="recurso-desc">${recurso.descripcion}</div>
+                        <div class="recurso-meta">
+                            <span><i class="far fa-calendar"></i> ${recurso.fecha}</span>
+                            <span>${recurso.tamaño || recurso.duracion || ''}</span>
+                        </div>
+                        <div class="recurso-actions">
+                            <button class="action-btn ver-btn" onclick="verRecurso(${recurso.id})">
+                                <i class="fas fa-eye"></i> Ver
+                            </button>
+                            <button class="action-btn descargar-btn" onclick="descargarRecurso(${recurso.id})">
+                                <i class="fas fa-download"></i> Descargar
+                            </button>
+                        </div>
+                    </div>
+                `;
+                
+                galeriaRecursos.appendChild(recursoCard);
+            });
+        }
+
+        // Funciones para acciones de recursos
+        function verRecurso(id) {
+            alert(`Viendo recurso con ID: ${id}\n\nEn una implementación real, esto abriría el recurso en una nueva ventana o en un visor integrado.`);
+        }
+
+        function descargarRecurso(id) {
+            alert(`Descargando recurso con ID: ${id}\n\nEn una implementación real, esto iniciaría la descarga del archivo.`);
+        }
+
+        // Función para agregar un nuevo recurso
+        function agregarRecurso(event) {
+            event.preventDefault();
+            
+            const titulo = document.getElementById('tituloRecurso').value;
+            const descripcion = document.getElementById('descripcionRecurso').value;
+            const tipo = document.getElementById('tipoRecurso').value;
+            const archivo = document.getElementById('archivoRecurso').value;
+            
+            // Crear nuevo recurso
+            const nuevoRecurso = {
+                id: recursosModulos[moduloActual].length + 1,
+                titulo: titulo,
+                descripcion: descripcion,
+                tipo: tipo,
+                fecha: new Date().toLocaleDateString('es-ES'),
+                tamaño: "Nuevo",
+                url: "#",
+                icono: tipo === 'pdf' ? 'fas fa-file-pdf' : 
+                       tipo === 'video' ? 'fas fa-file-video' : 
+                       tipo === 'imagen' ? 'fas fa-file-image' : 
+                       tipo === 'audio' ? 'fas fa-file-audio' : 'fas fa-file'
+            };
+            
+            // Agregar a los recursos del módulo
+            recursosModulos[moduloActual].push(nuevoRecurso);
+            
+            // Mostrar mensaje de éxito
+            alert('¡Recurso agregado exitosamente!\n\nEn una implementación real con backend, el archivo se subiría a un servidor.');
+            
+            // Limpiar formulario
+            nuevoRecursoForm.reset();
+            
+            // Ocultar formulario
+            formularioSubida.style.display = 'none';
+            
+            // Actualizar la galería
+            mostrarRecursos(moduloActual, 'todos');
+            
+            // Actualizar el botón de filtro activo
+            document.querySelectorAll('.filtro-btn').forEach(btn => {
+                if (btn.dataset.tipo === 'todos') {
+                    btn.classList.add('active');
+                } else {
+                    btn.classList.remove('active');
+                }
+            });
+        }
+
+        // Event Listeners
+        document.addEventListener('DOMContentLoaded', function() {
+            // Abrir modal al hacer clic en "Ver Recursos"
+            document.querySelectorAll('.ver-recursos').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const moduloId = parseInt(this.getAttribute('data-modulo'));
+                    abrirModal(moduloId);
+                });
+            });
+            
+            // Cerrar modal
+            document.querySelector('.close-modal').addEventListener('click', cerrarModal);
+            
+            // Cerrar modal al hacer clic fuera
+            window.addEventListener('click', function(event) {
+                if (event.target === modal) {
+                    cerrarModal();
+                }
+            });
+            
+            // Filtrar recursos por tipo
+            filtrosBtn.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const tipo = this.getAttribute('data-tipo');
+                    
+                    // Actualizar botones activos
+                    filtrosBtn.forEach(b => b.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Filtrar recursos
+                    mostrarRecursos(moduloActual, tipo);
+                });
+            });
+            
+            // Mostrar formulario para subir recursos
+            mostrarFormularioBtn.addEventListener('click', function() {
+                formularioSubida.style.display = 'block';
+                formularioSubida.scrollIntoView({ behavior: 'smooth' });
+            });
+            
+            // Cancelar subida
+            cancelarSubidaBtn.addEventListener('click', function() {
+                formularioSubida.style.display = 'none';
+                nuevoRecursoForm.reset();
+            });
+            
+            // Enviar formulario
+            nuevoRecursoForm.addEventListener('submit', agregarRecurso);
+        });
     </script>
 </body>
 </html>

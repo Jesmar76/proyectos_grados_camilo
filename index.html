@@ -31,12 +31,14 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         
-        /* FONDO CORREGIDO - Usa tecno.jpg directamente */
+        /* FONDO - Imagen tecno.jpg */
         body {
-            background-image: url('tecno.jpg');
+            background: 
+                linear-gradient(rgba(10, 36, 99, 0.85), rgba(26, 54, 147, 0.9)),
+                url('tecno.jpg');
             background-size: cover;
-            background-repeat: no-repeat;
             background-position: center center;
+            background-repeat: no-repeat;
             background-attachment: fixed;
             min-height: 100vh;
             color: var(--blanco);
@@ -44,7 +46,7 @@
             position: relative;
         }
         
-        /* Overlay para mejorar legibilidad */
+        /* Overlay para legibilidad */
         .background-overlay {
             position: fixed;
             top: 0;
@@ -80,48 +82,41 @@
                 transform: translateY(0);
             }
             50% {
-                transform: translateY(-10px);
+                transform: translateY(-8px);
             }
         }
         
-        /* Header con logo CORREGIDO - AHORA COMPACTO */
+        /* HEADER COMPACTO */
         header {
             background: linear-gradient(135deg, var(--azul-primario), var(--azul-secundario));
             color: var(--blanco);
-            padding: 0.5rem 0;
-            box-shadow: 0 4px 20px var(--sombra);
+            padding: 10px 0;
+            box-shadow: 0 3px 15px var(--sombra);
             position: sticky;
             top: 0;
             z-index: 1000;
-            animation: fadeInUp 0.8s ease-out;
+            animation: fadeInUp 0.6s ease-out;
             border-bottom: 2px solid var(--amarillo-primario);
-            min-height: 70px;
+            min-height: 75px;
+            display: flex;
+            align-items: center;
         }
         
         .header-content {
             display: flex;
-            justify-content: flex-start;
             align-items: center;
             gap: 15px;
-            padding: 5px 0;
-        }
-        
-        .logo-container {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            flex-wrap: nowrap;
             width: 100%;
         }
         
-        /* Logo de la institución - MÁS PEQUEÑO */
+        /* Logo de la institución */
         .institution-logo {
             width: 55px;
             height: 55px;
             border-radius: 50%;
             object-fit: cover;
             border: 2px solid var(--amarillo-primario);
-            animation: float 3s ease-in-out infinite;
+            animation: float 4s ease-in-out infinite;
             background-color: var(--blanco);
             padding: 2px;
             flex-shrink: 0;
@@ -129,20 +124,20 @@
         
         .logo-text {
             flex-grow: 1;
-            min-width: 0;
         }
         
-        /* TEXTO DEL HEADER REDUCIDO */
+        /* TEXTO DEL HEADER - TAMAÑO ADECUADO */
         .logo-text h1 {
-            font-size: 1.2rem;
+            font-size: 1.4rem;
             font-weight: 700;
             color: var(--blanco);
-            margin-bottom: 2px;
+            margin-bottom: 4px;
             line-height: 1.2;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
         }
         
         .unidad-educativa {
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             color: var(--amarillo-primario);
             font-weight: 600;
             line-height: 1.1;
@@ -150,7 +145,7 @@
         
         /* Sección principal */
         .modulos-section {
-            padding: 2rem 0 3rem;
+            padding: 2.5rem 0 3.5rem;
         }
         
         .section-title {
@@ -175,37 +170,36 @@
             bottom: 0;
             left: 50%;
             transform: translateX(-50%);
-            width: 120px;
-            height: 3px;
+            width: 150px;
+            height: 4px;
             background: linear-gradient(to right, var(--amarillo-primario), var(--amarillo-secundario));
             border-radius: 2px;
         }
         
-        /* TABLA DE MÓDULOS */
+        /* TABLA DE MÓDULOS - DISEÑO UNIFORME */
         .modulos-table {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            grid-template-rows: repeat(3, auto);
-            gap: 1.5rem;
+            gap: 1.8rem;
             margin-bottom: 3rem;
         }
         
         .modulo-cell {
-            background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.85));
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.97), rgba(255, 255, 255, 0.92));
             border-radius: 18px;
-            padding: 1.8rem 1.5rem;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-            transition: all 0.4s;
-            position: relative;
-            overflow: hidden;
-            border: 2px solid transparent;
+            padding: 2rem 1.8rem;
+            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
+            transition: all 0.35s ease;
+            border: 3px solid transparent;
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
-            animation: fadeInUp 0.8s ease-out;
-            backdrop-filter: blur(10px);
-            min-height: 480px;
+            animation: fadeInUp 0.7s ease-out;
+            backdrop-filter: blur(8px);
+            min-height: 500px;
+            position: relative;
+            overflow: hidden;
         }
         
         /* Colores de borde para cada módulo */
@@ -217,20 +211,20 @@
         .modulo-cell:nth-child(6) { border-color: var(--naranja-primario); }
         
         .modulo-cell:hover {
-            transform: translateY(-8px) scale(1.02);
-            box-shadow: 0 18px 35px rgba(0, 0, 0, 0.25);
+            transform: translateY(-8px) scale(1.015);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.22);
             z-index: 2;
         }
         
         /* Icono del módulo */
         .modulo-icon {
-            font-size: 3rem;
-            margin-bottom: 1.2rem;
-            padding: 0.8rem;
+            font-size: 3.2rem;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.2);
-            width: 80px;
-            height: 80px;
+            background: rgba(255, 255, 255, 0.15);
+            width: 85px;
+            height: 85px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -238,8 +232,8 @@
         }
         
         .modulo-cell:hover .modulo-icon {
-            transform: scale(1.2) rotate(10deg);
-            background: rgba(255, 255, 255, 0.3);
+            transform: scale(1.15) rotate(8deg);
+            background: rgba(255, 255, 255, 0.25);
         }
         
         /* Colores de iconos */
@@ -252,23 +246,83 @@
         
         /* Título del módulo */
         .modulo-title h3 {
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             font-weight: 800;
             color: var(--azul-primario);
             line-height: 1.3;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            margin-bottom: 1.2rem;
+            margin-bottom: 1.3rem;
         }
         
         /* Descripción */
         .modulo-desc {
             color: var(--gris-oscuro);
-            margin-bottom: 1.5rem;
-            font-size: 0.95rem;
-            line-height: 1.5;
-            opacity: 0.9;
+            margin-bottom: 1.8rem;
+            font-size: 0.98rem;
+            line-height: 1.6;
+            opacity: 0.95;
             flex-grow: 1;
+        }
+        
+        /* CONTENEDOR PADLET COMPACTO */
+        .padlet-container {
+            width: 100%;
+            margin: 1.2rem 0 1.5rem;
+            border-radius: 10px;
+            overflow: hidden;
+            border: 2px solid var(--rojo-primario);
+            background: white;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+            transition: all 0.3s;
+        }
+        
+        .padlet-container:hover {
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.18);
+            transform: translateY(-3px);
+        }
+        
+        .padlet-embed {
+            position: relative;
+            width: 100%;
+        }
+        
+        .padlet-embed iframe {
+            width: 100%;
+            height: 240px; /* ALTURA REDUCIDA */
+            display: block;
+            border: none;
+        }
+        
+        .padlet-footer {
+            padding: 9px 12px;
+            background: var(--rojo-primario);
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.25);
+        }
+        
+        .padlet-footer a {
+            color: white;
+            text-decoration: none;
+            font-size: 0.88rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 7px;
+            transition: all 0.3s;
+            padding: 5px 12px;
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.15);
+        }
+        
+        .padlet-footer a:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-2px);
+        }
+        
+        .padlet-footer i {
+            font-size: 0.8rem;
         }
         
         /* Botón de acción */
@@ -276,7 +330,7 @@
             display: inline-block;
             background: linear-gradient(135deg, var(--azul-primario), var(--azul-secundario));
             color: var(--blanco);
-            padding: 10px 24px;
+            padding: 11px 26px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: 700;
@@ -285,18 +339,18 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
-            box-shadow: 0 4px 12px rgba(10, 36, 99, 0.25);
+            gap: 9px;
+            box-shadow: 0 5px 15px rgba(10, 36, 99, 0.25);
             border: none;
             cursor: pointer;
-            width: auto;
-            margin-top: 10px;
+            margin-top: 5px;
+            min-width: 180px;
         }
         
         .modulo-action:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 18px rgba(10, 36, 99, 0.35);
-            background: linear-gradient(135deg, var(--azul-secundario), var(--azul-primario));
+            transform: translateY(-4px);
+            box-shadow: 0 10px 22px rgba(10, 36, 99, 0.35);
+            background: linear-gradient(135deg, var(--azul-secundario), var(--azul-claro));
         }
         
         /* Colores específicos para botones */
@@ -307,57 +361,12 @@
         .modulo-cell:nth-child(5) .modulo-action { background: linear-gradient(135deg, var(--rosa-primario), #f472b6); }
         .modulo-cell:nth-child(6) .modulo-action { background: linear-gradient(135deg, var(--naranja-primario), #fb923c); }
         
-        /* Estilos para Padlet compacto */
-        .padlet-compact {
-            width: 100%;
-            margin: 15px 0;
-            border-radius: 10px;
-            overflow: hidden;
-            border: 2px solid var(--rojo-primario);
-            background: white;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-        }
-        
-        .padlet-compact iframe {
-            width: 100%;
-            height: 220px;
-            display: block;
-            border: none;
-        }
-        
-        .padlet-link {
-            padding: 8px 12px;
-            background: var(--rojo-primario);
-            text-align: center;
-            border-top: 1px solid rgba(255,255,255,0.2);
-        }
-        
-        .padlet-link a {
-            color: white;
-            text-decoration: none;
-            font-size: 0.85rem;
-            font-weight: 600;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 6px;
-            transition: opacity 0.3s;
-        }
-        
-        .padlet-link a:hover {
-            opacity: 0.9;
-        }
-        
-        .padlet-link i {
-            font-size: 0.8rem;
-        }
-        
         /* Footer */
         footer {
             background: linear-gradient(135deg, var(--azul-primario), var(--azul-secundario));
             color: var(--blanco);
-            padding: 2.5rem 0 1.8rem;
-            margin-top: 2.5rem;
+            padding: 2.8rem 0 2rem;
+            margin-top: 3rem;
             border-top: 3px solid var(--amarillo-primario);
             position: relative;
             z-index: 1;
@@ -365,81 +374,173 @@
         
         .footer-content {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.8rem;
-            margin-bottom: 1.8rem;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
         }
         
         .footer-column h3 {
             color: var(--amarillo-primario);
-            margin-bottom: 1rem;
-            font-size: 1.2rem;
-            padding-bottom: 8px;
+            margin-bottom: 1.2rem;
+            font-size: 1.3rem;
+            padding-bottom: 10px;
             border-bottom: 2px solid rgba(255, 255, 255, 0.2);
         }
         
         .footer-column p {
             color: rgba(255, 255, 255, 0.9);
-            margin-bottom: 0.6rem;
+            margin-bottom: 0.8rem;
             line-height: 1.5;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
         }
         
         .copyright {
             text-align: center;
-            padding-top: 1.5rem;
+            padding-top: 2rem;
             border-top: 1px solid rgba(255, 255, 255, 0.2);
             color: rgba(255, 255, 255, 0.8);
-            font-size: 0.85rem;
+            font-size: 0.9rem;
         }
         
-        /* Responsividad */
-        @media (max-width: 992px) {
+        /* RESPONSIVIDAD */
+        @media (max-width: 1100px) {
             .modulos-table {
-                gap: 1.2rem;
+                gap: 1.5rem;
             }
             
             .modulo-cell {
-                padding: 1.5rem 1.2rem;
+                padding: 1.8rem 1.5rem;
+                min-height: 480px;
+            }
+        }
+        
+        @media (max-width: 900px) {
+            .modulo-cell {
                 min-height: 460px;
             }
             
             .modulo-icon {
-                width: 70px;
-                height: 70px;
-                font-size: 2.5rem;
+                width: 80px;
+                height: 80px;
+                font-size: 3rem;
             }
             
             .modulo-title h3 {
-                font-size: 1.3rem;
+                font-size: 1.4rem;
+            }
+            
+            .padlet-embed iframe {
+                height: 220px;
             }
         }
         
         @media (max-width: 768px) {
             .modulos-table {
                 grid-template-columns: 1fr;
-                grid-template-rows: repeat(6, auto);
-                gap: 1.2rem;
+                gap: 1.5rem;
             }
             
             .modulo-cell {
                 min-height: auto;
-                padding: 1.5rem 1.2rem;
+                padding: 2rem 1.8rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .header-content {
+                gap: 12px;
+            }
+            
+            .institution-logo {
+                width: 52px;
+                height: 52px;
+            }
+            
+            .logo-text h1 {
+                font-size: 1.3rem;
+            }
+            
+            .unidad-educativa {
+                font-size: 0.9rem;
+            }
+            
+            .padlet-embed iframe {
+                height: 210px;
+            }
+            
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 1.8rem;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            header {
+                padding: 8px 0;
+                min-height: 70px;
+            }
+            
+            .institution-logo {
+                width: 48px;
+                height: 48px;
+            }
+            
+            .logo-text h1 {
+                font-size: 1.2rem;
+            }
+            
+            .unidad-educativa {
+                font-size: 0.85rem;
+            }
+            
+            .modulo-cell {
+                padding: 1.6rem 1.4rem;
+            }
+            
+            .modulo-icon {
+                width: 75px;
+                height: 75px;
+                font-size: 2.8rem;
+            }
+            
+            .modulo-title h3 {
+                font-size: 1.3rem;
+            }
+            
+            .modulo-desc {
+                font-size: 0.95rem;
+            }
+            
+            .modulo-action {
+                padding: 10px 22px;
+                font-size: 0.92rem;
+                min-width: 170px;
+            }
+            
+            .padlet-embed iframe {
+                height: 190px;
             }
             
             .section-title h2 {
                 font-size: 1.8rem;
             }
             
-            .header-content {
-                flex-direction: row;
-                text-align: left;
-                gap: 12px;
+            .section-title h2::after {
+                width: 130px;
             }
             
+            .padlet-footer a {
+                font-size: 0.85rem;
+                padding: 4px 10px;
+            }
+        }
+        
+        @media (max-width: 400px) {
             .institution-logo {
-                width: 50px;
-                height: 50px;
+                width: 45px;
+                height: 45px;
             }
             
             .logo-text h1 {
@@ -447,78 +548,18 @@
             }
             
             .unidad-educativa {
-                font-size: 0.85rem;
-            }
-            
-            .padlet-compact iframe {
-                height: 200px;
-            }
-            
-            .footer-content {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-        }
-        
-        @media (max-width: 480px) {
-            .institution-logo {
-                width: 45px;
-                height: 45px;
-            }
-            
-            .logo-text h1 {
-                font-size: 1rem;
-            }
-            
-            .unidad-educativa {
                 font-size: 0.8rem;
             }
             
-            .modulo-cell {
-                padding: 1.3rem 1rem;
-            }
-            
-            .modulo-icon {
-                width: 65px;
-                height: 65px;
-                font-size: 2.2rem;
-            }
-            
-            .modulo-title h3 {
-                font-size: 1.2rem;
-            }
-            
-            .modulo-desc {
-                font-size: 0.9rem;
-            }
-            
-            .modulo-action {
-                padding: 8px 20px;
-                font-size: 0.9rem;
-            }
-            
-            .padlet-compact iframe {
+            .padlet-embed iframe {
                 height: 180px;
             }
             
-            .section-title h2 {
-                font-size: 1.6rem;
+            .modulo-action {
+                padding: 9px 20px;
+                font-size: 0.9rem;
+                min-width: 160px;
             }
-        }
-        
-        /* Asegura que todos los módulos tengan la misma altura */
-        .modulos-table {
-            align-items: stretch;
-        }
-        
-        .modulo-cell {
-            display: flex;
-            flex-direction: column;
-            height: 100%;
-        }
-        
-        .modulo-desc {
-            flex-grow: 1;
         }
     </style>
 </head>
@@ -526,17 +567,15 @@
     <!-- Overlay para el fondo -->
     <div class="background-overlay"></div>
 
-    <!-- Header con logo - AHORA COMPACTO -->
+    <!-- Header compacto con logo -->
     <header>
         <div class="container header-content">
-            <div class="logo-container">
-                <!-- Logo de la institución -->
-                <img src="logo.jpg" alt="Logo Institución" class="institution-logo">
-                
-                <div class="logo-text">
-                    <h1>MURAL DIGITAL DE MÓDULOS TÉCNICOS</h1>
-                    <div class="unidad-educativa">UNIDAD EDUCATIVA "DR. CAMILO GALLEGOS DOMINGUEZ"</div>
-                </div>
+            <!-- Logo de la institución -->
+            <img src="logo.jpg" alt="Logo Institución" class="institution-logo">
+            
+            <div class="logo-text">
+                <h1>MURAL DIGITAL DE MÓDULOS TÉCNICOS</h1>
+                <div class="unidad-educativa">UNIDAD EDUCATIVA "DR. CAMILO GALLEGOS DOMINGUEZ"</div>
             </div>
         </div>
     </header>
@@ -576,7 +615,7 @@
                 </a>
             </div>
             
-            <!-- Módulo 3 - Sistema Operativo y Redes CON PADLET COMPACTO -->
+            <!-- Módulo 3 - CON PADLET COMPACTO -->
             <div class="modulo-cell">
                 <div class="modulo-icon">
                     <i class="fas fa-network-wired"></i>
@@ -587,16 +626,18 @@
                 <p class="modulo-desc">Documentación sobre sistemas operativos, configuración de redes, protocolos y administración de servidores.</p>
                 
                 <!-- Padlet compacto -->
-                <div class="padlet-compact">
-                    <iframe 
-                        src="https://padlet.com/embed/o8i0xtocww8ucihs?preview=1&hideHeader=1" 
-                        frameborder="0" 
-                        title="Recursos de Redes - Solo lectura">
-                    </iframe>
-                    <div class="padlet-link">
-                        <a href="https://padlet.com/embed/o8i0xtocww8ucihs" target="_blank">
-                            <i class="fas fa-external-link-alt"></i> Ver completo en Padlet
-                        </a>
+                <div class="padlet-container">
+                    <div class="padlet-embed">
+                        <iframe 
+                            src="https://padlet.com/embed/o8i0xtocww8ucihs?preview=1&hideHeader=1" 
+                            frameborder="0" 
+                            title="Recursos de Redes - Solo lectura">
+                        </iframe>
+                        <div class="padlet-footer">
+                            <a href="https://padlet.com/embed/o8i0xtocww8ucihs" target="_blank">
+                                <i class="fas fa-external-link-alt"></i> VER COMPLETO EN PADLET
+                            </a>
+                        </div>
                     </div>
                 </div>
                 
@@ -702,7 +743,7 @@
             document.querySelectorAll('.modulo-cell').forEach(cell => {
                 cell.addEventListener('mouseenter', function() {
                     const icon = this.querySelector('.modulo-icon i');
-                    icon.style.transform = 'scale(1.3) rotate(15deg)';
+                    icon.style.transform = 'scale(1.2) rotate(12deg)';
                 });
                 
                 cell.addEventListener('mouseleave', function() {
@@ -716,66 +757,87 @@
                 btn.addEventListener('click', function(e) {
                     if (!this.getAttribute('href') || this.getAttribute('href') === '#') {
                         e.preventDefault();
-                        alert(`Accediendo a recursos del módulo ${this.getAttribute('data-modulo')}`);
+                        // Mensaje informativo
+                        const moduloNum = this.getAttribute('data-modulo');
+                        const moduloNombres = [
+                            '', 
+                            'Aplicaciones Ofimáticas', 
+                            'Programación y Bases de Datos', 
+                            'Sistema Operativo y Redes', 
+                            'Soporte Técnico', 
+                            'Diseño y Desarrollo Web', 
+                            'Formación y Orientación Laboral'
+                        ];
+                        alert(`Accediendo a recursos del módulo: ${moduloNombres[moduloNum]}`);
                     }
                 });
             });
             
-            // Debug: Verificar si las imágenes se cargan
+            // Verificar si las imágenes se cargan correctamente
             console.log('Verificando carga de imágenes...');
             
-            // Verificar tecno.jpg
+            // Verificar tecno.jpg (fondo)
             const tecnoImg = new Image();
             tecnoImg.onload = function() {
-                console.log('✅ Imagen tecno.jpg cargada correctamente');
+                console.log('✅ Imagen tecno.jpg cargada correctamente (fondo)');
             };
             tecnoImg.onerror = function() {
-                console.error('❌ Error: No se pudo cargar tecno.jpg');
-                console.log('Prueba con tecno.png si existe');
-                // Intentar con tecno.png si tecno.jpg falla
-                document.body.style.backgroundImage = "url('tecno.png')";
+                console.warn('⚠️ No se pudo cargar tecno.jpg, intentando con tecno.png...');
+                document.body.style.backgroundImage = "linear-gradient(rgba(10, 36, 99, 0.85), rgba(26, 54, 147, 0.9)), url('tecno.png')";
             };
             tecnoImg.src = 'tecno.jpg';
             
             // Verificar logo.jpg
             const logoImg = new Image();
             logoImg.onload = function() {
-                console.log('✅ Imagen logo.jpg cargada correctamente');
+                console.log('✅ Imagen logo.jpg cargada correctamente (logo institución)');
             };
             logoImg.onerror = function() {
-                console.error('❌ Error: No se pudo cargar logo.jpg');
+                console.error('❌ Error: No se pudo cargar logo.jpg (logo de la institución)');
             };
             logoImg.src = 'logo.jpg';
             
-            // Ajustar altura uniforme de módulos
-            function ajustarAlturaModulos() {
+            // Ajustar alturas de módulos para uniformidad en escritorio
+            function ajustarAlturasModulos() {
                 if (window.innerWidth > 768) {
                     const celdas = document.querySelectorAll('.modulo-cell');
                     let maxAltura = 0;
                     
-                    // Primero resetear alturas
+                    // Resetear alturas
                     celdas.forEach(celda => {
                         celda.style.height = 'auto';
                     });
                     
-                    // Encontrar la altura máxima
-                    celdas.forEach(celda => {
-                        const altura = celda.offsetHeight;
-                        if (altura > maxAltura) {
-                            maxAltura = altura;
+                    // Calcular nueva altura máxima
+                    setTimeout(() => {
+                        celdas.forEach(celda => {
+                            const altura = celda.offsetHeight;
+                            if (altura > maxAltura) {
+                                maxAltura = altura;
+                            }
+                        });
+                        
+                        // Aplicar altura máxima a todas las celdas
+                        if (maxAltura > 0) {
+                            celdas.forEach(celda => {
+                                celda.style.height = maxAltura + 'px';
+                            });
                         }
-                    });
-                    
-                    // Aplicar altura máxima a todas
-                    celdas.forEach(celda => {
-                        celda.style.height = maxAltura + 'px';
+                    }, 100);
+                } else {
+                    // En móvil, resetear alturas
+                    document.querySelectorAll('.modulo-cell').forEach(celda => {
+                        celda.style.height = 'auto';
                     });
                 }
             }
             
             // Ejecutar al cargar y al redimensionar
-            ajustarAlturaModulos();
-            window.addEventListener('resize', ajustarAlturaModulos);
+            ajustarAlturasModulos();
+            window.addEventListener('resize', ajustarAlturasModulos);
+            
+            // Cargar después de que todas las imágenes estén listas
+            window.addEventListener('load', ajustarAlturasModulos);
         });
     </script>
 </body>

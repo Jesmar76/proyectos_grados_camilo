@@ -375,6 +375,61 @@
                 font-size: 0.8rem;
             }
         }
+        /* Estilos para Padlet en modo solo lectura */
+.padlet-container {
+    width: 100%;
+    margin: 25px 0;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    background: white;
+    border: 3px solid var(--azul-primario);
+}
+
+.padlet-embed {
+    position: relative;
+    width: 100%;
+}
+
+.padlet-embed iframe {
+    width: 100%;
+    height: 500px;
+    display: block;
+    border: none;
+    background: white;
+}
+
+.padlet-footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px;
+    background: linear-gradient(135deg, var(--azul-primario), var(--azul-secundario));
+    border-top: 2px solid var(--amarillo-primario);
+}
+
+.padlet-footer a {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: var(--blanco);
+    font-weight: 600;
+    font-size: 14px;
+    padding: 8px 16px;
+    border-radius: 25px;
+    background: rgba(255,255,255,0.2);
+    transition: all 0.3s;
+}
+
+.padlet-footer a:hover {
+    background: rgba(255,255,255,0.3);
+    transform: translateY(-2px);
+}
+
+.padlet-footer i {
+    font-size: 12px;
+}
     </style>
 </head>
 <body>
@@ -431,19 +486,38 @@
                 </a>
             </div>
             
-            <!-- Módulo 3 -->
-            <div class="modulo-cell">
-                <div class="modulo-icon">
-                    <i class="fas fa-network-wired"></i>
-                </div>
-                <div class="modulo-title">
-                    <h3>SISTEMA OPERATIVO<br>Y REDES</h3>
-                </div>
-                <p class="modulo-desc">Documentación sobre sistemas operativos, configuración de redes, protocolos y administración de servidores.</p>
-                <a href="#" class="modulo-action ver-recursos" data-modulo="3">
-                    <i class="fas fa-folder-open"></i> VER RECURSOS
+           <!-- Módulo 3 - Sistema Operativo y Redes (SOLO LECTURA) -->
+<div class="modulo-cell">
+    <div class="modulo-icon">
+        <i class="fas fa-network-wired"></i>
+    </div>
+    <div class="modulo-title">
+        <h3>SISTEMA OPERATIVO<br>Y REDES</h3>
+    </div>
+    <p class="modulo-desc">Documentación sobre sistemas operativos, configuración de redes, protocolos y administración de servidores.</p>
+    
+    <!-- Padlet en modo SOLO LECTURA -->
+    <div class="padlet-container">
+        <div class="padlet-embed">
+            <iframe 
+                src="https://padlet.com/embed/o8i0xtocww8ucihs?preview=1" 
+                frameborder="0" 
+                style="width:100%;height:500px;display:block;border:none;">
+            </iframe>
+            <div class="padlet-footer">
+                <a href="https://padlet.com/embed/o8i0xtocww8ucihs" target="_blank">
+                    <span>Ver en Padlet</span>
+                    <i class="fas fa-external-link-alt"></i>
                 </a>
             </div>
+        </div>
+    </div>
+    
+    <!-- Botón de acción -->
+    <a href="https://padlet.com/embed/o8i0xtocww8ucihs" target="_blank" class="modulo-action" data-modulo="3">
+        <i class="fas fa-external-link-alt"></i> ABRIR EN PADLET
+    </a>
+</div>
             
             <!-- Módulo 4 -->
             <div class="modulo-cell">

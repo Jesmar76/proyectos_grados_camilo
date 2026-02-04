@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Módulos Técnicos - UNIDAD EDUCATIVA "DR. CAMILO GALLEGOS DOMINGUEZ"</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="logo.jpg" type="image/jpeg">
     <style>
         :root {
             --azul-primario: #0a2463;
@@ -30,41 +31,43 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         
-        /* SOLUCIÓN 1: Fondo más simple para diagnosticar */
+        /* FONDO FIJADO Y ASEGURADO */
         body {
-            background-color: #0a2463; /* Fondo azul de respaldo */
-            background-image: 
-                linear-gradient(rgba(10, 36, 99, 0.85), rgba(26, 54, 147, 0.9)),
-                url('tecno.png');
+            background-color: #0a2463; /* Color de respaldo */
+            background-image: linear-gradient(rgba(10, 36, 99, 0.85), rgba(26, 54, 147, 0.9)), url('tecno.png');
             background-size: cover;
-            background-position: center;
+            background-position: center center;
             background-repeat: no-repeat;
             background-attachment: fixed;
+            background-clip: border-box;
             min-height: 100vh;
-            position: relative;
             color: var(--blanco);
             line-height: 1.6;
+            position: relative;
         }
         
-        /* SOLUCIÓN 2: Agregar un div para el fondo como alternativa */
-        .background-container {
+        /* Overlay para asegurar que la imagen se vea */
+        .background-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
+            background: linear-gradient(rgba(10, 36, 99, 0.85), rgba(26, 54, 147, 0.9));
             z-index: -2;
         }
         
         .background-image {
+            position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
-            background-image: 
-                linear-gradient(rgba(10, 36, 99, 0.85), rgba(26, 54, 147, 0.9)),
-                url('tecno.png');
+            background-image: url('tecno.png');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
+            z-index: -3;
         }
         
         .container {
@@ -360,10 +363,9 @@
     </style>
 </head>
 <body>
-    <!-- SOLUCIÓN 3: Div alternativo para el fondo -->
-    <div class="background-container">
-        <div class="background-image"></div>
-    </div>
+    <!-- Sistema de fondo triple garantizado -->
+    <div class="background-image"></div>
+    <div class="background-overlay"></div>
 
     <!-- Header -->
     <header>
@@ -543,6 +545,19 @@
                     }
                 });
             });
+            
+            // Debug: Verificar si la imagen se carga
+            console.log('Verificando carga de imagen tecno.png...');
+            const img = new Image();
+            img.onload = function() {
+                console.log('✅ Imagen tecno.png cargada correctamente');
+                document.body.style.backgroundImage = `linear-gradient(rgba(10, 36, 99, 0.85), rgba(26, 54, 147, 0.9)), url('tecno.png')`;
+            };
+            img.onerror = function() {
+                console.error('❌ Error: No se pudo cargar tecno.png');
+                console.log('Verifica que el archivo exista en el repositorio');
+            };
+            img.src = 'tecno.png';
         });
     </script>
 </body>

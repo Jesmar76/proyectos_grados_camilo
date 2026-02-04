@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Módulos Técnicos -UNIDAD EDUCATIVA "DR. CAMILO GALLEGOS DOMINGUEZ"</title>
+    <title>Módulos Técnicos - UNIDAD EDUCATIVA "DR. CAMILO GALLEGOS DOMINGUEZ"</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
@@ -31,10 +31,26 @@
         }
         
         body {
-            background-color: var(--azul-claro);
-            color: var(--azul-oscuro);
+            background: linear-gradient(135deg, #1a237e, #283593);
+            color: var(--gris-oscuro);
             line-height: 1.6;
-            overflow-x: hidden;
+            min-height: 100vh;
+            position: relative;
+        }
+        
+        /* Fondo con patrón tecnológico */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(59, 130, 246, 0.1) 0%, transparent 50%),
+                linear-gradient(135deg, rgba(26, 35, 126, 0.95), rgba(40, 53, 147, 0.95));
+            z-index: -1;
         }
         
         .container {
@@ -77,12 +93,13 @@
         header {
             background: linear-gradient(135deg, var(--azul-primario), var(--azul-secundario));
             color: var(--blanco);
-            padding: 2rem 0;
+            padding: 1.5rem 0;
             box-shadow: 0 4px 20px var(--sombra);
             position: sticky;
             top: 0;
             z-index: 1000;
             animation: fadeInUp 0.8s ease-out;
+            border-bottom: 3px solid var(--amarillo-primario);
         }
         
         .header-content {
@@ -94,44 +111,53 @@
         .logo {
             display: flex;
             align-items: center;
-            gap: 12px;
+            gap: 15px;
         }
         
-        .logo i {
-            font-size: 2.2rem;
+        .logo-icon {
+            font-size: 2.5rem;
             color: var(--amarillo-primario);
             animation: float 3s ease-in-out infinite;
+            background: rgba(255, 255, 255, 0.1);
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         
-        .logo h1 {
-            font-size: 1.4rem;
+        .logo-text h1 {
+            font-size: 1.5rem;
             font-weight: 700;
+            color: var(--blanco);
         }
         
         .unidad-educativa {
-            text-align: center;
-            margin: 1rem 0;
             font-size: 0.9rem;
-            opacity: 0.9;
+            color: var(--amarillo-primario);
+            font-weight: 600;
         }
         
-        /* Sección de módulos */
+        /* Sección principal */
         .modulos-section {
-            padding: 2rem 0 3rem;
+            padding: 3rem 0 4rem;
         }
         
         .section-title {
             text-align: center;
-            margin-bottom: 2rem;
-            color: var(--white-primario);
+            margin-bottom: 3rem;
             position: relative;
         }
         
         .section-title h2 {
-            font-size: 2rem;
+            font-size: 2.5rem;
+            color: var(--blanco);
             display: inline-block;
-            padding-bottom: 10px;
+            padding-bottom: 15px;
             position: relative;
+            font-weight: 800;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
         
         .section-title h2::after {
@@ -140,430 +166,144 @@
             bottom: 0;
             left: 50%;
             transform: translateX(-50%);
-            width: 100px;
+            width: 150px;
             height: 4px;
-            background: linear-gradient(to right, var(--azul-primario), var(--amarillo-primario));
+            background: linear-gradient(to right, var(--amarillo-primario), var(--amarillo-secundario));
             border-radius: 2px;
         }
         
-        /* Grid de módulos */
-        .modulos-grid {
+        /* TABLA DE MÓDULOS - MURAL DIGITAL */
+        .modulos-table {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-            gap: 1.5rem;
-            margin-bottom: 3rem;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+            gap: 2rem;
+            margin-bottom: 4rem;
         }
         
-        .modulo-card {
-            background-color: var(--blanco);
-            border-radius: 15px;
-            overflow: hidden;
-            box-shadow: 0 8px 20px var(--sombra);
+        .modulo-cell {
+            background: linear-gradient(145deg, rgba(255, 255, 255, 0.95), rgba(255, 255, 255, 0.85));
+            border-radius: 20px;
+            padding: 2.5rem 2rem;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
             transition: all 0.4s;
             position: relative;
-            animation: fadeInUp 0.8s ease-out;
-            height: 100%;
+            overflow: hidden;
+            border: 3px solid transparent;
             display: flex;
             flex-direction: column;
-        }
-        
-        .modulo-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-        }
-        
-        .card-header {
-            padding: 1.5rem;
-            display: flex;
             align-items: center;
-            gap: 15px;
-            border-bottom: 1px solid var(--gris-claro);
+            justify-content: center;
+            text-align: center;
+            animation: fadeInUp 0.8s ease-out;
+            backdrop-filter: blur(10px);
         }
         
-        .card-icon {
-            font-size: 2rem;
-            background: var(--gris-claro);
-            padding: 12px;
-            border-radius: 12px;
+        /* Colores de borde para cada módulo */
+        .modulo-cell:nth-child(1) { border-color: var(--azul-primario); }
+        .modulo-cell:nth-child(2) { border-color: var(--verde-primario); }
+        .modulo-cell:nth-child(3) { border-color: var(--rojo-primario); }
+        .modulo-cell:nth-child(4) { border-color: var(--morado-primario); }
+        .modulo-cell:nth-child(5) { border-color: var(--rosa-primario); }
+        .modulo-cell:nth-child(6) { border-color: var(--naranja-primario); }
+        
+        .modulo-cell:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+            z-index: 2;
+        }
+        
+        /* Icono del módulo */
+        .modulo-icon {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            padding: 1rem;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.2);
+            width: 90px;
+            height: 90px;
             display: flex;
             align-items: center;
             justify-content: center;
-            width: 70px;
-            height: 70px;
+            transition: all 0.3s;
         }
         
-        .modulo-1 .card-icon { color: var(--azul-primario); }
-        .modulo-2 .card-icon { color: var(--verde-primario); }
-        .modulo-3 .card-icon { color: var(--rojo-primario); }
-        .modulo-4 .card-icon { color: var(--morado-primario); }
-        .modulo-5 .card-icon { color: var(--rosa-primario); }
-        .modulo-6 .card-icon { color: var(--naranja-primario); }
+        .modulo-cell:hover .modulo-icon {
+            transform: scale(1.2) rotate(10deg);
+            background: rgba(255, 255, 255, 0.3);
+        }
         
-        .card-title h3 {
-            font-size: 1.3rem;
+        /* Colores de iconos */
+        .modulo-cell:nth-child(1) .modulo-icon { color: var(--azul-primario); }
+        .modulo-cell:nth-child(2) .modulo-icon { color: var(--verde-primario); }
+        .modulo-cell:nth-child(3) .modulo-icon { color: var(--rojo-primario); }
+        .modulo-cell:nth-child(4) .modulo-icon { color: var(--morado-primario); }
+        .modulo-cell:nth-child(5) .modulo-icon { color: var(--rosa-primario); }
+        .modulo-cell:nth-child(6) .modulo-icon { color: var(--naranja-primario); }
+        
+        /* Título del módulo */
+        .modulo-title {
+            margin-bottom: 1.5rem;
+        }
+        
+        .modulo-title h3 {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: var(--azul-primario);
             line-height: 1.3;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        /* Descripción */
+        .modulo-desc {
             color: var(--gris-oscuro);
+            margin-bottom: 2rem;
+            font-size: 1rem;
+            line-height: 1.5;
+            opacity: 0.9;
         }
         
-        .card-body {
-            padding: 1.5rem;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .card-body p {
-            color: var(--gris-oscuro);
-            margin-bottom: 1.5rem;
-            flex-grow: 1;
-        }
-        
-        .card-stats {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 1.5rem;
-            font-size: 0.9rem;
-            color: var(--azul-claro);
-            font-weight: 600;
-        }
-        
-        .card-link {
+        /* Botón de acción */
+        .modulo-action {
             display: inline-block;
-            background: linear-gradient(to right, var(--azul-primario), var(--azul-secundario));
+            background: linear-gradient(135deg, var(--azul-primario), var(--azul-secundario));
             color: var(--blanco);
-            padding: 12px 25px;
+            padding: 12px 30px;
             border-radius: 50px;
             text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s;
-            text-align: center;
-            width: 100%;
-            border: none;
-            cursor: pointer;
+            font-weight: 700;
             font-size: 1rem;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0 5px 15px rgba(10, 36, 99, 0.3);
         }
         
-        .card-link:hover {
+        .modulo-action:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 15px rgba(10, 36, 99, 0.3);
-            background: linear-gradient(to right, var(--azul-secundario), var(--azul-primario));
+            box-shadow: 0 10px 20px rgba(10, 36, 99, 0.4);
+            background: linear-gradient(135deg, var(--azul-secundario), var(--azul-primario));
         }
         
-        /* Modal para recursos */
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
-            z-index: 1100;
-            overflow-y: auto;
-        }
-        
-        .modal-content {
-            background-color: var(--blanco);
-            margin: 5% auto;
-            width: 90%;
-            max-width: 900px;
-            border-radius: 15px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
-            animation: fadeInUp 0.5s ease-out;
-            max-height: 85vh;
-            overflow-y: auto;
-        }
-        
-        .modal-header {
-            background: linear-gradient(to right, var(--azul-primario), var(--azul-secundario));
-            color: var(--blanco);
-            padding: 1.5rem;
-            border-radius: 15px 15px 0 0;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 10;
-        }
-        
-        .modal-header h2 {
-            font-size: 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        
-        .close-modal {
-            font-size: 2rem;
-            cursor: pointer;
-            transition: transform 0.3s;
-            background: none;
-            border: none;
-            color: var(--blanco);
-        }
-        
-        .close-modal:hover {
-            transform: scale(1.2);
-        }
-        
-        .modal-body {
-            padding: 2rem;
-        }
-        
-        /* Controles para subir recursos */
-        .upload-controls {
-            background-color: var(--gris-claro);
-            padding: 1.5rem;
-            border-radius: 10px;
-            margin-bottom: 2rem;
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
-            align-items: center;
-            justify-content: space-between;
-        }
-        
-        .upload-btn {
-            background: linear-gradient(to right, var(--amarillo-primario), var(--amarillo-secundario));
-            color: var(--azul-primario);
-            padding: 12px 25px;
-            border-radius: 50px;
-            font-weight: 600;
-            border: none;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            transition: all 0.3s;
-        }
-        
-        .upload-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 15px rgba(251, 191, 36, 0.3);
-        }
-        
-        .filtro-recursos {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-        
-        .filtro-btn {
-            padding: 8px 15px;
-            background-color: var(--blanco);
-            border: 2px solid var(--azul-claro);
-            color: var(--azul-primario);
-            border-radius: 30px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s;
-        }
-        
-        .filtro-btn:hover {
-            background-color: var(--azul-claro);
-            color: var(--blanco);
-        }
-        
-        .filtro-btn.active {
-            background-color: var(--white-primario);
-            color: var(--blanco);
-            border-color: var(--azul-primario);
-        }
-        
-        /* Galería de recursos */
-        .recursos-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 1.5rem;
-        }
-        
-        .recurso-card {
-            background-color: var(--blanco);
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px var(--sombra);
-            transition: all 0.3s;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .recurso-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-        }
-        
-        .recurso-thumbnail {
-            height: 150px;
-            background-color: var(--gris-claro);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            color: var(--azul-primario);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .recurso-thumbnail img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .recurso-thumbnail .icono {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background-color: rgba(255, 255, 255, 0.8);
-            padding: 5px;
-            border-radius: 5px;
-            font-size: 1.2rem;
-        }
-        
-        .recurso-info {
-            padding: 1rem;
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-        }
-        
-        .recurso-info h4 {
-            margin-bottom: 0.5rem;
-            color: var(--gris-oscuro);
-        }
-        
-        .recurso-desc {
-            font-size: 0.9rem;
-            color: var(--gris-oscuro);
-            margin-bottom: 1rem;
-            flex-grow: 1;
-        }
-        
-        .recurso-meta {
-            display: flex;
-            justify-content: space-between;
-            font-size: 0.8rem;
-            color: var(--azul-claro);
-            margin-bottom: 1rem;
-        }
-        
-        .recurso-actions {
-            display: flex;
-            gap: 10px;
-        }
-        
-        .action-btn {
-            flex-grow: 1;
-            padding: 8px 15px;
-            border-radius: 5px;
-            border: none;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 5px;
-        }
-        
-        .descargar-btn {
-            background-color: var(--verde-primario);
-            color: var(--blanco);
-        }
-        
-        .descargar-btn:hover {
-            background-color: #0da271;
-        }
-        
-        .ver-btn {
-            background-color: var(--azul-claro);
-            color: var(--blanco);
-        }
-        
-        .ver-btn:hover {
-            background-color: var(--azul-secundario);
-        }
-        
-        /* Formulario para subir recursos */
-        .upload-form {
-            background-color: var(--gris-claro);
-            padding: 1.5rem;
-            border-radius: 10px;
-            margin-top: 2rem;
-            display: none;
-        }
-        
-        .upload-form h3 {
-            margin-bottom: 1rem;
-            color: var(--azul-primario);
-        }
-        
-        .form-group {
-            margin-bottom: 1rem;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: 600;
-            color: var(--gris-oscuro);
-        }
-        
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: 10px;
-            border: 2px solid #ddd;
-            border-radius: 5px;
-            font-size: 1rem;
-        }
-        
-        .form-group textarea {
-            resize: vertical;
-            min-height: 100px;
-        }
-        
-        .form-actions {
-            display: flex;
-            gap: 10px;
-            justify-content: flex-end;
-        }
-        
-        .btn {
-            padding: 10px 20px;
-            border-radius: 5px;
-            border: none;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s;
-        }
-        
-        .btn-primary {
-            background-color: var(--azul-primario);
-            color: var(--blanco);
-        }
-        
-        .btn-primary:hover {
-            background-color: var(--azul-secundario);
-        }
-        
-        .btn-secondary {
-            background-color: var(--gris-oscuro);
-            color: var(--blanco);
-        }
-        
-        .btn-secondary:hover {
-            background-color: #374151;
-        }
+        /* Estilo específico para cada módulo */
+        .modulo-cell:nth-child(1) .modulo-action { background: linear-gradient(135deg, var(--azul-primario), var(--azul-claro)); }
+        .modulo-cell:nth-child(2) .modulo-action { background: linear-gradient(135deg, var(--verde-primario), #34d399); }
+        .modulo-cell:nth-child(3) .modulo-action { background: linear-gradient(135deg, var(--rojo-primario), #f87171); }
+        .modulo-cell:nth-child(4) .modulo-action { background: linear-gradient(135deg, var(--morado-primario), #a78bfa); }
+        .modulo-cell:nth-child(5) .modulo-action { background: linear-gradient(135deg, var(--rosa-primario), #f472b6); }
+        .modulo-cell:nth-child(6) .modulo-action { background: linear-gradient(135deg, var(--naranja-primario), #fb923c); }
         
         /* Footer */
         footer {
-            background-color: var(--gris-oscuro);
+            background: linear-gradient(135deg, var(--azul-primario), var(--azul-secundario));
             color: var(--blanco);
-            padding: 2rem 0 1.5rem;
+            padding: 3rem 0 2rem;
             margin-top: 3rem;
+            border-top: 3px solid var(--amarillo-primario);
         }
         
         .footer-content {
@@ -577,260 +317,215 @@
             color: var(--amarillo-primario);
             margin-bottom: 1.2rem;
             font-size: 1.3rem;
+            padding-bottom: 10px;
+            border-bottom: 2px solid rgba(255, 255, 255, 0.2);
         }
         
         .footer-column p {
-            color: rgba(255, 255, 255, 0.8);
+            color: rgba(255, 255, 255, 0.9);
             margin-bottom: 0.8rem;
+            line-height: 1.5;
         }
         
         .copyright {
             text-align: center;
-            padding-top: 1.5rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            color: rgba(255, 255, 255, 0.7);
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            color: rgba(255, 255, 255, 0.8);
             font-size: 0.9rem;
         }
         
+        /* Efecto de partículas en el fondo */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: var(--amarillo-primario);
+            border-radius: 50%;
+            animation: float 8s infinite linear;
+        }
+        
         /* Responsividad */
+        @media (max-width: 1024px) {
+            .modulos-table {
+                gap: 1.5rem;
+            }
+            
+            .modulo-cell {
+                padding: 2rem 1.5rem;
+            }
+            
+            .modulo-title h3 {
+                font-size: 1.4rem;
+            }
+        }
+        
         @media (max-width: 768px) {
-            .modulos-grid {
-                grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            .modulos-table {
+                grid-template-columns: 1fr;
+                grid-template-rows: repeat(6, auto);
+                gap: 1.5rem;
             }
             
-            .recursos-grid {
-                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            .section-title h2 {
+                font-size: 2rem;
             }
             
-            .upload-controls {
+            .header-content {
                 flex-direction: column;
-                align-items: stretch;
+                text-align: center;
+                gap: 1rem;
             }
         }
         
         @media (max-width: 480px) {
-            .modulos-grid {
-                grid-template-columns: 1fr;
+            .modulo-cell {
+                padding: 1.5rem 1rem;
             }
             
-            .recursos-grid {
-                grid-template-columns: 1fr;
+            .modulo-icon {
+                font-size: 2.5rem;
+                width: 70px;
+                height: 70px;
             }
             
-            .modal-content {
-                width: 95%;
-                margin: 10% auto;
+            .modulo-title h3 {
+                font-size: 1.2rem;
+            }
+            
+            .modulo-desc {
+                font-size: 0.9rem;
+            }
+            
+            .modulo-action {
+                padding: 10px 20px;
+                font-size: 0.9rem;
             }
         }
     </style>
 </head>
 <body>
+    <!-- Partículas en el fondo -->
+    <div class="particles" id="particles"></div>
+    
     <!-- Header -->
     <header>
         <div class="container header-content">
             <div class="logo">
-                <i class="fas fa-laptop-code"></i>
-                <div>
-                    <h1>MÓDULOS TÉCNICOS</h1>
-                    <div class="unidad-educativa">UNIDAD EDUCATIVA "DR. CAMILO G ALLEGOS DOMINGUEZ"</div>
+                <div class="logo-icon">
+                    <i class="fas fa-laptop-code"></i>
+                </div>
+                <div class="logo-text">
+                    <h1>MURAL DIGITAL DE MÓDULOS TÉCNICOS</h1>
+                    <div class="unidad-educativa">UNIDAD EDUCATIVA "DR. CAMILO GALLEGOS DOMINGUEZ"</div>
                 </div>
             </div>
         </div>
     </header>
 
-    <!-- Sección de módulos -->
+    <!-- Sección de módulos en tabla 2x3 -->
     <section class="modulos-section container">
         <div class="section-title">
-            <h2>Módulos Técnicos en Informática</h2>
+            <h2>MÓDULOS TÉCNICOS EN INFORMÁTICA</h2>
         </div>
         
-        <div class="modulos-grid">
-            <!-- Módulo 1 -->
-            <div class="modulo-card modulo-1">
-                <div class="card-header">
-                    <div class="card-icon">
-                        <i class="fas fa-file-alt"></i>
-                    </div>
-                    <div class="card-title">
-                        <h3>APLICACIONES OFIMÁTICA LOCALES Y EN LÌNEA</h3>
-                    </div>
+        <!-- TABLA DE 2 COLUMNAS Y 3 FILAS -->
+        <div class="modulos-table">
+            <!-- Fila 1, Columna 1 -->
+            <div class="modulo-cell">
+                <div class="modulo-icon">
+                    <i class="fas fa-file-alt"></i>
                 </div>
-                <div class="card-body">
-                    <p>Recursos sobre procesadores de texto, hojas de cálculo, presentaciones y herramientas ofimáticas locales y en línea.</p>
-                    <button class="card-link ver-recursos" data-modulo="1">
-                        <i class="fas fa-folder-open"></i> Ver Recursos
-                    </button>
+                <div class="modulo-title">
+                    <h3>APLICACIONES OFIMÁTICAS<br>LOCALES Y EN LÍNEA</h3>
                 </div>
+                <p class="modulo-desc">Recursos sobre procesadores de texto, hojas de cálculo, presentaciones y herramientas ofimáticas locales y en línea.</p>
+                <a href="#" class="modulo-action ver-recursos" data-modulo="1">
+                    <i class="fas fa-folder-open"></i> VER RECURSOS
+                </a>
             </div>
             
-           <!-- Módulo 2 -->
-           <div class="modulo-card modulo-2">
-                <div class="card-header">
-                    <div class="card-icon">
-                        <i class="fas fa-code"></i>
-                    </div>
-
-               <div class="card-title">
-                   <h3>PROGRAMACIÓN Y BASES DE DATOS</h3>
-              </div>
-            </div>
-
-           <div class="card-body">
-             <p> Material sobre lenguajes de programación, algoritmos, estructuras de datos y sistemas de gestión de bases de datos.</p>
-                <a href="programacion.html" target="_blank" class="card-link ver-recursos btn" data-modulo="2">
-                   <i class="fas fa-folder-open"></i> VER RECURSOS
-               </a>
-              </button>
-            </div>
-         </div>
-
-            
-            <!-- Módulo 3 -->
-            <div class="modulo-card modulo-3">
-                <div class="card-header">
-                    <div class="card-icon">
-                        <i class="fas fa-network-wired"></i>
-                    </div>
-                    <div class="card-title">
-                        <h3>SISTEMA OPERATIVO Y REDES</h3>
-                    </div>
+            <!-- Fila 1, Columna 2 -->
+            <div class="modulo-cell">
+                <div class="modulo-icon">
+                    <i class="fas fa-code"></i>
                 </div>
-                <div class="card-body">
-                    <p>Documentación sobre sistemas operativos, configuración de redes, protocolos y administración de servidores.</p>
-                    
-                    <button class="card-link ver-recursos" data-modulo="3">
-                        <i class="fas fa-folder-open"></i> Ver Recursos
-                    </button>
+                <div class="modulo-title">
+                    <h3>PROGRAMACIÓN Y<br>BASES DE DATOS</h3>
                 </div>
+                <p class="modulo-desc">Material sobre lenguajes de programación, algoritmos, estructuras de datos y sistemas de gestión de bases de datos.</p>
+                <a href="programacion.html" target="_blank" class="modulo-action ver-recursos" data-modulo="2">
+                    <i class="fas fa-folder-open"></i> VER RECURSOS
+                </a>
             </div>
             
-            <!-- Módulo 4 -->
-            <div class="modulo-card modulo-4">
-                <div class="card-header">
-                    <div class="card-icon">
-                        <i class="fas fa-tools"></i>
-                    </div>
-                    <div class="card-title">
-                        <h3>SOPORTE TÉCNICO</h3>
-                    </div>
+            <!-- Fila 2, Columna 1 -->
+            <div class="modulo-cell">
+                <div class="modulo-icon">
+                    <i class="fas fa-network-wired"></i>
                 </div>
-                <div class="card-body">
-                    <p>Recursos sobre mantenimiento de hardware, solución de problemas, diagnóstico y reparación de equipos.</p>
-                   
-                    <button class="card-link ver-recursos" data-modulo="4">
-                        <i class="fas fa-folder-open"></i> Ver Recursos
-                    </button>
+                <div class="modulo-title">
+                    <h3>SISTEMA OPERATIVO<br>Y REDES</h3>
                 </div>
+                <p class="modulo-desc">Documentación sobre sistemas operativos, configuración de redes, protocolos y administración de servidores.</p>
+                <a href="#" class="modulo-action ver-recursos" data-modulo="3">
+                    <i class="fas fa-folder-open"></i> VER RECURSOS
+                </a>
             </div>
             
-            <!-- Módulo 5 -->
-            <div class="modulo-card modulo-5">
-                <div class="card-header">
-                    <div class="card-icon">
-                        <i class="fas fa-laptop-code"></i>
-                    </div>
-                    <div class="card-title">
-                        <h3>DISEÑO Y DESARROLLO WEB</h3>
-                    </div>
+            <!-- Fila 2, Columna 2 -->
+            <div class="modulo-cell">
+                <div class="modulo-icon">
+                    <i class="fas fa-tools"></i>
                 </div>
-                <div class="card-body">
-                    <p>Material sobre diseño UI/UX, HTML, CSS, JavaScript, frameworks y desarrollo de aplicaciones web.</p>
-                    
-                    <button class="card-link ver-recursos" data-modulo="5">
-                        <i class="fas fa-folder-open"></i> Ver Recursos
-                    </button>
+                <div class="modulo-title">
+                    <h3>SOPORTE<br>TÉCNICO</h3>
                 </div>
+                <p class="modulo-desc">Recursos sobre mantenimiento de hardware, solución de problemas, diagnóstico y reparación de equipos.</p>
+                <a href="#" class="modulo-action ver-recursos" data-modulo="4">
+                    <i class="fas fa-folder-open"></i> VER RECURSOS
+                </a>
             </div>
             
-            <!-- Módulo 6 -->
-            <div class="modulo-card modulo-6">
-                <div class="card-header">
-                    <div class="card-icon">
-                        <i class="fas fa-briefcase"></i>
-                    </div>
-                    <div class="card-title">
-                        <h3>FORMACIÓN Y ORIENTACIÓN LABORAL</h3>
-                    </div>
+            <!-- Fila 3, Columna 1 -->
+            <div class="modulo-cell">
+                <div class="modulo-icon">
+                    <i class="fas fa-laptop-code"></i>
                 </div>
-                <div class="card-body">
-                    <p>Documentos sobre habilidades blandas, redacción de CV, entrevistas laborales y emprendimiento.</p>
-                    
-                    <button class="card-link ver-recursos" data-modulo="6">
-                        <i class="fas fa-folder-open"></i> Ver Recursos
-                    </button>
+                <div class="modulo-title">
+                    <h3>DISEÑO Y<br>DESARROLLO WEB</h3>
                 </div>
+                <p class="modulo-desc">Material sobre diseño UI/UX, HTML, CSS, JavaScript, frameworks y desarrollo de aplicaciones web.</p>
+                <a href="#" class="modulo-action ver-recursos" data-modulo="5">
+                    <i class="fas fa-folder-open"></i> VER RECURSOS
+                </a>
+            </div>
+            
+            <!-- Fila 3, Columna 2 -->
+            <div class="modulo-cell">
+                <div class="modulo-icon">
+                    <i class="fas fa-briefcase"></i>
+                </div>
+                <div class="modulo-title">
+                    <h3>FORMACIÓN Y<br>ORIENTACIÓN LABORAL</h3>
+                </div>
+                <p class="modulo-desc">Documentos sobre habilidades blandas, redacción de CV, entrevistas laborales y emprendimiento.</p>
+                <a href="#" class="modulo-action ver-recursos" data-modulo="6">
+                    <i class="fas fa-folder-open"></i> VER RECURSOS
+                </a>
             </div>
         </div>
     </section>
-
-    <!-- Modal para mostrar recursos -->
-    <div id="recursosModal" class="modal">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2 id="modalTitulo"><i class="fas fa-folder-open"></i> Recursos del Módulo</h2>
-                <button class="close-modal">&times;</button>
-            </div>
-            <div class="modal-body">
-                <div class="upload-controls">
-                    <button class="upload-btn" id="mostrarFormulario">
-                        <i class="fas fa-upload"></i> Subir Nuevo Recurso
-                    </button>
-                    
-                    <div class="filtro-recursos">
-                        <button class="filtro-btn active" data-tipo="todos">Todos</button>
-                        <button class="filtro-btn" data-tipo="pdf">PDF</button>
-                        <button class="filtro-btn" data-tipo="video">Video</button>
-                        <button class="filtro-btn" data-tipo="imagen">Imagen</button>
-                        <button class="filtro-btn" data-tipo="audio">Podcast</button>
-                    </div>
-                </div>
-                
-                <!-- Formulario para subir recursos (inicialmente oculto) -->
-                <div class="upload-form" id="formularioSubida">
-                    <h3><i class="fas fa-cloud-upload-alt"></i> Subir Recurso Educativo</h3>
-                    <form id="nuevoRecursoForm">
-                        <div class="form-group">
-                            <label for="tituloRecurso">Título del Recurso</label>
-                            <input type="text" id="tituloRecurso" required>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="descripcionRecurso">Descripción</label>
-                            <textarea id="descripcionRecurso" required></textarea>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="tipoRecurso">Tipo de Recurso</label>
-                            <select id="tipoRecurso" required>
-                                <option value="">Seleccionar tipo</option>
-                                <option value="pdf">PDF / Documento</option>
-                                <option value="video">Video</option>
-                                <option value="imagen">Imagen</option>
-                                <option value="audio">Podcast / Audio</option>
-                                <option value="presentacion">Presentación</option>
-                                <option value="enlace">Enlace web</option>
-                            </select>
-                        </div>
-                        
-                        <div class="form-group">
-                            <label for="archivoRecurso">Archivo o Enlace</label>
-                            <input type="text" id="archivoRecurso" placeholder="URL del recurso o nombre del archivo" required>
-                        </div>
-                        
-                        <div class="form-actions">
-                            <button type="button" class="btn btn-secondary" id="cancelarSubida">Cancelar</button>
-                            <button type="submit" class="btn btn-primary">Subir Recurso</button>
-                        </div>
-                    </form>
-                </div>
-                
-                <!-- Galería de recursos -->
-                <div class="recursos-grid" id="galeriaRecursos">
-                    <!-- Los recursos se cargarán aquí dinámicamente -->
-                </div>
-            </div>
-        </div>
-    </div>
 
     <!-- Footer -->
     <footer>
@@ -844,7 +539,7 @@
                 
                 <div class="footer-column">
                     <h3>Módulos Técnicos</h3>
-                    <p>1. Aplicaciones Ofimática</p>
+                    <p>1. Aplicaciones Ofimáticas</p>
                     <p>2. Programación y Bases de Datos</p>
                     <p>3. Sistema Operativo y Redes</p>
                     <p>4. Soporte Técnico</p>
@@ -866,5 +561,79 @@
         </div>
     </footer>
 
+    <script>
+        // Crear partículas animadas
+        function crearParticulas() {
+            const container = document.getElementById('particles');
+            const particleCount = 30;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.classList.add('particle');
+                
+                // Posición aleatoria
+                particle.style.left = `${Math.random() * 100}%`;
+                particle.style.top = `${Math.random() * 100}%`;
+                
+                // Tamaño aleatorio
+                const size = Math.random() * 4 + 2;
+                particle.style.width = `${size}px`;
+                particle.style.height = `${size}px`;
+                
+                // Opacidad aleatoria
+                particle.style.opacity = Math.random() * 0.5 + 0.1;
+                
+                // Animación con duración aleatoria
+                const duration = Math.random() * 10 + 5;
+                particle.style.animationDuration = `${duration}s`;
+                
+                // Retardo aleatorio
+                particle.style.animationDelay = `${Math.random() * 5}s`;
+                
+                container.appendChild(particle);
+            }
+        }
+        
+        // Efectos de hover en los módulos
+        document.querySelectorAll('.modulo-cell').forEach(cell => {
+            cell.addEventListener('mouseenter', function() {
+                const icon = this.querySelector('.modulo-icon i');
+                icon.style.transform = 'scale(1.3) rotate(15deg)';
+            });
+            
+            cell.addEventListener('mouseleave', function() {
+                const icon = this.querySelector('.modulo-icon i');
+                icon.style.transform = 'scale(1) rotate(0deg)';
+            });
+        });
+        
+        // Navegación suave para botones
+        document.querySelectorAll('.ver-recursos').forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                if (!this.getAttribute('href') || this.getAttribute('href') === '#') {
+                    e.preventDefault();
+                    alert(`Accediendo a recursos del módulo ${this.getAttribute('data-modulo')}`);
+                }
+            });
+        });
+        
+        // Inicializar efectos cuando se carga la página
+        document.addEventListener('DOMContentLoaded', function() {
+            crearParticulas();
+            
+            // Actualizar año en el footer
+            const year = new Date().getFullYear();
+            const copyrightElement = document.querySelector('.copyright p:first-child');
+            if (copyrightElement) {
+                copyrightElement.innerHTML = copyrightElement.innerHTML.replace('2023', year);
+            }
+            
+            // Animación de aparición escalonada para módulos
+            const moduloCells = document.querySelectorAll('.modulo-cell');
+            moduloCells.forEach((cell, index) => {
+                cell.style.animationDelay = `${index * 0.1}s`;
+            });
+        });
+    </script>
 </body>
 </html>

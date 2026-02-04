@@ -30,36 +30,29 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         
-        /* FONDO CORREGIDO - SOLO LA IMAGEN CON OVERLAY */
+        /* FONDO CORREGIDO - IMAGEN TECNO.PNG CON OVERLAY */
         body {
             background: 
-                linear-gradient(rgba(26, 35, 126, 0.85), rgba(40, 53, 147, 0.9)),
+                linear-gradient(rgba(10, 36, 99, 0.85), rgba(26, 54, 147, 0.9)),
                 url('tecno.png');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
             background-attachment: fixed;
-            color: var(--gris-oscuro);
+            color: var(--blanco);
             line-height: 1.6;
             min-height: 100vh;
-            position: relative;
         }
-      
         
-        /* QUITAR EL FONDO DUPLICADO EN ::before */
-        /* Solo mantener las partículas si las necesitas */
-        body::before {
-            content: "";
+        /* Efecto de partículas sutiles */
+        .particles-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: 
-                radial-gradient(circle at 20% 80%, rgba(255, 215, 0, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(59, 130, 246, 0.1) 0%, transparent 50%);
             z-index: -1;
-            pointer-events: none; /* Importante: no interferir con clicks */
+            pointer-events: none;
         }
         
         .container {
@@ -344,17 +337,7 @@
             font-size: 0.9rem;
         }
         
-        /* Efecto de partículas en el fondo */
-        .particles {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: -1;
-        }
-        
+        /* Efecto de partículas */
         .particle {
             position: absolute;
             width: 4px;
@@ -424,16 +407,9 @@
     </style>
 </head>
 <body>
-  
-    margin: 0; 
-      padding: 30px; 
-      font-family: Poppins, sans-serif; 
-      color: #fff; 
-      text-align: center; 
-      background: url("tecno.png") no-repeat center center fixed; 
-      background-size: cover; /* ajusta la imagen al tamaño de la pantalla */
-    }
-    
+    <!-- Contenedor de partículas -->
+    <div class="particles-overlay" id="particles"></div>
+
     <!-- Header -->
     <header>
         <div class="container header-content">
@@ -571,7 +547,7 @@
             </div>
             
             <div class="copyright">
-                <p>&copy; 2023 Unidad Educativa "Dr. Camilo Gallegos Domínguez". Todos los derechos reservados.</p>
+                <p>&copy; <span id="current-year">2023</span> Unidad Educativa "Dr. Camilo Gallegos Domínguez". Todos los derechos reservados.</p>
                 <p>Plataforma de Recursos Educativos para Módulos Técnicos en Informática</p>
             </div>
         </div>
@@ -639,15 +615,13 @@
             
             // Actualizar año en el footer
             const year = new Date().getFullYear();
-            const copyrightElement = document.querySelector('.copyright p:first-child');
-            if (copyrightElement) {
-                copyrightElement.innerHTML = copyrightElement.innerHTML.replace('2023', year);
-            }
+            document.getElementById('current-year').textContent = year;
             
             // Animación de aparición escalonada para módulos
             const moduloCells = document.querySelectorAll('.modulo-cell');
             moduloCells.forEach((cell, index) => {
                 cell.style.animationDelay = `${index * 0.1}s`;
+                cell.style.animationFillMode = 'both';
             });
         });
     </script>

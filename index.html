@@ -265,7 +265,7 @@
             flex-grow: 1;
         }
         
-        /* CONTENEDOR PADLET COMPACTO */
+        /* CONTENEDOR PADLET DE SOLO LECTURA */
         .padlet-container {
             width: 100%;
             margin: 1.2rem 0 1.5rem;
@@ -274,24 +274,33 @@
             border: 2px solid var(--rojo-primario);
             background: white;
             box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
-            transition: all 0.3s;
-        }
-        
-        .padlet-container:hover {
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.18);
-            transform: translateY(-3px);
+            position: relative;
         }
         
         .padlet-embed {
             position: relative;
             width: 100%;
+            pointer-events: none; /* IMPORTANTE: Previene interacción */
+        }
+        
+        /* Capa de bloqueo para asegurar solo lectura */
+        .padlet-lock-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.01); /* Transparente pero bloquea clicks */
+            z-index: 10;
+            cursor: not-allowed;
         }
         
         .padlet-embed iframe {
             width: 100%;
-            height: 240px; /* ALTURA REDUCIDA */
+            height: 240px;
             display: block;
             border: none;
+            pointer-events: none; /* Bloquea interacción dentro del iframe */
         }
         
         .padlet-footer {
@@ -301,28 +310,31 @@
             border-top: 1px solid rgba(255, 255, 255, 0.25);
         }
         
-        .padlet-footer a {
+        .padlet-footer span {
             color: white;
-            text-decoration: none;
             font-size: 0.88rem;
             font-weight: 600;
             display: inline-flex;
             align-items: center;
             justify-content: center;
             gap: 7px;
-            transition: all 0.3s;
-            padding: 5px 12px;
-            border-radius: 20px;
-            background: rgba(255, 255, 255, 0.15);
-        }
-        
-        .padlet-footer a:hover {
-            background: rgba(255, 255, 255, 0.25);
-            transform: translateY(-2px);
         }
         
         .padlet-footer i {
-            font-size: 0.8rem;
+            font-size: 0.9rem;
+            color: var(--amarillo-primario);
+        }
+        
+        /* Bloqueo completo para asegurar solo lectura */
+        .readonly-blocker {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 100;
+            background: transparent;
+            cursor: not-allowed;
         }
         
         /* Botón de acción */
@@ -530,11 +542,6 @@
             .section-title h2::after {
                 width: 130px;
             }
-            
-            .padlet-footer a {
-                font-size: 0.85rem;
-                padding: 4px 10px;
-            }
         }
         
         @media (max-width: 400px) {
@@ -615,7 +622,7 @@
                 </a>
             </div>
             
-            <!-- Módulo 3 - CON PADLET COMPACTO -->
+            <!-- Módulo 3 - CON PADLET DE SOLO LECTURA -->
             <div class="modulo-cell">
                 <div class="modulo-icon">
                     <i class="fas fa-network-wired"></i>
@@ -625,25 +632,30 @@
                 </div>
                 <p class="modulo-desc">Documentación sobre sistemas operativos, configuración de redes, protocolos y administración de servidores.</p>
                 
-                <!-- Padlet compacto -->
+                <!-- Padlet de SOLO LECTURA - NO SE PUEDE EDITAR -->
                 <div class="padlet-container">
+                    <div class="readonly-blocker" title="Modo solo lectura - No se permiten ediciones"></div>
                     <div class="padlet-embed">
                         <iframe 
-                            src="https://padlet.com/embed/o8i0xtocww8ucihs?preview=1&hideHeader=1" 
+                            src="https://padlet.com/embed/o8i0xtocww8ucihs?preview=1&hideHeader=1&hideComment=1&hideShare=1" 
                             frameborder="0" 
-                            title="Recursos de Redes - Solo lectura">
+                            title="Recursos de Redes - Solo lectura"
+                            sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
+                            allow="fullscreen"
+                            loading="lazy">
                         </iframe>
-                        <div class="padlet-footer">
-                            <a href="https://padlet.com/embed/o8i0xtocww8ucihs" target="_blank">
-                                <i class="fas fa-external-link-alt"></i> VER COMPLETO EN PADLET
-                            </a>
-                        </div>
+                        <div class="padlet-lock-overlay"></div>
+                    </div>
+                    <div class="padlet-footer">
+                        <span>
+                            <i class="fas fa-lock"></i> MODO SOLO LECTURA - No se permiten ediciones
+                        </span>
                     </div>
                 </div>
                 
-                <!-- Botón de acción -->
+                <!-- Botón para recursos adicionales -->
                 <a href="#" class="modulo-action ver-recursos" data-modulo="3">
-                    <i class="fas fa-folder-open"></i> MÁS RECURSOS
+                    <i class="fas fa-folder-open"></i> RECURSOS ADICIONALES
                 </a>
             </div>
             
@@ -743,12 +755,16 @@
             document.querySelectorAll('.modulo-cell').forEach(cell => {
                 cell.addEventListener('mouseenter', function() {
                     const icon = this.querySelector('.modulo-icon i');
-                    icon.style.transform = 'scale(1.2) rotate(12deg)';
+                    if (icon) {
+                        icon.style.transform = 'scale(1.2) rotate(12deg)';
+                    }
                 });
                 
                 cell.addEventListener('mouseleave', function() {
                     const icon = this.querySelector('.modulo-icon i');
-                    icon.style.transform = 'scale(1) rotate(0deg)';
+                    if (icon) {
+                        icon.style.transform = 'scale(1) rotate(0deg)';
+                    }
                 });
             });
             
@@ -768,10 +784,41 @@
                             'Diseño y Desarrollo Web', 
                             'Formación y Orientación Laboral'
                         ];
-                        alert(`Accediendo a recursos del módulo: ${moduloNombres[moduloNum]}`);
+                        alert(`Accediendo a recursos del módulo: ${moduloNombres[moduloNum]}\n\nLos recursos se abrirán en una nueva ventana.`);
                     }
                 });
             });
+            
+            // BLOQUEO COMPLETO DEL PADLET PARA SOLO LECTURA
+            const padletIframe = document.querySelector('.padlet-embed iframe');
+            if (padletIframe) {
+                // Desactivar todos los eventos en el iframe
+                padletIframe.style.pointerEvents = 'none';
+                
+                // Bloquear clic derecho en el iframe
+                padletIframe.addEventListener('contextmenu', function(e) {
+                    e.preventDefault();
+                    alert('⚠️ Modo solo lectura - No se permiten modificaciones');
+                    return false;
+                });
+                
+                // Bloquear cualquier interacción
+                padletIframe.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    alert('🔒 Este contenido es de solo lectura para consulta');
+                    return false;
+                });
+                
+                // Bloquear eventos de teclado
+                padletIframe.addEventListener('keydown', function(e) {
+                    e.preventDefault();
+                    return false;
+                });
+                
+                // Mensaje en consola
+                console.log('✅ Padlet configurado en modo SOLO LECTURA - No se permiten ediciones');
+            }
             
             // Verificar si las imágenes se cargan correctamente
             console.log('Verificando carga de imágenes...');
@@ -838,6 +885,10 @@
             
             // Cargar después de que todas las imágenes estén listas
             window.addEventListener('load', ajustarAlturasModulos);
+            
+            // Mensaje de advertencia para el Padlet
+            console.log('🔒 Módulo 3 (Sistema Operativo y Redes) está en MODO SOLO LECTURA');
+            console.log('👁️ Los visitantes solo pueden OBSERVAR los recursos, NO pueden editarlos');
         });
     </script>
 </body>

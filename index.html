@@ -31,28 +31,30 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
         
-        /* FONDO FIJADO Y ASEGURADO */
+        /* FONDO CORREGIDO - Usa tecno.jpg directamente */
         body {
-           background-image: url("img/fondo.jpg");
-          background-size: cover;      /* ocupa toda la pantalla */
-         background-repeat: no-repeat;
-         background-position: center;
-         background-attachment: fixed; /* opcional: efecto fijo */
-       }
-              
-        /* Overlay para asegurar que la imagen se vea */
+            background-image: url('tecno.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+            background-attachment: fixed;
+            min-height: 100vh;
+            color: var(--blanco);
+            line-height: 1.6;
+            position: relative;
+        }
+        
+        /* Overlay para mejorar legibilidad */
         .background-overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(rgba(10, 36, 99, 0.85), rgba(26, 54, 147, 0.9));
-            z-index: -2;
+            background: linear-gradient(rgba(10, 36, 99, 0.7), rgba(26, 54, 147, 0.8));
+            z-index: -1;
         }
         
-       
-          
         .container {
             max-width: 1200px;
             margin: 0 auto;
@@ -82,11 +84,11 @@
             }
         }
         
-        /* Header */
+        /* Header con logo CORREGIDO */
         header {
             background: linear-gradient(135deg, var(--azul-primario), var(--azul-secundario));
             color: var(--blanco);
-            padding: 1.5rem 0;
+            padding: 1rem 0;
             box-shadow: 0 4px 20px var(--sombra);
             position: sticky;
             top: 0;
@@ -97,33 +99,39 @@
         
         .header-content {
             display: flex;
-            justify-content: space-between;
+            justify-content: flex-start;
             align-items: center;
+            gap: 20px;
         }
         
-        .logo {
+        .logo-container {
             display: flex;
             align-items: center;
             gap: 15px;
+            flex-wrap: wrap;
         }
         
-        .logo-icon {
-            font-size: 2.5rem;
-            color: var(--amarillo-primario);
-            animation: float 3s ease-in-out infinite;
-            background: (logo.jpg);
-            width: 60px;
-            height: 60px;
+        /* Logo de la institución */
+        .institution-logo {
+            width: 70px;
+            height: 70px;
             border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            object-fit: cover;
+            border: 3px solid var(--amarillo-primario);
+            animation: float 3s ease-in-out infinite;
+            background-color: var(--blanco);
+            padding: 3px;
+        }
+        
+        .logo-text {
+            flex-grow: 1;
         }
         
         .logo-text h1 {
             font-size: 1.5rem;
             font-weight: 700;
             color: var(--blanco);
+            margin-bottom: 5px;
         }
         
         .unidad-educativa {
@@ -342,23 +350,45 @@
                 text-align: center;
                 gap: 1rem;
             }
+            
+            .institution-logo {
+                width: 60px;
+                height: 60px;
+            }
+            
+            .logo-text h1 {
+                font-size: 1.2rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .institution-logo {
+                width: 50px;
+                height: 50px;
+            }
+            
+            .logo-text h1 {
+                font-size: 1rem;
+            }
+            
+            .unidad-educativa {
+                font-size: 0.8rem;
+            }
         }
     </style>
 </head>
-<body background="tecno.jpg">
-    <!-- Sistema de fondo triple garantizado -->
-    <div class="background-image"></div>
+<body>
+    <!-- Overlay para el fondo -->
     <div class="background-overlay"></div>
 
-    <!-- Header -->
+    <!-- Header con logo -->
     <header>
         <div class="container header-content">
-            <div class="logo">
-                <div class="logo-icon">
-                    <i class="logo.jpg"></i>
-                </div>
+            <div class="logo-container">
+                <!-- Logo de la institución -->
+                <img src="logo.jpg" alt="Logo Institución" class="institution-logo">
+                
                 <div class="logo-text">
-                    <i class="logo.jpg"></i>
                     <h1>MURAL DIGITAL DE MÓDULOS TÉCNICOS</h1>
                     <div class="unidad-educativa">UNIDAD EDUCATIVA "DR. CAMILO GALLEGOS DOMINGUEZ"</div>
                 </div>
@@ -530,18 +560,31 @@
                 });
             });
             
-            // Debug: Verificar si la imagen se carga
-            console.log('Verificando carga de imagen tecno.png...');
-            const img = new Image();
-            img.onload = function() {
-                console.log('✅ Imagen tecno.png cargada correctamente');
-                document.body.style.backgroundImage = `linear-gradient(rgba(10, 36, 99, 0.85), rgba(26, 54, 147, 0.9)), url('tecno.png')`;
+            // Debug: Verificar si las imágenes se cargan
+            console.log('Verificando carga de imágenes...');
+            
+            // Verificar tecno.jpg
+            const tecnoImg = new Image();
+            tecnoImg.onload = function() {
+                console.log('✅ Imagen tecno.jpg cargada correctamente');
             };
-            img.onerror = function() {
-                console.error('❌ Error: No se pudo cargar tecno.png');
-                console.log('Verifica que el archivo exista en el repositorio');
+            tecnoImg.onerror = function() {
+                console.error('❌ Error: No se pudo cargar tecno.jpg');
+                console.log('Prueba con tecno.png si existe');
+                // Intentar con tecno.png si tecno.jpg falla
+                document.body.style.backgroundImage = "url('tecno.png')";
             };
-            img.src = 'tecno.png';
+            tecnoImg.src = 'tecno.jpg';
+            
+            // Verificar logo.jpg
+            const logoImg = new Image();
+            logoImg.onload = function() {
+                console.log('✅ Imagen logo.jpg cargada correctamente');
+            };
+            logoImg.onerror = function() {
+                console.error('❌ Error: No se pudo cargar logo.jpg');
+            };
+            logoImg.src = 'logo.jpg';
         });
     </script>
 </body>

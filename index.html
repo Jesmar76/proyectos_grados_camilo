@@ -265,7 +265,7 @@
             flex-grow: 1;
         }
         
-        /* CONTENEDOR PADLET DE SOLO LECTURA */
+        /* CONTENEDOR PADLET FUNCIONAL */
         .padlet-container {
             width: 100%;
             margin: 1.2rem 0 1.5rem;
@@ -274,25 +274,11 @@
             border: 2px solid var(--rojo-primario);
             background: white;
             box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
-            position: relative;
         }
         
         .padlet-embed {
             position: relative;
             width: 100%;
-            pointer-events: none; /* IMPORTANTE: Previene interacción */
-        }
-        
-        /* Capa de bloqueo para asegurar solo lectura */
-        .padlet-lock-overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(255, 255, 255, 0.01); /* Transparente pero bloquea clicks */
-            z-index: 10;
-            cursor: not-allowed;
         }
         
         .padlet-embed iframe {
@@ -300,7 +286,6 @@
             height: 240px;
             display: block;
             border: none;
-            pointer-events: none; /* Bloquea interacción dentro del iframe */
         }
         
         .padlet-footer {
@@ -323,18 +308,6 @@
         .padlet-footer i {
             font-size: 0.9rem;
             color: var(--amarillo-primario);
-        }
-        
-        /* Bloqueo completo para asegurar solo lectura */
-        .readonly-blocker {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 100;
-            background: transparent;
-            cursor: not-allowed;
         }
         
         /* Botón de acción */
@@ -622,7 +595,7 @@
                 </a>
             </div>
             
-            <!-- Módulo 3 - CON PADLET DE SOLO LECTURA -->
+            <!-- Módulo 3 - PADLET FUNCIONAL (pero limitado) -->
             <div class="modulo-cell">
                 <div class="modulo-icon">
                     <i class="fas fa-network-wired"></i>
@@ -632,30 +605,27 @@
                 </div>
                 <p class="modulo-desc">Documentación sobre sistemas operativos, configuración de redes, protocolos y administración de servidores.</p>
                 
-                <!-- Padlet de SOLO LECTURA - NO SE PUEDE EDITAR -->
+                <!-- Padlet incrustado con parámetros de vista previa -->
                 <div class="padlet-container">
-                    <div class="readonly-blocker" title="Modo solo lectura - No se permiten ediciones"></div>
                     <div class="padlet-embed">
                         <iframe 
-                            src="https://padlet.com/embed/o8i0xtocww8ucihs?preview=1&hideHeader=1&hideComment=1&hideShare=1" 
+                            src="https://padlet.com/embed/o8i0xtocww8ucihs?preview=1&showComments=false&showLikes=false&allowComments=false&allowLikes=false" 
                             frameborder="0" 
-                            title="Recursos de Redes - Solo lectura"
-                            sandbox="allow-same-origin allow-scripts allow-popups allow-forms"
+                            title="Recursos de Redes - Vista previa"
                             allow="fullscreen"
                             loading="lazy">
                         </iframe>
-                        <div class="padlet-lock-overlay"></div>
                     </div>
                     <div class="padlet-footer">
                         <span>
-                            <i class="fas fa-lock"></i> MODO SOLO LECTURA - No se permiten ediciones
+                            <i class="fas fa-eye"></i> MODO VISTA PREVIA - Para editar necesita permisos
                         </span>
                     </div>
                 </div>
                 
-                <!-- Botón para recursos adicionales -->
-                <a href="#" class="modulo-action ver-recursos" data-modulo="3">
-                    <i class="fas fa-folder-open"></i> RECURSOS ADICIONALES
+                <!-- Botón para abrir en Padlet (necesita login para editar) -->
+                <a href="https://padlet.com/o8i0xtocww8ucihs" target="_blank" class="modulo-action" data-modulo="3">
+                    <i class="fas fa-external-link-alt"></i> ABRIR EN PADLET
                 </a>
             </div>
             
@@ -789,37 +759,6 @@
                 });
             });
             
-            // BLOQUEO COMPLETO DEL PADLET PARA SOLO LECTURA
-            const padletIframe = document.querySelector('.padlet-embed iframe');
-            if (padletIframe) {
-                // Desactivar todos los eventos en el iframe
-                padletIframe.style.pointerEvents = 'none';
-                
-                // Bloquear clic derecho en el iframe
-                padletIframe.addEventListener('contextmenu', function(e) {
-                    e.preventDefault();
-                    alert('⚠️ Modo solo lectura - No se permiten modificaciones');
-                    return false;
-                });
-                
-                // Bloquear cualquier interacción
-                padletIframe.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    alert('🔒 Este contenido es de solo lectura para consulta');
-                    return false;
-                });
-                
-                // Bloquear eventos de teclado
-                padletIframe.addEventListener('keydown', function(e) {
-                    e.preventDefault();
-                    return false;
-                });
-                
-                // Mensaje en consola
-                console.log('✅ Padlet configurado en modo SOLO LECTURA - No se permiten ediciones');
-            }
-            
             // Verificar si las imágenes se cargan correctamente
             console.log('Verificando carga de imágenes...');
             
@@ -886,9 +825,9 @@
             // Cargar después de que todas las imágenes estén listas
             window.addEventListener('load', ajustarAlturasModulos);
             
-            // Mensaje de advertencia para el Padlet
-            console.log('🔒 Módulo 3 (Sistema Operativo y Redes) está en MODO SOLO LECTURA');
-            console.log('👁️ Los visitantes solo pueden OBSERVAR los recursos, NO pueden editarlos');
+            // Mensaje sobre el Padlet
+            console.log('✅ Padlet configurado en modo vista previa');
+            console.log('👁️ Los visitantes pueden VER los recursos, pero necesitan iniciar sesión en Padlet para editar');
         });
     </script>
 </body>

@@ -445,19 +445,12 @@
                 <i class="fas fa-laptop-code"></i>
                 <h1>GALERIA DIGITAL EDUCATIVA</h1>
             </div>
-            <nav>
-                <ul>
-                    <li><a href="#inicio">Inicio</a></li>
-                    <li><a href="#galeria">Galería</a></li>
-                    <li><a href="#profesionales">Profesionales</a></li>
-                    <li><a href="#contacto">Contacto</a></li>
-                </ul>
-            </nav>
+            
         </div>
     </header>
 
     <!-- Sección principal con el nombre de la unidad educativa -->
-    <section class="hero" id="inicio">
+  
         <div class="container">
             <h1 class="unidad-educativa">Unidad Educativa <span>"DR. CAMILO GALLEGOS DOMINGUEZ"</span></h1>
             <p class="slogan">Explora nuestra galería digital de recursos educativos para la formación de profesionales en informática. Tecnología, innovación y educación de calidad.</p>
@@ -465,12 +458,12 @@
                 <a href="#galeria" class="card-link" style="max-width: 250px; margin: 0 auto;">Explorar Recursos</a>
             </div>
         </div>
-    </section>
+    
 
     <!-- Galería de recursos -->
     <section class="galeria container" id="galeria">
         <div class="section-title">
-            <h2>Recursos Educativos</h2>
+            <h2>RECURSOS EDUCATIVOSs</h2>
         </div>
         
         <div class="filtros">
@@ -504,24 +497,10 @@
                     </div>
                 </div>
                 
-                <div class="footer-column">
-                    <h3>Contacto</h3>
-                    <ul>
-                        <li><i class="fas fa-map-marker-alt"></i> Av. Tecnológica #123, Ciudad</li>
-                        <li><i class="fas fa-phone"></i> (02) 2345-6789</li>
-                        <li><i class="fas fa-envelope"></i> info@gallegosdominguez.edu</li>
-                        <li><i class="fas fa-globe"></i> www.gallegosdominguez.edu</li>
-                    </ul>
-                </div>
-                
+                               
                 <div class="footer-column">
                     <h3>Enlaces Rápidos</h3>
-                    <ul>
-                        <li><i class="fas fa-chevron-right"></i> <a href="#inicio" style="color: rgba(255, 255, 255, 0.8); text-decoration: none;">Inicio</a></li>
-                        <li><i class="fas fa-chevron-right"></i> <a href="#galeria" style="color: rgba(255, 255, 255, 0.8); text-decoration: none;">Galería de Recursos</a></li>
-                        <li><i class="fas fa-chevron-right"></i> <a href="#profesionales" style="color: rgba(255, 255, 255, 0.8); text-decoration: none;">Perfiles Profesionales</a></li>
-                        <li><i class="fas fa-chevron-right"></i> <a href="#" style="color: rgba(255, 255, 255, 0.8); text-decoration: none;">Biblioteca Digital</a></li>
-                    </ul>
+                    
                 </div>
             </div>
             
@@ -609,85 +588,7 @@
             }
         ];
 
-        // Cargar recursos en la galería
-        function cargarRecursos(filtro = 'todos') {
-            const contenedor = document.getElementById('recursos-container');
-            contenedor.innerHTML = '';
-            
-            let recursosFiltrados = recursos;
-            
-            if (filtro !== 'todos') {
-                recursosFiltrados = recursos.filter(recurso => recurso.categoria === filtro);
-            }
-            
-            recursosFiltrados.forEach(recurso => {
-                const card = document.createElement('div');
-                card.className = 'recurso-card';
-                card.setAttribute('data-categoria', recurso.categoria);
-                
-                card.innerHTML = `
-                    <div class="card-header">
-                        <div class="card-icon">
-                            <i class="${recurso.icono}"></i>
-                        </div>
-                        <div class="card-title">
-                            <h3>${recurso.titulo}</h3>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        <p>${recurso.descripcion}</p>
-                        <div class="card-tags">
-                            ${recurso.tags.map(tag => `<span class="tag">${tag}</span>`).join('')}
-                        </div>
-                        <a href="${recurso.enlace}" class="card-link">Acceder al Recurso</a>
-                    </div>
-                `;
-                
-                contenedor.appendChild(card);
-            });
-        }
-        
-        // Filtrado de recursos
-        document.addEventListener('DOMContentLoaded', function() {
-            // Cargar todos los recursos al inicio
-            cargarRecursos();
-            
-            // Configurar filtros
-            const filtrosBtn = document.querySelectorAll('.filtro-btn');
-            filtrosBtn.forEach(btn => {
-                btn.addEventListener('click', function() {
-                    // Remover clase active de todos los botones
-                    filtrosBtn.forEach(b => b.classList.remove('active'));
-                    
-                    // Agregar clase active al botón clickeado
-                    this.classList.add('active');
-                    
-                    // Obtener el filtro
-                    const filtro = this.getAttribute('data-filtro');
-                    
-                    // Cargar recursos con el filtro seleccionado
-                    cargarRecursos(filtro);
-                });
-            });
-            
-            // Suavizar scroll para enlaces internos
-            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-                anchor.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    
-                    const targetId = this.getAttribute('href');
-                    if (targetId === '#') return;
-                    
-                    const targetElement = document.querySelector(targetId);
-                    if (targetElement) {
-                        window.scrollTo({
-                            top: targetElement.offsetTop - 80,
-                            behavior: 'smooth'
-                        });
-                    }
-                });
-            });
-        });
+      
     </script>
 </body>
 </html>

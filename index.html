@@ -33,14 +33,12 @@
         
         /* FONDO FIJADO Y ASEGURADO */
         body {
-            margin: 0; 
-            padding: 30px; 
-            font-family: Poppins, sans-serif; 
-           color: #fff; 
-           text-align: center; 
-           background: url("aula.jpg") no-repeat center center fixed; 
-           background-size: cover; /* ajusta la imagen al tamaño de la pantalla */
-        }
+           background-image: url("img/fondo.jpg");
+          background-size: cover;      /* ocupa toda la pantalla */
+         background-repeat: no-repeat;
+         background-position: center;
+         background-attachment: fixed; /* opcional: efecto fijo */
+       }
               
         /* Overlay para asegurar que la imagen se vea */
         .background-overlay {

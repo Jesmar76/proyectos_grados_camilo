@@ -58,7 +58,7 @@
         }
         
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 0 20px;
             position: relative;
@@ -183,24 +183,24 @@
         .modulos-grid {
             display: grid;
             grid-template-columns: repeat(3, 1fr);
-            gap: 1.8rem;
+            gap: 2.2rem;
             margin-bottom: 3rem;
         }
         
         .modulo-cell {
             background: linear-gradient(145deg, rgba(255, 255, 255, 0.97), rgba(255, 255, 255, 0.92));
-            border-radius: 18px;
+            border-radius: 20px;
             padding: 1.8rem 1.5rem;
-            box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
-            transition: all 0.35s ease;
-            border: 3px solid transparent;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.18);
+            transition: all 0.4s ease;
+            border: 4px solid transparent;
             display: flex;
             flex-direction: column;
             align-items: center;
             text-align: center;
             animation: fadeInUp 0.7s ease-out;
             backdrop-filter: blur(8px);
-            min-height: 480px;
+            min-height: 580px;
             position: relative;
             overflow: hidden;
         }
@@ -214,20 +214,20 @@
         .modulo-cell:nth-child(6) { border-color: var(--naranja-primario); }
         
         .modulo-cell:hover {
-            transform: translateY(-8px) scale(1.015);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.22);
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.25);
             z-index: 2;
         }
         
         /* Icono del módulo */
         .modulo-icon {
-            font-size: 2.8rem;
-            margin-bottom: 1.2rem;
-            padding: 0.8rem;
+            font-size: 3.2rem;
+            margin-bottom: 1rem;
+            padding: 1rem;
             border-radius: 50%;
-            background: rgba(255, 255, 255, 0.15);
-            width: 80px;
-            height: 80px;
+            background: rgba(255, 255, 255, 0.2);
+            width: 90px;
+            height: 90px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -235,8 +235,8 @@
         }
         
         .modulo-cell:hover .modulo-icon {
-            transform: scale(1.15) rotate(8deg);
-            background: rgba(255, 255, 255, 0.25);
+            transform: scale(1.2) rotate(10deg);
+            background: rgba(255, 255, 255, 0.3);
         }
         
         /* Colores de iconos */
@@ -249,28 +249,35 @@
         
         /* Título del módulo */
         .modulo-title h3 {
-            font-size: 1.4rem;
-            font-weight: 800;
+            font-size: 1.6rem;
+            font-weight: 900;
             color: var(--azul-primario);
             line-height: 1.3;
             text-transform: uppercase;
             letter-spacing: 0.5px;
             margin-bottom: 1rem;
-            min-height: 60px;
+            min-height: 70px;
             display: flex;
             align-items: center;
             justify-content: center;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
         }
         
-        /* Imagen del módulo */
+        /* Imagen del módulo - MÁS GRANDE */
         .modulo-image-container {
-            width: 120px;
-            height: 120px;
+            width: 180px;
+            height: 180px;
             border-radius: 50%;
             overflow: hidden;
-            margin: 0.8rem auto 1.2rem;
-            border: 4px solid;
-            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+            margin: 0.8rem auto 1.5rem;
+            border: 5px solid;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+        
+        .modulo-cell:hover .modulo-image-container {
+            transform: scale(1.05);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
         }
         
         .modulo-cell:nth-child(1) .modulo-image-container { border-color: var(--azul-primario); }
@@ -284,88 +291,61 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.5s ease;
+            transition: transform 0.6s ease;
         }
         
         .modulo-image:hover {
-            transform: scale(1.1);
+            transform: scale(1.15);
         }
         
         /* Descripción */
         .modulo-desc {
             color: var(--gris-oscuro);
-            margin-bottom: 1.5rem;
-            font-size: 0.95rem;
-            line-height: 1.5;
+            margin-bottom: 1.8rem;
+            font-size: 1.05rem;
+            line-height: 1.6;
             opacity: 0.95;
             flex-grow: 1;
-            min-height: 70px;
+            min-height: 85px;
+            padding: 0 0.5rem;
+            font-weight: 500;
         }
         
-        /* CONTENEDOR PADLET FUNCIONAL - CORREGIDO */
-        .padlet-container {
+        /* CONTENEDOR PADLET - SOLO ENLACE DIRECTO */
+        .padlet-link-container {
             width: 100%;
-            margin: 1.2rem 0 1.5rem;
-            border-radius: 10px;
+            margin: 1.5rem 0 1.8rem;
+            border-radius: 15px;
             overflow: hidden;
+            background: linear-gradient(135deg, #f0f9ff, #e0f2fe);
+            box-shadow: 0 8px 25px rgba(239, 68, 68, 0.2);
             border: 3px solid var(--rojo-primario);
-            background: white;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
-            position: relative;
-            min-height: 200px;
-        }
-        
-        .padlet-embed {
-            position: relative;
-            width: 100%;
-            height: 200px;
-            overflow: hidden;
-        }
-        
-        .padlet-embed iframe {
-            width: 100%;
-            height: 100%;
-            display: block;
-            border: none;
-            background-color: white;
-        }
-        
-        /* Mensaje si el iframe no carga */
-        .padlet-backup {
-            padding: 30px 20px;
             text-align: center;
-            background: white;
-            color: var(--gris-oscuro);
+            padding: 1.2rem;
+            transition: all 0.3s ease;
         }
         
-        .padlet-backup a {
+        .modulo-cell:hover .padlet-link-container {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(239, 68, 68, 0.3);
+        }
+        
+        .padlet-link-container h4 {
             color: var(--rojo-primario);
-            text-decoration: none;
-            font-weight: bold;
-            margin-top: 10px;
-            display: inline-block;
-        }
-        
-        .padlet-footer {
-            padding: 10px 15px;
-            background: var(--rojo-primario);
-            text-align: center;
-            border-top: 1px solid rgba(255, 255, 255, 0.3);
-        }
-        
-        .padlet-footer span {
-            color: white;
-            font-size: 0.9rem;
-            font-weight: 600;
-            display: inline-flex;
+            margin-bottom: 0.8rem;
+            font-size: 1.3rem;
+            font-weight: 800;
+            display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
+            gap: 10px;
         }
         
-        .padlet-footer i {
+        .padlet-link-container p {
+            color: var(--gris-oscuro);
+            margin-bottom: 1.2rem;
             font-size: 0.95rem;
-            color: var(--amarillo-primario);
+            line-height: 1.5;
         }
         
         /* Botón de acción */
@@ -373,36 +353,67 @@
             display: inline-block;
             background: linear-gradient(135deg, var(--azul-primario), var(--azul-secundario));
             color: var(--blanco);
-            padding: 12px 28px;
+            padding: 14px 32px;
             border-radius: 50px;
             text-decoration: none;
-            font-weight: 700;
-            font-size: 1rem;
+            font-weight: 800;
+            font-size: 1.1rem;
             transition: all 0.3s;
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 10px;
-            box-shadow: 0 5px 15px rgba(10, 36, 99, 0.25);
+            gap: 12px;
+            box-shadow: 0 6px 20px rgba(10, 36, 99, 0.3);
             border: none;
             cursor: pointer;
             margin-top: 5px;
-            min-width: 180px;
+            min-width: 220px;
+            letter-spacing: 0.5px;
         }
         
         .modulo-action:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 10px 22px rgba(10, 36, 99, 0.35);
+            transform: translateY(-5px);
+            box-shadow: 0 12px 25px rgba(10, 36, 99, 0.4);
             background: linear-gradient(135deg, var(--azul-secundario), var(--azul-claro));
         }
         
         /* Colores específicos para botones */
-        .modulo-cell:nth-child(1) .modulo-action { background: linear-gradient(135deg, var(--azul-primario), var(--azul-claro)); }
-        .modulo-cell:nth-child(2) .modulo-action { background: linear-gradient(135deg, var(--verde-primario), #34d399); }
-        .modulo-cell:nth-child(3) .modulo-action { background: linear-gradient(135deg, var(--rojo-primario), #f87171); }
-        .modulo-cell:nth-child(4) .modulo-action { background: linear-gradient(135deg, var(--morado-primario), #a78bfa); }
-        .modulo-cell:nth-child(5) .modulo-action { background: linear-gradient(135deg, var(--rosa-primario), #f472b6); }
-        .modulo-cell:nth-child(6) .modulo-action { background: linear-gradient(135deg, var(--naranja-primario), #fb923c); }
+        .modulo-cell:nth-child(1) .modulo-action { 
+            background: linear-gradient(135deg, var(--azul-primario), var(--azul-claro)); 
+            box-shadow: 0 6px 20px rgba(10, 36, 99, 0.3);
+        }
+        .modulo-cell:nth-child(2) .modulo-action { 
+            background: linear-gradient(135deg, var(--verde-primario), #34d399); 
+            box-shadow: 0 6px 20px rgba(16, 185, 129, 0.3);
+        }
+        .modulo-cell:nth-child(3) .modulo-action { 
+            background: linear-gradient(135deg, var(--rojo-primario), #f87171); 
+            box-shadow: 0 6px 20px rgba(239, 68, 68, 0.3);
+        }
+        .modulo-cell:nth-child(4) .modulo-action { 
+            background: linear-gradient(135deg, var(--morado-primario), #a78bfa); 
+            box-shadow: 0 6px 20px rgba(139, 92, 246, 0.3);
+        }
+        .modulo-cell:nth-child(5) .modulo-action { 
+            background: linear-gradient(135deg, var(--rosa-primario), #f472b6); 
+            box-shadow: 0 6px 20px rgba(236, 72, 153, 0.3);
+        }
+        .modulo-cell:nth-child(6) .modulo-action { 
+            background: linear-gradient(135deg, var(--naranja-primario), #fb923c); 
+            box-shadow: 0 6px 20px rgba(249, 115, 22, 0.3);
+        }
+        
+        /* Botón especial para Padlet */
+        .padlet-action {
+            background: linear-gradient(135deg, var(--rojo-primario), #f87171) !important;
+            padding: 12px 28px;
+            min-width: 200px;
+            margin-top: 0;
+        }
+        
+        .padlet-action:hover {
+            background: linear-gradient(135deg, #dc2626, var(--rojo-primario)) !important;
+        }
         
         /* Footer */
         footer {
@@ -446,49 +457,71 @@
         }
         
         /* RESPONSIVIDAD */
+        @media (max-width: 1200px) {
+            .modulos-grid {
+                gap: 1.8rem;
+            }
+            
+            .modulo-cell {
+                min-height: 560px;
+            }
+            
+            .modulo-image-container {
+                width: 160px;
+                height: 160px;
+            }
+        }
+        
         @media (max-width: 1100px) {
             .modulos-grid {
-                gap: 1.5rem;
+                gap: 1.6rem;
             }
             
             .modulo-cell {
                 padding: 1.6rem 1.3rem;
-                min-height: 460px;
+                min-height: 540px;
+            }
+            
+            .modulo-image-container {
+                width: 150px;
+                height: 150px;
             }
         }
         
         @media (max-width: 900px) {
             .modulos-grid {
                 grid-template-columns: repeat(2, 1fr);
+                gap: 1.8rem;
             }
             
             .modulo-cell {
-                min-height: 450px;
+                min-height: 520px;
             }
             
             .modulo-icon {
-                width: 75px;
-                height: 75px;
-                font-size: 2.6rem;
+                width: 85px;
+                height: 85px;
+                font-size: 2.8rem;
             }
             
             .modulo-title h3 {
-                font-size: 1.3rem;
+                font-size: 1.5rem;
             }
             
             .modulo-image-container {
-                width: 110px;
-                height: 110px;
+                width: 140px;
+                height: 140px;
             }
             
-            .padlet-embed {
-                height: 180px;
+            .modulo-action {
+                padding: 13px 28px;
+                min-width: 200px;
             }
         }
         
         @media (max-width: 768px) {
             .modulo-cell {
-                min-height: auto;
+                min-height: 500px;
                 padding: 1.8rem 1.5rem;
             }
             
@@ -519,8 +552,9 @@
                 font-size: 1rem;
             }
             
-            .padlet-embed {
-                height: 160px;
+            .modulo-image-container {
+                width: 130px;
+                height: 130px;
             }
             
             .footer-content {
@@ -529,11 +563,27 @@
             }
         }
         
-        @media (max-width: 576px) {
+        @media (max-width: 650px) {
             .modulos-grid {
                 grid-template-columns: 1fr;
+                gap: 2rem;
+                max-width: 500px;
+                margin-left: auto;
+                margin-right: auto;
             }
             
+            .modulo-cell {
+                min-height: 480px;
+                padding: 2rem 1.8rem;
+            }
+            
+            .modulo-image-container {
+                width: 160px;
+                height: 160px;
+            }
+        }
+        
+        @media (max-width: 576px) {
             header {
                 padding: 10px 0;
                 min-height: 80px;
@@ -553,36 +603,33 @@
             }
             
             .modulo-cell {
-                padding: 1.6rem 1.4rem;
+                padding: 1.8rem 1.6rem;
+                min-height: 460px;
             }
             
             .modulo-icon {
-                width: 70px;
-                height: 70px;
-                font-size: 2.4rem;
+                width: 80px;
+                height: 80px;
+                font-size: 2.6rem;
             }
             
             .modulo-title h3 {
-                font-size: 1.2rem;
-                min-height: 50px;
+                font-size: 1.4rem;
+                min-height: 60px;
             }
             
             .modulo-desc {
-                font-size: 0.9rem;
+                font-size: 1rem;
             }
             
             .modulo-action {
-                padding: 11px 24px;
-                font-size: 0.95rem;
-                min-width: 170px;
+                padding: 12px 26px;
+                font-size: 1.05rem;
+                min-width: 190px;
             }
             
             .modulo-image-container {
-                width: 100px;
-                height: 100px;
-            }
-            
-            .padlet-embed {
+                width: 150px;
                 height: 150px;
             }
             
@@ -592,6 +639,14 @@
             
             .section-title h2::after {
                 width: 140px;
+            }
+            
+            .padlet-link-container {
+                padding: 1rem;
+            }
+            
+            .padlet-link-container h4 {
+                font-size: 1.2rem;
             }
         }
         
@@ -609,19 +664,19 @@
                 font-size: 0.9rem;
             }
             
-            .padlet-embed {
-                height: 140px;
-            }
-            
             .modulo-action {
-                padding: 10px 22px;
-                font-size: 0.9rem;
-                min-width: 160px;
+                padding: 11px 24px;
+                font-size: 1rem;
+                min-width: 180px;
             }
             
             .modulo-image-container {
-                width: 90px;
-                height: 90px;
+                width: 140px;
+                height: 140px;
+            }
+            
+            .modulo-cell {
+                min-height: 440px;
             }
         }
     </style>
@@ -634,7 +689,7 @@
     <header>
         <div class="container header-content">
             <!-- Logo de la institución - Más grande -->
-            <img src="logo.jpg" alt="Logo Institución" class="institution-logo" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNzAiIGhlaWdodD0iNzAiIHZpZXdCb3g9IjAgMCA3MCA3MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjcwIiBoZWlnaHQ9IjcwIiByeD0iMzUiIGZpbGw9IiMwQTI0NjMiLz4KPHBhdGggZD0iTTM1IDEwQzIxLjE5MjkgMTAgMTAgMjEuMTkyOSAxMCAzNUMxMCA0OC44MDcxIDIxLjE5MjkgNjAgMzUgNjBDNDguODA3MSA2MCA2MCA0OC44MDcxIDYwIDM1QzYwIDIxLjE5MjkgNDguODA3MSAxMCAzNSAxMFoiIGZpbGw9IiNGRkZGRkYiLz4KPHBhdGggZD0iTTQyLjUgMzAuNUM0Mi41IDMzLjI2MTQgNDAuMjYxNCAzNS41IDM3LjUgMzUuNUMzNC43Mzg2IDM1LjUgMzIuNSAzMy4yNjE0IDMyLjUgMzAuNUMzMi41IDI3LjczODYgMzQuNzM4NiAyNS41IDM3LjUgMjUuNUM0MC4yNjE0IDI1LjUgNDIuNSAyNy43Mzg2IDQyLjUgMzAuNVoiIGZpbGw9IiNGQkJGMjQiLz4KPHBhdGggZD0iTTM3LjUgNDAuNUMzOC44ODA3IDQwLjUgNDAgNDEuNjE5MyA0MCA0M1Y0OEM0MCA0OS4zODA3IDM4Ljg4MDcgNTAuNSAzNy41IDUwLjVIMzIuNUMzMS4xMTkzIDUwLjUgMzAgNDkuMzgwNyAzMCA0OFY0M0MzMCA0MS42MTkzIDMxLjExOTMgNDAuNSAzMi41IDQwLjVIMzcuNVoiIGZpbGw9IiNGQkJGMjQiLz4KPC9zdmc+Cg=='">
+            <img src="logo.jpg" alt="Logo Institución" class="institution-logo" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNzAiIGhlaWdodD0iNzAiIHZpZXdCb3g9IjAgMCA3MCA3MCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHJlY3Qgd2lkdGg9IjcwIiBoZWlnaHQ9IjcwIiByeD0iMzUiIGZpbGw9IiMwQTI0NjMiLz4KPHBhdGggZD0iTTM1IDEwQzIxLjE5MjkgMTAgMTAgMjEuMTkyOSAxMCAzNUMxMCA0OC44MDcxIDIxLjE5MjkgNjAgMzUgNjBDNDguODA3MSA2MCA2MCA0OC44MDcxIDYwIDM1QzYwIDIxLjE5MjkgNDguODA3MSAxMCAzNSAxMFoiIGZpbGw9IiNGRkZGRkYiLz4KPHBhdGggZD0iTTQyLjUgMzAuNUM0Mi41IDMzLjI2MTQgNDAuMjYxNCAzNS41IDM3LjUgMzUuNUMzNC43Mzg2IDM1LjUgMzIuNSAzMy4yNjE0IDMyLjUgMzAuNUMzMi41IDI3LjczODYgMzQuNzM4NiAyNS41IDM3LjUgMjUuNUM0MC4yNjE0IDI1LjUgNDIuNSAyNy43Mzg2IDQyLjUgMzAuNVoiIGZpbGw9IiNGQkJGMjQiLz4KPHBhdGggZD0iTTM3LjUgNDAuNUMzOC44ODA3IDQwLjUgNDAgNDEuNjE5MyA0MCA0M1Y0OEM0MCA0OS4zODw3IDM4Ljg4MDcgNTAuNSAzNy41IDUwLjVIMzIuNUMzMS4xMTkzIDUwLjUgMzAgNDkuMzgwNyAzMCA0OFY0M0MzMCA0MS42MTkzIDMxLjExOTMgNDAuNSAzMi41IDQwLjVIMzcuNVoiIGZpbGw9IiNGQkJGMjQiLz4KPC9zdmc+Cg=='">
             
             <div class="logo-text">
                 <h1>MURAL DIGITAL DE MÓDULOS TÉCNICOS</h1>
@@ -688,7 +743,7 @@
                 </a>
             </div>
             
-            <!-- Módulo 3 - PADLET CORREGIDO -->
+            <!-- Módulo 3 - PADLET EN OTRA PESTAÑA -->
             <div class="modulo-cell">
                 <div class="modulo-icon">
                     <i class="fas fa-network-wired"></i>
@@ -701,40 +756,21 @@
                 </div>
                 <p class="modulo-desc">Documentación sobre sistemas operativos, configuración de redes, protocolos y administración de servidores.</p>
                 
-                <!-- Padlet incrustado CORREGIDO -->
-                <div class="padlet-container">
-                    <div class="padlet-embed">
-                        <iframe 
-                            src="https://padlet.com/embed/o8i0xtocww8ucihs" 
-                            frameborder="0" 
-                            title="Recursos de Redes"
-                            allow="camera;microphone;geolocation"
-                            style="width:100%;height:100%;border:none;"
-                            loading="lazy">
-                        </iframe>
-                    </div>
-                    <!-- Backup en caso de que no cargue -->
-                    <div class="padlet-backup" style="display:none;">
-                        <p>Si no puedes ver el Padlet, puedes acceder directamente:</p>
-                        <a href="https://padlet.com/mjesuscrueda/galeria-de-recursos-digitales-educativas-para-el-area-tecnic-o8i0xtocww8ucihs" 
-                           target="_blank" 
-                           class="modulo-action">
-                            <i class="fas fa-external-link-alt"></i> ABRIR PADLET
-                        </a>
-                    </div>
-                    <div class="padlet-footer">
-                        <span>
-                            <i class="fas fa-info-circle"></i> Padlet Interactivo - Recursos de Redes
-                        </span>
-                    </div>
+                <!-- Contenedor especial para Padlet con enlace directo -->
+                <div class="padlet-link-container">
+                    <h4><i class="fas fa-external-link-alt"></i> ACCESO DIRECTO AL PADLET</h4>
+                    <p>Haz clic en el botón para acceder a todos los recursos educativos interactivos sobre sistemas operativos y redes.</p>
+                    <a href="https://padlet.com/mjesuscrueda/galeria-de-recursos-digitales-educativas-para-el-area-tecnic-o8i0xtocww8ucihs" 
+                       target="_blank" 
+                       class="modulo-action padlet-action" 
+                       data-modulo="3">
+                        <i class="fas fa-external-link-alt"></i> ABRIR PADLET
+                    </a>
                 </div>
                 
-                <!-- Botón para abrir en Padlet -->
-                <a href="https://padlet.com/mjesuscrueda/galeria-de-recursos-digitales-educativas-para-el-area-tecnic-o8i0xtocww8ucihs" 
-                   target="_blank" 
-                   class="modulo-action" 
-                   data-modulo="3">
-                    <i class="fas fa-external-link-alt"></i> ABRIR EN PADLET
+                <!-- Botón adicional para ver recursos si es necesario -->
+                <a href="redes.html" target="_blank" class="modulo-action ver-recursos" data-modulo="3">
+                    <i class="fas fa-folder-open"></i> OTROS RECURSOS
                 </a>
             </div>
             
@@ -751,7 +787,7 @@
                     <img src="https://i.makeagif.com/media/3-09-2017/R0fDsa.gif" alt="Soporte Técnico" class="modulo-image">
                 </div>
                 <p class="modulo-desc">Recursos sobre mantenimiento de hardware, solución de problemas, diagnóstico y reparación de equipos.</p>
-                <a href="https://padlet.com/noeliabone3/soporte-tecnico-tkt45ufdbjq5ju38" class="modulo-action ver-recursos" data-modulo="4">
+                <a href="https://padlet.com/noeliabone3/soporte-tecnico-tkt45ufdbjq5ju38" class="modulo-action ver-recursos" target="_blank" data-modulo="4">
                     <i class="fas fa-folder-open"></i> VER RECURSOS
                 </a>
             </div>
@@ -768,7 +804,7 @@
                     <img src="https://i.pinimg.com/originals/de/30/21/de3021c5618a58faa9f39ba3df133f24.gif" alt="Diseño y Desarrollo Web" class="modulo-image">
                 </div>
                 <p class="modulo-desc">Material sobre diseño UI/UX, HTML, CSS, JavaScript, frameworks y desarrollo de aplicaciones web.</p>
-                <a href="https://padlet.com/noeliabone3/dise-o-y-desarollo-web-z7xecnjugo1g930y" class="modulo-action ver-recursos" data-modulo="5">
+                <a href="https://padlet.com/noeliabone3/dise-o-y-desarollo-web-z7xecnjugo1g930y" class="modulo-action ver-recursos" target="_blank" data-modulo="5">
                     <i class="fas fa-folder-open"></i> VER RECURSOS
                 </a>
             </div>
@@ -785,7 +821,7 @@
                     <img src="https://aldaia.es/wp-content/uploads/2024/09/orientacion-laboral-adl-ayuntamiento-aldaia-1024x576.jpg" alt="Formación y Orientación Laboral" class="modulo-image">
                 </div>
                 <p class="modulo-desc">Documentos sobre habilidades blandas, redacción de CV, entrevistas laborales y emprendimiento.</p>
-                <a href="https://wakelet.com/wake/x9sM_i-KQnWDpfYWGMdXB" class="modulo-action ver-recursos" data-modulo="6">
+                <a href="https://wakelet.com/wake/x9sM_i-KQnWDpfYWGMdXB" class="modulo-action ver-recursos" target="_blank" data-modulo="6">
                     <i class="fas fa-folder-open"></i> VER RECURSOS
                 </a>
             </div>
@@ -846,7 +882,7 @@
                 cell.addEventListener('mouseenter', function() {
                     const icon = this.querySelector('.modulo-icon i');
                     if (icon) {
-                        icon.style.transform = 'scale(1.2) rotate(12deg)';
+                        icon.style.transform = 'scale(1.25) rotate(15deg)';
                     }
                 });
                 
@@ -854,6 +890,23 @@
                     const icon = this.querySelector('.modulo-icon i');
                     if (icon) {
                         icon.style.transform = 'scale(1) rotate(0deg)';
+                    }
+                });
+            });
+            
+            // Efectos para imágenes al pasar el mouse
+            document.querySelectorAll('.modulo-image-container').forEach(container => {
+                container.addEventListener('mouseenter', function() {
+                    const img = this.querySelector('.modulo-image');
+                    if (img) {
+                        img.style.transform = 'scale(1.2)';
+                    }
+                });
+                
+                container.addEventListener('mouseleave', function() {
+                    const img = this.querySelector('.modulo-image');
+                    if (img) {
+                        img.style.transform = 'scale(1)';
                     }
                 });
             });
@@ -903,39 +956,6 @@
             };
             logoImg.src = 'logo.jpg';
             
-            // Verificar si el Padlet carga correctamente
-            const padletIframe = document.querySelector('.padlet-embed iframe');
-            if (padletIframe) {
-                padletIframe.onload = function() {
-                    console.log('✅ Padlet cargado correctamente');
-                };
-                
-                setTimeout(function() {
-                    // Si el iframe no carga, mostrar backup
-                    const iframeDoc = padletIframe.contentDocument || padletIframe.contentWindow.document;
-                    if (!iframeDoc || iframeDoc.readyState === 'complete') {
-                        try {
-                            const body = iframeDoc.body;
-                            if (!body || body.innerHTML.includes('Padlet')) {
-                                console.log('✅ Padlet cargado en iframe');
-                            } else {
-                                showPadletBackup();
-                            }
-                        } catch(e) {
-                            console.log('⚠️ No se pudo verificar contenido del Padlet, pero probablemente cargó');
-                        }
-                    }
-                }, 3000);
-            }
-            
-            function showPadletBackup() {
-                const backup = document.querySelector('.padlet-backup');
-                if (backup) {
-                    backup.style.display = 'block';
-                    console.log('⚠️ Mostrando backup del Padlet');
-                }
-            }
-            
             // Ajustar alturas de módulos para uniformidad en escritorio
             function ajustarAlturasModulos() {
                 if (window.innerWidth > 768) {
@@ -978,9 +998,17 @@
             // Cargar después de que todas las imágenes estén listas
             window.addEventListener('load', ajustarAlturasModulos);
             
-            // Mensaje sobre el Padlet
-            console.log('✅ Padlet configurado con URL corregida');
+            // Mensaje especial para el Padlet
+            console.log('✅ Padlet configurado para abrir en nueva pestaña');
             console.log('🔗 Enlace directo: https://padlet.com/mjesuscrueda/galeria-de-recursos-digitales-educativas-para-el-area-tecnic-o8i0xtocww8ucihs');
+            
+            // Efecto de notificación para el Padlet
+            const padletBtn = document.querySelector('.padlet-action');
+            if (padletBtn) {
+                padletBtn.addEventListener('click', function() {
+                    console.log('🔗 Abriendo Padlet en nueva pestaña...');
+                });
+            }
         });
     </script>
 </body>

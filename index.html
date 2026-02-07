@@ -129,7 +129,7 @@
         
         /* TEXTO DEL HEADER - MÁS GRANDE */
         .logo-text h1 {
-            font-size: 2 rem;
+            font-size: 2rem;
             font-weight: 1000;
             color: var(--blanco);
             margin-bottom: 6px;
@@ -179,10 +179,10 @@
             border-radius: 3px;
         }
         
-        /* TABLA DE MÓDULOS - DISEÑO UNIFORME */
-        .modulos-table {
+        /* TABLA DE MÓDULOS - 3 COLUMNAS, 2 FILAS */
+        .modulos-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
+            grid-template-columns: repeat(3, 1fr);
             gap: 1.8rem;
             margin-bottom: 3rem;
         }
@@ -190,7 +190,7 @@
         .modulo-cell {
             background: linear-gradient(145deg, rgba(255, 255, 255, 0.97), rgba(255, 255, 255, 0.92));
             border-radius: 18px;
-            padding: 2rem 1.8rem;
+            padding: 1.8rem 1.5rem;
             box-shadow: 0 12px 28px rgba(0, 0, 0, 0.15);
             transition: all 0.35s ease;
             border: 3px solid transparent;
@@ -200,7 +200,7 @@
             text-align: center;
             animation: fadeInUp 0.7s ease-out;
             backdrop-filter: blur(8px);
-            min-height: 500px;
+            min-height: 480px;
             position: relative;
             overflow: hidden;
         }
@@ -221,13 +221,13 @@
         
         /* Icono del módulo */
         .modulo-icon {
-            font-size: 3.2rem;
-            margin-bottom: 1.5rem;
-            padding: 1rem;
+            font-size: 2.8rem;
+            margin-bottom: 1.2rem;
+            padding: 0.8rem;
             border-radius: 50%;
             background: rgba(255, 255, 255, 0.15);
-            width: 85px;
-            height: 85px;
+            width: 80px;
+            height: 80px;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -249,23 +249,57 @@
         
         /* Título del módulo */
         .modulo-title h3 {
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             font-weight: 800;
             color: var(--azul-primario);
             line-height: 1.3;
             text-transform: uppercase;
             letter-spacing: 0.5px;
-            margin-bottom: 1.3rem;
+            margin-bottom: 1rem;
+            min-height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        /* Imagen del módulo */
+        .modulo-image-container {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0.8rem auto 1.2rem;
+            border: 4px solid;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
+        }
+        
+        .modulo-cell:nth-child(1) .modulo-image-container { border-color: var(--azul-primario); }
+        .modulo-cell:nth-child(2) .modulo-image-container { border-color: var(--verde-primario); }
+        .modulo-cell:nth-child(3) .modulo-image-container { border-color: var(--rojo-primario); }
+        .modulo-cell:nth-child(4) .modulo-image-container { border-color: var(--morado-primario); }
+        .modulo-cell:nth-child(5) .modulo-image-container { border-color: var(--rosa-primario); }
+        .modulo-cell:nth-child(6) .modulo-image-container { border-color: var(--naranja-primario); }
+        
+        .modulo-image {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .modulo-image:hover {
+            transform: scale(1.1);
         }
         
         /* Descripción */
         .modulo-desc {
             color: var(--gris-oscuro);
-            margin-bottom: 1.8rem;
-            font-size: 0.98rem;
-            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+            line-height: 1.5;
             opacity: 0.95;
             flex-grow: 1;
+            min-height: 70px;
         }
         
         /* CONTENEDOR PADLET FUNCIONAL - CORREGIDO */
@@ -278,13 +312,13 @@
             background: white;
             box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
             position: relative;
-            min-height: 280px;
+            min-height: 200px;
         }
         
         .padlet-embed {
             position: relative;
             width: 100%;
-            height: 280px;
+            height: 200px;
             overflow: hidden;
         }
         
@@ -353,7 +387,7 @@
             border: none;
             cursor: pointer;
             margin-top: 5px;
-            min-width: 200px;
+            min-width: 180px;
         }
         
         .modulo-action:hover {
@@ -413,45 +447,49 @@
         
         /* RESPONSIVIDAD */
         @media (max-width: 1100px) {
-            .modulos-table {
+            .modulos-grid {
                 gap: 1.5rem;
             }
             
             .modulo-cell {
-                padding: 1.8rem 1.5rem;
-                min-height: 480px;
+                padding: 1.6rem 1.3rem;
+                min-height: 460px;
             }
         }
         
         @media (max-width: 900px) {
+            .modulos-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
             .modulo-cell {
-                min-height: 460px;
+                min-height: 450px;
             }
             
             .modulo-icon {
-                width: 80px;
-                height: 80px;
-                font-size: 3rem;
+                width: 75px;
+                height: 75px;
+                font-size: 2.6rem;
             }
             
             .modulo-title h3 {
-                font-size: 1.4rem;
+                font-size: 1.3rem;
+            }
+            
+            .modulo-image-container {
+                width: 110px;
+                height: 110px;
             }
             
             .padlet-embed {
-                height: 240px;
+                height: 180px;
             }
         }
         
         @media (max-width: 768px) {
-            .modulos-table {
-                grid-template-columns: 1fr;
-                gap: 1.5rem;
-            }
-            
             .modulo-cell {
                 min-height: auto;
-                padding: 2rem 1.8rem;
+                padding: 1.8rem 1.5rem;
             }
             
             .section-title h2 {
@@ -482,7 +520,7 @@
             }
             
             .padlet-embed {
-                height: 220px;
+                height: 160px;
             }
             
             .footer-content {
@@ -492,6 +530,10 @@
         }
         
         @media (max-width: 576px) {
+            .modulos-grid {
+                grid-template-columns: 1fr;
+            }
+            
             header {
                 padding: 10px 0;
                 min-height: 80px;
@@ -515,27 +557,33 @@
             }
             
             .modulo-icon {
-                width: 75px;
-                height: 75px;
-                font-size: 2.8rem;
+                width: 70px;
+                height: 70px;
+                font-size: 2.4rem;
             }
             
             .modulo-title h3 {
-                font-size: 1.3rem;
+                font-size: 1.2rem;
+                min-height: 50px;
             }
             
             .modulo-desc {
-                font-size: 0.95rem;
+                font-size: 0.9rem;
             }
             
             .modulo-action {
                 padding: 11px 24px;
                 font-size: 0.95rem;
-                min-width: 180px;
+                min-width: 170px;
+            }
+            
+            .modulo-image-container {
+                width: 100px;
+                height: 100px;
             }
             
             .padlet-embed {
-                height: 200px;
+                height: 150px;
             }
             
             .section-title h2 {
@@ -562,49 +610,20 @@
             }
             
             .padlet-embed {
-                height: 180px;
+                height: 140px;
             }
             
             .modulo-action {
                 padding: 10px 22px;
                 font-size: 0.9rem;
-                min-width: 170px;
+                min-width: 160px;
+            }
+            
+            .modulo-image-container {
+                width: 90px;
+                height: 90px;
             }
         }
-        /* Estilos para título con imagen */
-       .modulo-title-with-image {
-          display: flex;
-          flex-direction: column;
-         align-items: center;
-          margin-bottom: 1.5rem;
-         width: 100%;
-     }
-
-    .title-image-wrapper {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-     overflow: hidden;
-     margin-bottom: 1rem;
-     border: 4px solid var(--verde-primario);
-     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.15);
-  }
-
- .title-modulo-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.5s ease;
-  }
-
-  .title-modulo-image:hover {
-    transform: scale(1.1);
- }
-
-
-
-
-        
     </style>
 </head>
 <body>
@@ -630,27 +649,28 @@
             <h2>MÓDULOS TÉCNICOS EN INFORMÁTICA</h2>
         </div>
         
-        <div class="modulos-table">
+        <!-- TABLA DE 3 COLUMNAS Y 2 FILAS -->
+        <div class="modulos-grid">
+            <!-- Fila 1 -->
             <!-- Módulo 1 -->
             <div class="modulo-cell">
                 <div class="modulo-icon">
                     <i class="fas fa-file-alt"></i>
                 </div>
-               <div class="modulo-title">
-                  <h3>APLICACIONES OFIMÁTICAS<br>LOCALES Y EN LÍNEA</h3>
-              </div>
-
-            <p class="modulo-desc">
-              Recursos sobre procesadores de texto, hojas de cálculo, presentaciones y herramientas ofimáticas locales y en línea.
-            </p>
-
-            <img src="https://cdn.mos.cms.futurecdn.net/6bCpztKtdwQbRXUrfh9KvV.gif"   alt="Software"   class="title-modulo-image">
-
-            <a   href="https://padlet.com/embed/syxl1z6apez1bo7m"   class="modulo-action ver-recursos"   target="_blank"  rel="noopener noreferrer">
-              <i class="fas fa-folder-open"></i> VER RECURSOS
-            </a>
-
-
+                <div class="modulo-title">
+                    <h3>APLICACIONES OFIMÁTICAS<br>LOCALES Y EN LÍNEA</h3>
+                </div>
+                <div class="modulo-image-container">
+                    <img src="https://cdn.mos.cms.futurecdn.net/6bCpztKtdwQbRXUrfh9KvV.gif" alt="Aplicaciones Ofimáticas" class="modulo-image">
+                </div>
+                <p class="modulo-desc">
+                    Recursos sobre procesadores de texto, hojas de cálculo, presentaciones y herramientas ofimáticas locales y en línea.
+                </p>
+                <a href="https://padlet.com/embed/syxl1z6apez1bo7m" class="modulo-action ver-recursos" target="_blank" rel="noopener noreferrer">
+                    <i class="fas fa-folder-open"></i> VER RECURSOS
+                </a>
+            </div>
+            
             <!-- Módulo 2 -->
             <div class="modulo-cell">
                 <div class="modulo-icon">
@@ -659,8 +679,10 @@
                 <div class="modulo-title">
                     <h3>PROGRAMACIÓN Y<br>BASES DE DATOS</h3>
                 </div>
+                <div class="modulo-image-container">
+                    <img src="https://i.pinimg.com/originals/fc/21/16/fc2116fb21de12a62d4b36c31bbb1e6f.gif" alt="Programación y Bases de Datos" class="modulo-image">
+                </div>
                 <p class="modulo-desc">Material sobre lenguajes de programación, algoritmos, estructuras de datos y sistemas de gestión de bases de datos.</p>
-                <img src="https://i.pinimg.com/originals/fc/21/16/fc2116fb21de12a62d4b36c31bbb1e6f.gif" alt="Programación animada" class="title-modulo-image">
                 <a href="programacion.html" target="_blank" class="modulo-action ver-recursos" data-modulo="2">
                     <i class="fas fa-folder-open"></i> VER RECURSOS
                 </a>
@@ -673,6 +695,9 @@
                 </div>
                 <div class="modulo-title">
                     <h3>SISTEMA OPERATIVO<br>Y REDES</h3>
+                </div>
+                <div class="modulo-image-container">
+                    <img src="https://i.pinimg.com/originals/2a/a4/99/2aa499231d7244f23d0503abaa654e17.gif" alt="Sistema Operativo y Redes" class="modulo-image">
                 </div>
                 <p class="modulo-desc">Documentación sobre sistemas operativos, configuración de redes, protocolos y administración de servidores.</p>
                 
@@ -713,6 +738,7 @@
                 </a>
             </div>
             
+            <!-- Fila 2 -->
             <!-- Módulo 4 -->
             <div class="modulo-cell">
                 <div class="modulo-icon">
@@ -721,8 +747,10 @@
                 <div class="modulo-title">
                     <h3>SOPORTE<br>TÉCNICO</h3>
                 </div>
+                <div class="modulo-image-container">
+                    <img src="https://i.makeagif.com/media/3-09-2017/R0fDsa.gif" alt="Soporte Técnico" class="modulo-image">
+                </div>
                 <p class="modulo-desc">Recursos sobre mantenimiento de hardware, solución de problemas, diagnóstico y reparación de equipos.</p>
-                 <img src="https://i.makeagif.com/media/3-09-2017/R0fDsa.gif" alt ="tecnico" class="title-modulo-image">
                 <a href="https://padlet.com/noeliabone3/soporte-tecnico-tkt45ufdbjq5ju38" class="modulo-action ver-recursos" data-modulo="4">
                     <i class="fas fa-folder-open"></i> VER RECURSOS
                 </a>
@@ -736,8 +764,10 @@
                 <div class="modulo-title">
                     <h3>DISEÑO Y<br>DESARROLLO WEB</h3>
                 </div>
+                <div class="modulo-image-container">
+                    <img src="https://i.pinimg.com/originals/de/30/21/de3021c5618a58faa9f39ba3df133f24.gif" alt="Diseño y Desarrollo Web" class="modulo-image">
+                </div>
                 <p class="modulo-desc">Material sobre diseño UI/UX, HTML, CSS, JavaScript, frameworks y desarrollo de aplicaciones web.</p>
-                 <img src="https://i.pinimg.com/originals/de/30/21/de3021c5618a58faa9f39ba3df133f24.gif" alt ="software" class="title-modulo-image">
                 <a href="https://padlet.com/noeliabone3/dise-o-y-desarollo-web-z7xecnjugo1g930y" class="modulo-action ver-recursos" data-modulo="5">
                     <i class="fas fa-folder-open"></i> VER RECURSOS
                 </a>
@@ -751,8 +781,10 @@
                 <div class="modulo-title">
                     <h3>FORMACIÓN Y<br>ORIENTACIÓN LABORAL</h3>
                 </div>
+                <div class="modulo-image-container">
+                    <img src="https://aldaia.es/wp-content/uploads/2024/09/orientacion-laboral-adl-ayuntamiento-aldaia-1024x576.jpg" alt="Formación y Orientación Laboral" class="modulo-image">
+                </div>
                 <p class="modulo-desc">Documentos sobre habilidades blandas, redacción de CV, entrevistas laborales y emprendimiento.</p>
-                 <img src="https://aldaia.es/wp-content/uploads/2024/09/orientacion-laboral-adl-ayuntamiento-aldaia-1024x576.jpg" alt ="software" class="title-modulo-image">
                 <a href="https://wakelet.com/wake/x9sM_i-KQnWDpfYWGMdXB" class="modulo-action ver-recursos" data-modulo="6">
                     <i class="fas fa-folder-open"></i> VER RECURSOS
                 </a>
